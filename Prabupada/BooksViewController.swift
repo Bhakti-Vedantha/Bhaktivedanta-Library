@@ -13,6 +13,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var collectionView: UICollectionView!
     
     let books = ["Hi", "Hello", "Welcome", "To", "My", "App"]
+    var label = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,8 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        self.label = books[indexPath.item]
+        performSegue(withIdentifier: "openBook", sender: self)
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.layer.borderColor = UIColor.red.cgColor
     }
@@ -51,6 +54,13 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "openBook"{
+            let destVC = segue.destination as! ContentViewController
+            destVC.label = self.label
+        }
     }
     
     /*

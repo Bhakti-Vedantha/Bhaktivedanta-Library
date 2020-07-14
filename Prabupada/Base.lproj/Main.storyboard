@@ -86,11 +86,81 @@
                     <navigationItem key="navigationItem" title="Books" id="30u-b7-fFz"/>
                     <connections>
                         <outlet property="collectionView" destination="JMk-dy-c0b" id="3HH-7j-B0x"/>
+                        <segue destination="lFd-oO-IgH" kind="show" identifier="openBook" id="GPy-MO-cN3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1724" y="-676"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="U6i-PK-ddi">
+            <objects>
+                <viewController id="lFd-oO-IgH" customClass="ContentViewController" customModule="Prabupada" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7hs-ly-jLm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8U-Gd-8C4">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="y8U-Gd-8C4" firstAttribute="leading" secondItem="SAF-J1-fIO" secondAttribute="leading" id="Ife-xq-sLg"/>
+                            <constraint firstItem="y8U-Gd-8C4" firstAttribute="top" secondItem="SAF-J1-fIO" secondAttribute="top" id="bvz-tS-C07"/>
+                            <constraint firstItem="SAF-J1-fIO" firstAttribute="bottom" secondItem="y8U-Gd-8C4" secondAttribute="bottom" id="dED-bg-zBi"/>
+                            <constraint firstItem="SAF-J1-fIO" firstAttribute="trailing" secondItem="y8U-Gd-8C4" secondAttribute="trailing" id="hsM-ub-15s"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SAF-J1-fIO"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rfD-ld-XQ4"/>
+                    <connections>
+                        <outlet property="contentView" destination="y8U-Gd-8C4" id="hzC-CJ-O0r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f9F-VH-uye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2610" y="-676"/>
+        </scene>
+        <!--Data View Controller-->
+        <scene sceneID="Yqd-2E-aqR">
+            <objects>
+                <viewController storyboardIdentifier="DataViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BdA-tD-34v" customClass="DataViewController" customModule="Prabupada" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uwq-Bi-cQx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="FZv-Ym-fzj">
+                                <rect key="frame" x="141.5" y="310" width="92" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FZv-Ym-fzj" firstAttribute="centerY" secondItem="uwq-Bi-cQx" secondAttribute="centerY" id="MJL-KD-l7c"/>
+                            <constraint firstItem="FZv-Ym-fzj" firstAttribute="centerX" secondItem="uwq-Bi-cQx" secondAttribute="centerX" id="bJ4-SM-j3F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q8O-96-c4r"/>
+                    </view>
+                    <connections>
+                        <outlet property="displayLabel" destination="FZv-Ym-fzj" id="wWx-HT-CnY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mZi-xs-aBW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4177" y="-676"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="awP-Y4-xgz">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="yL8-uL-SHY" customClass="PageViewController" customModule="Prabupada" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1S3-1i-1Ih" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4177" y="0.0"/>
         </scene>
         <!--Bookmark-->
         <scene sceneID="3pC-4x-3Zf">
