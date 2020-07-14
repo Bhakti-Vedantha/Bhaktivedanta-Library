@@ -9,25 +9,29 @@
 /* Begin PBXBuildFile section */
 		8C9EE2CA24BC38CD001FEEC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */; };
 		8C9EE2CC24BC38CD001FEEC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */; };
-		8C9EE2CE24BC38CD001FEEC7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2CD24BC38CD001FEEC7 /* FirstViewController.swift */; };
-		8C9EE2D024BC38CD001FEEC7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2CF24BC38CD001FEEC7 /* SecondViewController.swift */; };
 		8C9EE2D324BC38CD001FEEC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D124BC38CD001FEEC7 /* Main.storyboard */; };
 		8C9EE2D624BC38CD001FEEC7 /* Prabupada.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D424BC38CD001FEEC7 /* Prabupada.xcdatamodeld */; };
 		8C9EE2D824BC38CF001FEEC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D724BC38CF001FEEC7 /* Assets.xcassets */; };
 		8C9EE2DB24BC38CF001FEEC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D924BC38CF001FEEC7 /* LaunchScreen.storyboard */; };
+		8C9EE2E324BC3997001FEEC7 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2E224BC3997001FEEC7 /* BooksViewController.swift */; };
+		8C9EE2E524BC39E2001FEEC7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2E424BC39E2001FEEC7 /* SearchViewController.swift */; };
+		8C9EE2E724BC3A3F001FEEC7 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2E624BC3A3F001FEEC7 /* BookmarkViewController.swift */; };
+		8C9EE2E924BC3E22001FEEC7 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2E824BC3E22001FEEC7 /* BookCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C9EE2C624BC38CD001FEEC7 /* Prabupada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prabupada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8C9EE2CD24BC38CD001FEEC7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		8C9EE2CF24BC38CD001FEEC7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		8C9EE2D224BC38CD001FEEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C9EE2D524BC38CD001FEEC7 /* Prabupada.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prabupada.xcdatamodel; sourceTree = "<group>"; };
 		8C9EE2D724BC38CF001FEEC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C9EE2DA24BC38CF001FEEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C9EE2DC24BC38CF001FEEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C9EE2E224BC3997001FEEC7 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
+		8C9EE2E424BC39E2001FEEC7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8C9EE2E624BC3A3F001FEEC7 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		8C9EE2E824BC3E22001FEEC7 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +66,10 @@
 			children = (
 				8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */,
 				8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */,
-				8C9EE2CD24BC38CD001FEEC7 /* FirstViewController.swift */,
-				8C9EE2CF24BC38CD001FEEC7 /* SecondViewController.swift */,
+				8C9EE2E424BC39E2001FEEC7 /* SearchViewController.swift */,
+				8C9EE2E224BC3997001FEEC7 /* BooksViewController.swift */,
+				8C9EE2E624BC3A3F001FEEC7 /* BookmarkViewController.swift */,
+				8C9EE2E824BC3E22001FEEC7 /* BookCollectionViewCell.swift */,
 				8C9EE2D124BC38CD001FEEC7 /* Main.storyboard */,
 				8C9EE2D724BC38CF001FEEC7 /* Assets.xcassets */,
 				8C9EE2D924BC38CF001FEEC7 /* LaunchScreen.storyboard */,
@@ -144,10 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C9EE2D024BC38CD001FEEC7 /* SecondViewController.swift in Sources */,
-				8C9EE2CE24BC38CD001FEEC7 /* FirstViewController.swift in Sources */,
+				8C9EE2E524BC39E2001FEEC7 /* SearchViewController.swift in Sources */,
+				8C9EE2E324BC3997001FEEC7 /* BooksViewController.swift in Sources */,
 				8C9EE2CA24BC38CD001FEEC7 /* AppDelegate.swift in Sources */,
 				8C9EE2CC24BC38CD001FEEC7 /* SceneDelegate.swift in Sources */,
+				8C9EE2E924BC3E22001FEEC7 /* BookCollectionViewCell.swift in Sources */,
+				8C9EE2E724BC3A3F001FEEC7 /* BookmarkViewController.swift in Sources */,
 				8C9EE2D624BC38CD001FEEC7 /* Prabupada.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EX235TXA83;
 				INFOPLIST_FILE = Prabupada/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EX235TXA83;
 				INFOPLIST_FILE = Prabupada/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
