@@ -11,6 +11,7 @@ import UIKit
 class BooksViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    let defaults = UserDefaults.standard
     
     let books = ["Hi", "Hello", "Welcome", "To", "My", "App"]
     var label = ""
@@ -26,6 +27,28 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 20) / 2, height: (self.collectionView.frame.size.height - 20) / 2)
         // Do any additional setup after loading the view.
+        storeIfNot()
+    }
+    
+    func storeIfNot(){
+        if defaults.integer(forKey: "showText") == 0{
+            defaults.set(2, forKey: "showText")
+        }
+        if defaults.integer(forKey: "showSyn") == 0{
+            defaults.set(2, forKey: "showSyn")
+        }
+        if defaults.integer(forKey: "showTra") == 0{
+            defaults.set(2, forKey: "showTra")
+        }
+        if defaults.integer(forKey: "showPur") == 0{
+            defaults.set(2, forKey: "showPur")
+        }
+        if defaults.integer(forKey: "keepAwake") == 0{
+            defaults.set(2, forKey: "keepAwake")
+        }
+        if defaults.float(forKey: "size") == 0 {
+            defaults.set(20, forKey: "size")
+        }
     }
     
     
@@ -47,13 +70,6 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         self.label = books[indexPath.item]
         performSegue(withIdentifier: "openBook", sender: self)
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderColor = UIColor.red.cgColor
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

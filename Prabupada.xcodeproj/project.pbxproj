@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C1B64AE24BED65D0006B2F8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */; };
+		8C1B64B024BED6EE0006B2F8 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */; };
 		8C9EE2CA24BC38CD001FEEC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */; };
 		8C9EE2CC24BC38CD001FEEC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */; };
 		8C9EE2D324BC38CD001FEEC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D124BC38CD001FEEC7 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		8C9EE2C624BC38CD001FEEC7 /* Prabupada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prabupada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,8 +75,10 @@
 			isa = PBXGroup;
 			children = (
 				8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */,
+				8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */,
 				8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */,
 				8C9EE2E424BC39E2001FEEC7 /* SearchViewController.swift */,
+				8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */,
 				8C9EE2E224BC3997001FEEC7 /* BooksViewController.swift */,
 				8CB88BEE24BD7A50006EBD07 /* Pages Controller */,
 				8C9EE2E624BC3A3F001FEEC7 /* BookmarkViewController.swift */,
@@ -168,7 +174,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CB88BED24BD79F4006EBD07 /* ContentViewController.swift in Sources */,
+				8C1B64B024BED6EE0006B2F8 /* SettingsViewCell.swift in Sources */,
 				8C9EE2E524BC39E2001FEEC7 /* SearchViewController.swift in Sources */,
+				8C1B64AE24BED65D0006B2F8 /* SettingsViewController.swift in Sources */,
 				8C9EE2E324BC3997001FEEC7 /* BooksViewController.swift in Sources */,
 				8C9EE2CA24BC38CD001FEEC7 /* AppDelegate.swift in Sources */,
 				8C9EE2CC24BC38CD001FEEC7 /* SceneDelegate.swift in Sources */,
@@ -331,7 +339,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.shannuk.Prabupada;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -350,7 +358,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.shannuk.Prabupada;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
