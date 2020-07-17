@@ -7,18 +7,32 @@
 //
 
 import UIKit
+import CoreData
 
+@available(iOS 13.0, *)
 class ContentViewController: UIViewController {
 
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     @IBOutlet weak var contentView: UIView!
     
-    let dataSrc = ["VC 1", "VC 2", "VC 3", "VC 4", "VC 5"]
-    var currentVCIndex = 0
+    var currentVCIndex : Int?
+    var pagesCount : Int?
     var label: String?
+    var book : Level_2_Books!
+    var pages : [Level_2_Pages]!
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePageViewController()
         // Do any additional setup after loading the view.
+        let req : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
+        let sort = NSSortDescriptor(key: "pageNum", ascending: true)
+        req.sortDescriptors = [sort]
+        do{
+            pages = try context.fetch(req)
+        }
+        catch{
+            print(error)
+        }
         print(label!)
     }
     
@@ -37,12 +51,12 @@ class ContentViewController: UIViewController {
         pageVC.view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(pageVC.view)
         
-        let views : [String: Any] = ["pageView": pageVC.view]
+        let views : [String: Any] = ["pageView": pageVC.view!]
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageView]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
         
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[pageView]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
         
-        guard let startingVC = detailViewControllerAt(index: currentVCIndex) else{
+        guard let startingVC = detailViewControllerAt(index: currentVCIndex!) else{
             return
         }
         
@@ -51,7 +65,7 @@ class ContentViewController: UIViewController {
     }
     
     func detailViewControllerAt(index: Int) -> DataViewController?{
-        if(index >= dataSrc.count || dataSrc.count == 0){
+        if(index >= pagesCount! || pagesCount! == 0){
             return nil
         }
         guard let dataVC = storyboard?.instantiateViewController(withIdentifier: String(describing: DataViewController.self)) as? DataViewController else{
@@ -59,7 +73,13 @@ class ContentViewController: UIViewController {
         }
         
         dataVC.index = index
-        dataVC.displayText = dataSrc[index]
+        if index <= 4{
+            dataVC.displayText = book.preface
+        }
+        else{
+            dataVC.displayText = pages[index - 5].purport
+        }
+        
         return dataVC
     }
     
@@ -76,15 +96,16 @@ class ContentViewController: UIViewController {
 
 }
 
+@available(iOS 13.0, *)
 extension ContentViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return currentVCIndex
+        return currentVCIndex!
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return dataSrc.count
+        return pagesCount!
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -93,7 +114,8 @@ extension ContentViewController: UIPageViewControllerDelegate, UIPageViewControl
             return nil
         }
         
-        if currentIndex == 0{
+        if currentIndex == 1{
+            navigationController?.popToRootViewController(animated: true)
             return nil
         }
         currentIndex -= 1
@@ -107,7 +129,7 @@ extension ContentViewController: UIPageViewControllerDelegate, UIPageViewControl
             return nil
         }
         
-        if currentIndex == dataSrc.count{
+        if currentIndex == pagesCount{
             return nil
         }
         currentIndex += 1

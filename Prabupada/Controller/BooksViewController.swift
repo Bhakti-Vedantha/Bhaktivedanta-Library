@@ -15,7 +15,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     @IBOutlet weak var collectionView: UICollectionView!
     let defaults = UserDefaults.standard
-    
+    var clickedIndex = 0
     var books : [Level_2_Books]!
     var label = ""
     
@@ -78,6 +78,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         self.label = books[indexPath.item].bookName!
+        clickedIndex = indexPath.item
         performSegue(withIdentifier: "openBook", sender: self)
     }
     
@@ -85,6 +86,9 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         if segue.identifier == "openBook"{
             let destVC = segue.destination as! ContentViewController
             destVC.label = self.label
+            destVC.currentVCIndex = Int(books[clickedIndex].currPage)
+            destVC.pagesCount = Int(books[clickedIndex].pagesCount)
+            destVC.book = books[clickedIndex]
         }
     }
     
