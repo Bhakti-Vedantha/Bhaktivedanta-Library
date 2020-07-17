@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		8C1B64AE24BED65D0006B2F8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */; };
 		8C1B64B024BED6EE0006B2F8 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */; };
+		8C73214A24C1BCF900F897EE /* Demo3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8C73214924C1BCF900F897EE /* Demo3.sqlite */; };
+		8C73214D24C1BD7B00F897EE /* Prabupada.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C73214B24C1BD7B00F897EE /* Prabupada.xcdatamodeld */; };
 		8C9EE2CA24BC38CD001FEEC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */; };
 		8C9EE2CC24BC38CD001FEEC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */; };
 		8C9EE2D324BC38CD001FEEC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D124BC38CD001FEEC7 /* Main.storyboard */; };
-		8C9EE2D624BC38CD001FEEC7 /* Prabupada.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D424BC38CD001FEEC7 /* Prabupada.xcdatamodeld */; };
 		8C9EE2D824BC38CF001FEEC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D724BC38CF001FEEC7 /* Assets.xcassets */; };
 		8C9EE2DB24BC38CF001FEEC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D924BC38CF001FEEC7 /* LaunchScreen.storyboard */; };
 		8C9EE2E324BC3997001FEEC7 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2E224BC3997001FEEC7 /* BooksViewController.swift */; };
@@ -27,11 +28,12 @@
 /* Begin PBXFileReference section */
 		8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		8C73214924C1BCF900F897EE /* Demo3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Demo3.sqlite; sourceTree = "<group>"; };
+		8C73214C24C1BD7B00F897EE /* Demo3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Demo3.xcdatamodel; sourceTree = "<group>"; };
 		8C9EE2C624BC38CD001FEEC7 /* Prabupada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prabupada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8C9EE2D224BC38CD001FEEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8C9EE2D524BC38CD001FEEC7 /* Prabupada.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prabupada.xcdatamodel; sourceTree = "<group>"; };
 		8C9EE2D724BC38CF001FEEC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C9EE2DA24BC38CF001FEEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C9EE2DC24BC38CF001FEEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +57,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C73214624C1BA7C00F897EE /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */,
+				8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		8C73214724C1BAA400F897EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */,
+				8C9EE2E824BC3E22001FEEC7 /* BookCollectionViewCell.swift */,
+				8C9EE2D124BC38CD001FEEC7 /* Main.storyboard */,
+				8C9EE2D924BC38CF001FEEC7 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C73214824C1BCA300F897EE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C9EE2E424BC39E2001FEEC7 /* SearchViewController.swift */,
+				8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */,
+				8C9EE2E224BC3997001FEEC7 /* BooksViewController.swift */,
+				8CB88BEE24BD7A50006EBD07 /* Pages Controller */,
+				8C9EE2E624BC3A3F001FEEC7 /* BookmarkViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		8C9EE2BD24BC38CD001FEEC7 = {
 			isa = PBXGroup;
 			children = (
@@ -74,20 +108,13 @@
 		8C9EE2C824BC38CD001FEEC7 /* Prabupada */ = {
 			isa = PBXGroup;
 			children = (
-				8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */,
-				8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */,
-				8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */,
-				8C9EE2E424BC39E2001FEEC7 /* SearchViewController.swift */,
-				8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */,
-				8C9EE2E224BC3997001FEEC7 /* BooksViewController.swift */,
-				8CB88BEE24BD7A50006EBD07 /* Pages Controller */,
-				8C9EE2E624BC3A3F001FEEC7 /* BookmarkViewController.swift */,
-				8C9EE2E824BC3E22001FEEC7 /* BookCollectionViewCell.swift */,
-				8C9EE2D124BC38CD001FEEC7 /* Main.storyboard */,
+				8C73214624C1BA7C00F897EE /* Delegate */,
+				8C73214724C1BAA400F897EE /* View */,
+				8C73214824C1BCA300F897EE /* Controller */,
 				8C9EE2D724BC38CF001FEEC7 /* Assets.xcassets */,
-				8C9EE2D924BC38CF001FEEC7 /* LaunchScreen.storyboard */,
 				8C9EE2DC24BC38CF001FEEC7 /* Info.plist */,
-				8C9EE2D424BC38CD001FEEC7 /* Prabupada.xcdatamodeld */,
+				8C73214B24C1BD7B00F897EE /* Prabupada.xcdatamodeld */,
+				8C73214924C1BCF900F897EE /* Demo3.sqlite */,
 			);
 			path = Prabupada;
 			sourceTree = "<group>";
@@ -160,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C73214A24C1BCF900F897EE /* Demo3.sqlite in Resources */,
 				8C9EE2DB24BC38CF001FEEC7 /* LaunchScreen.storyboard in Resources */,
 				8C9EE2D824BC38CF001FEEC7 /* Assets.xcassets in Resources */,
 				8C9EE2D324BC38CD001FEEC7 /* Main.storyboard in Resources */,
@@ -183,8 +211,8 @@
 				8CB88BE924BD780A006EBD07 /* DataViewController.swift in Sources */,
 				8C9EE2E924BC3E22001FEEC7 /* BookCollectionViewCell.swift in Sources */,
 				8CB88BEB24BD790A006EBD07 /* PageViewController.swift in Sources */,
+				8C73214D24C1BD7B00F897EE /* Prabupada.xcdatamodeld in Sources */,
 				8C9EE2E724BC3A3F001FEEC7 /* BookmarkViewController.swift in Sources */,
-				8C9EE2D624BC38CD001FEEC7 /* Prabupada.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,12 +414,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8C9EE2D424BC38CD001FEEC7 /* Prabupada.xcdatamodeld */ = {
+		8C73214B24C1BD7B00F897EE /* Prabupada.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8C9EE2D524BC38CD001FEEC7 /* Prabupada.xcdatamodel */,
+				8C73214C24C1BD7B00F897EE /* Demo3.xcdatamodel */,
 			);
-			currentVersion = 8C9EE2D524BC38CD001FEEC7 /* Prabupada.xcdatamodel */;
+			currentVersion = 8C73214C24C1BD7B00F897EE /* Demo3.xcdatamodel */;
 			path = Prabupada.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

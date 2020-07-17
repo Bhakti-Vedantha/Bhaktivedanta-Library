@@ -17,6 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        guard let dbPath = Bundle.main.url(forResource: "Demo3", withExtension:"sqlite") else { return false };
+        do{
+            var destDirectory = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            
+            destDirectory = destDirectory.appendingPathComponent("Prabupada.sqlite")
+            _ = try FileManager.default.copyItem(at: dbPath, to:destDirectory)
+        }
+        catch{
+            print(error)
+        }
+        
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print(urls[urls.count - 1])
         return true
     }
 
