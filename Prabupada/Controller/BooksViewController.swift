@@ -36,6 +36,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         catch{
             print(error)
         }
+        print(books[0].currPage)
         storeIfNot()
     }
     
@@ -87,8 +88,18 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
             let destVC = segue.destination as! ContentViewController
             destVC.label = self.label
             destVC.currentVCIndex = Int(books[clickedIndex].currPage)
+            print(Int(books[clickedIndex].currPage))
             destVC.pagesCount = Int(books[clickedIndex].pagesCount)
             destVC.book = books[clickedIndex]
+            let req : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
+            let sort = NSSortDescriptor(key: "pageNum", ascending: true)
+            req.sortDescriptors = [sort]
+            do{
+                destVC.pages = try context.fetch(req)
+            }
+            catch{
+                print(error)
+            }
         }
     }
     

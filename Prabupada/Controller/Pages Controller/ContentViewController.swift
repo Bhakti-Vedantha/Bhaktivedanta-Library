@@ -13,6 +13,7 @@ import CoreData
 class ContentViewController: UIViewController {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let defaults = UserDefaults.standard
     @IBOutlet weak var contentView: UIView!
     
     var currentVCIndex : Int?
@@ -20,20 +21,22 @@ class ContentViewController: UIViewController {
     var label: String?
     var book : Level_2_Books!
     var pages : [Level_2_Pages]!
+    var curPage = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePageViewController()
         // Do any additional setup after loading the view.
-        let req : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
-        let sort = NSSortDescriptor(key: "pageNum", ascending: true)
-        req.sortDescriptors = [sort]
+        print(label!)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
         do{
-            pages = try context.fetch(req)
+            book.currPage = Int32(currentVCIndex!)
+            try context.save()
         }
         catch{
             print(error)
         }
-        print(label!)
     }
     
     
@@ -73,12 +76,25 @@ class ContentViewController: UIViewController {
         }
         
         dataVC.index = index
+        print(index)
         if index <= 4{
             dataVC.displayText = book.preface
         }
         else{
-            dataVC.displayText = pages[index - 5].purport
+            if defaults.integer(forKey: "showText") == 2 && pages[index - 5].text!.count != 0 {
+                dataVC.displayText = pages[index - 5].text!
+            }
+            if defaults.integer(forKey: "showSyn") == 2 && pages[index - 5].syn!.count != 0 {
+                dataVC.displayText! += "\n\nSynonyms\n\n" + pages[index - 5].syn!
+            }
+            if defaults.integer(forKey: "showTra") == 2 && pages[index - 5].translation!.count != 0 {
+                dataVC.displayText! += "\n\nTranslation\n\n" + pages[index - 5].translation!
+            }
+            if defaults.integer(forKey: "showPur") == 2 && pages[index - 5].purport!.count != 0 {
+                dataVC.displayText! += "\n\nPurport\n\n" + pages[index - 5].purport!
+            }
         }
+        curPage += 1
         
         return dataVC
     }

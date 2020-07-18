@@ -8,24 +8,23 @@
 
 import UIKit
 
-class DataViewController: UIViewController {
+class DataViewController: UIViewController{
 
-    let defaults = UserDefaults.standard
-    @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
+    let defaults = UserDefaults.standard
     var index : Int?
     var displayText: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        let viewForPurport = UITextView(frame: CGRect(x: 20, y: 20, width: contentView.frame.width - 40, height: contentView.frame.height))
-        viewForPurport.text = displayText
-        viewForPurport.showsVerticalScrollIndicator = false
-        viewForPurport.backgroundColor = UIColor.lightGray
-        viewForPurport.font = UIFont.systemFont(ofSize: CGFloat(defaults.float(forKey: "size")))
-        viewForPurport.isEditable = false
-        contentView.addSubview(viewForPurport)
 //        displayLabel.text = displayText
         // Do any additional setup after loading the view.
+        let textView = UITextView(frame: CGRect(x: 10, y: 15, width: contentView.frame.width - 20, height: UIScreen.main.bounds.height - 125))
+        textView.text = displayText
+        textView.textAlignment = .left
+        textView.font = UIFont.systemFont(ofSize: CGFloat(defaults.float(forKey: "size")))
+        textView.isEditable = false
+        textView.showsVerticalScrollIndicator = false
+        contentView.addSubview(textView)
     }
     
 

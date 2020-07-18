@@ -50,6 +50,27 @@ class SettingsViewController: UITableViewController {
         else{
             cell.label.text = settingArr[indexPath.item - 1]
             cell.slider.isHidden = true
+            var val = true
+            switch indexPath.item {
+            case 1:
+                val = defaults.integer(forKey: "keepAwake") == 2 ? true : false
+                break
+            case 2:
+                val = defaults.integer(forKey: "showText") == 2 ? true : false
+                break
+            case 3:
+                val = defaults.integer(forKey: "showSyn") == 2 ? true : false
+                break
+            case 4:
+                val = defaults.integer(forKey: "showTra") == 2 ? true : false
+                break
+            case 5:
+                val = defaults.integer(forKey: "showPur") == 2 ? true : false
+                break
+            default:
+                break
+            }
+            cell.toggler.isOn = val
             cell.toggler.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
             cell.toggler.tag = indexPath.item
         }
