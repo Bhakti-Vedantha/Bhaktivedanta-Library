@@ -10,7 +10,14 @@ import UIKit
 import CoreData
 
 @available(iOS 13.0, *)
-class ContentViewController: UIViewController {
+class ContentViewController: UIViewController, Data {
+    func dataReceived(data: Int) {
+        curPage = data + 4
+        currentVCIndex = curPage
+        configurePageViewController()
+        print(curPage)
+    }
+    
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let defaults = UserDefaults.standard
@@ -109,7 +116,31 @@ class ContentViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    @IBAction func showTableOfContents(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "showTOC", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTOC"{
+            let destVC = segue.destination as! TOCTableViewController
+            var chap : [String] = []
+            var pageNums : [Int] = []
+            for page in pages {
+                if !chap.contains(page.chapterName!){
+                    chap.append(page.chapterName!)
+                    pageNums.append(Int(page.pageNum))
+                }
+            }
+            
+            destVC.data = self
+            destVC.bookName = book.bookName
+            destVC.chap = chap
+            destVC.pageNums = pageNums
+        }
+    }
 }
 
 @available(iOS 13.0, *)

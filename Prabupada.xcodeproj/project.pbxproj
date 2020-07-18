@@ -23,6 +23,8 @@
 		8CB88BE924BD780A006EBD07 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BE824BD780A006EBD07 /* DataViewController.swift */; };
 		8CB88BEB24BD790A006EBD07 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BEA24BD790A006EBD07 /* PageViewController.swift */; };
 		8CB88BED24BD79F4006EBD07 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BEC24BD79F4006EBD07 /* ContentViewController.swift */; };
+		8CC0067324C33FA300C9386C /* TOCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC0067224C33FA300C9386C /* TOCTableViewController.swift */; };
+		8CC0067524C346F800C9386C /* TOCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC0067424C346F800C9386C /* TOCTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		8CB88BE824BD780A006EBD07 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		8CB88BEA24BD790A006EBD07 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8CB88BEC24BD79F4006EBD07 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		8CC0067224C33FA300C9386C /* TOCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOCTableViewController.swift; sourceTree = "<group>"; };
+		8CC0067424C346F800C9386C /* TOCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOCTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 				8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */,
 				8C9EE2E824BC3E22001FEEC7 /* BookCollectionViewCell.swift */,
 				8C9EE2D124BC38CD001FEEC7 /* Main.storyboard */,
+				8CC0067424C346F800C9386C /* TOCTableViewCell.swift */,
 				8C9EE2D924BC38CF001FEEC7 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -123,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				8CB88BEA24BD790A006EBD07 /* PageViewController.swift */,
+				8CC0067224C33FA300C9386C /* TOCTableViewController.swift */,
 				8CB88BEC24BD79F4006EBD07 /* ContentViewController.swift */,
 				8CB88BE824BD780A006EBD07 /* DataViewController.swift */,
 			);
@@ -201,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CC0067524C346F800C9386C /* TOCTableViewCell.swift in Sources */,
 				8CB88BED24BD79F4006EBD07 /* ContentViewController.swift in Sources */,
 				8C1B64B024BED6EE0006B2F8 /* SettingsViewCell.swift in Sources */,
 				8C9EE2E524BC39E2001FEEC7 /* SearchViewController.swift in Sources */,
@@ -210,6 +217,7 @@
 				8C9EE2CC24BC38CD001FEEC7 /* SceneDelegate.swift in Sources */,
 				8CB88BE924BD780A006EBD07 /* DataViewController.swift in Sources */,
 				8C9EE2E924BC3E22001FEEC7 /* BookCollectionViewCell.swift in Sources */,
+				8CC0067324C33FA300C9386C /* TOCTableViewController.swift in Sources */,
 				8CB88BEB24BD790A006EBD07 /* PageViewController.swift in Sources */,
 				8C73214D24C1BD7B00F897EE /* Prabupada.xcdatamodeld in Sources */,
 				8C9EE2E724BC3A3F001FEEC7 /* BookmarkViewController.swift in Sources */,

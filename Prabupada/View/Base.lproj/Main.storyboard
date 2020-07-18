@@ -96,7 +96,7 @@
             </objects>
             <point key="canvasLocation" x="2440.8000000000002" y="-1318.2908545727137"/>
         </scene>
-        <!--Content View Controller-->
+        <!--Pages-->
         <scene sceneID="U6i-PK-ddi">
             <objects>
                 <viewController id="lFd-oO-IgH" customClass="ContentViewController" customModule="Prabupada" customModuleProvider="target" sceneMemberID="viewController">
@@ -118,14 +118,67 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SAF-J1-fIO"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rfD-ld-XQ4"/>
+                    <navigationItem key="navigationItem" title="Pages" id="rfD-ld-XQ4">
+                        <barButtonItem key="rightBarButtonItem" title="Table Of Contents" image="square.grid.4x3.fill" catalog="system" id="Lvq-uS-Z5j">
+                            <connections>
+                                <action selector="showTableOfContents:" destination="lFd-oO-IgH" id="2cE-0o-Ngb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="y8U-Gd-8C4" id="hzC-CJ-O0r"/>
+                        <segue destination="7nF-6h-llE" kind="show" identifier="showTOC" id="jw5-NS-k52"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9F-VH-uye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3444" y="-1318"/>
+        </scene>
+        <!--Table Of Contents-->
+        <scene sceneID="DF0-Op-XIF">
+            <objects>
+                <tableViewController title="Table Of Contents" id="7nF-6h-llE" customClass="TOCTableViewController" customModule="Prabupada" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Cw-yx-8Mf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="Iwi-og-yjY" customClass="TOCTableViewCell" customModule="Prabupada" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Iwi-og-yjY" id="B4P-SF-2bK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="tMr-yx-iBM">
+                                            <rect key="frame" x="5" y="0.0" width="365" height="70"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tMr-yx-iBM" firstAttribute="leading" secondItem="B4P-SF-2bK" secondAttribute="leading" constant="5" id="MLU-jO-JgD"/>
+                                        <constraint firstAttribute="trailing" secondItem="tMr-yx-iBM" secondAttribute="trailing" constant="5" id="UbH-tn-cV4"/>
+                                        <constraint firstItem="tMr-yx-iBM" firstAttribute="top" secondItem="B4P-SF-2bK" secondAttribute="top" id="p45-lZ-KF1"/>
+                                        <constraint firstAttribute="bottom" secondItem="tMr-yx-iBM" secondAttribute="bottom" id="tBT-qw-3NN"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="tMr-yx-iBM" id="fe4-Fo-sKg"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7nF-6h-llE" id="cNh-sz-fKC"/>
+                            <outlet property="delegate" destination="7nF-6h-llE" id="mVF-3p-pNG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="tc6-MA-z3C"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xfL-A9-mHb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4445.6000000000004" y="-1318.2908545727137"/>
         </scene>
         <!--Data View Controller-->
         <scene sceneID="Yqd-2E-aqR">
@@ -361,5 +414,6 @@
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="square.grid.4x3.fill" catalog="system" width="128" height="87"/>
     </resources>
 </document>

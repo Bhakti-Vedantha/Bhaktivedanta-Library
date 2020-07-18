@@ -92,6 +92,8 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
             destVC.pagesCount = Int(books[clickedIndex].pagesCount)
             destVC.book = books[clickedIndex]
             let req : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
+            let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", books[clickedIndex].bookName!)
+            req.predicate = pred
             let sort = NSSortDescriptor(key: "pageNum", ascending: true)
             req.sortDescriptors = [sort]
             do{
