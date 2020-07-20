@@ -16,7 +16,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var collectionView: UICollectionView!
     let defaults = UserDefaults.standard
     var clickedIndex = 0
-    var books : [Level_2_Books]!
+    var books : [Book_Levels]!
     var label = ""
     
     override func viewDidLoad() {
@@ -29,14 +29,14 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 20) / 2, height: (self.collectionView.frame.size.height - 20) / 2)
         // Do any additional setup after loading the view.
-        let request : NSFetchRequest<Level_2_Books> = Level_2_Books.fetchRequest()
+        let request : NSFetchRequest<Book_Levels> = Book_Levels.fetchRequest()
         do{
             books = try context.fetch(request)
         }
         catch{
             print(error)
         }
-        print(books[0].currPage)
+//        print(books[0].currPage)
         storeIfNot()
     }
     
@@ -87,21 +87,58 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         if segue.identifier == "openBook"{
             let destVC = segue.destination as! ContentViewController
             destVC.label = self.label
-            destVC.currentVCIndex = Int(books[clickedIndex].currPage)
-            print(Int(books[clickedIndex].currPage))
-            destVC.pagesCount = Int(books[clickedIndex].pagesCount)
-            destVC.book = books[clickedIndex]
-            let req : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
-            let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", books[clickedIndex].bookName!)
-            req.predicate = pred
-            let sort = NSSortDescriptor(key: "pageNum", ascending: true)
-            req.sortDescriptors = [sort]
-            do{
-                destVC.pages = try context.fetch(req)
+            if books[clickedIndex].level == 1{
+                let req : NSFetchRequest<Level_1_Books> = Level_1_Books.fetchRequest()
+                let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", books[clickedIndex].bookName!)
+                req.predicate = pred
+                do{
+                    let res = try context.fetch(req)
+                    destVC.pagesCount = Int(res[0].pagesCount) + 1
+                    destVC.chapCount = Int(res[0].chaptersCount)
+                    print(res[0].pagesCount)
+                    destVC.currentVCIndex = Int(res[0].currPage)
+//                        Int(res[0].currPage)
+                    destVC.level = 1
+                    destVC.level_1_book = res[0]
+                    let starter_arr = [res[0].preface, res[0].intro, res[0].dedication, res[0].foreword, res[0].introNote, res[0].invocation, res[0].mission, res[0].prologue]
+                    var another_arr : [String] = []
+                    for i in starter_arr{
+                        if i?.count != 0{
+                            another_arr.append(i!)
+                        }
+                    }
+                    destVC.level_1_startings = another_arr
+                    let req : NSFetchRequest<Level_1_Pages> = Level_1_Pages.fetchRequest()
+                    let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", books[clickedIndex].bookName!)
+                    req.predicate = pred
+                    let sort = NSSortDescriptor(key: "pageNum", ascending: true)
+                    req.sortDescriptors = [sort]
+                    do{
+                        destVC.level_1_pages = try context.fetch(req)
+                    }
+                    catch{
+                        print(error)
+                    }
+                }
+                catch{
+                    print(error)
+                }
             }
-            catch{
-                print(error)
-            }
+//            destVC.currentVCIndex = Int(books[clickedIndex].currPage)
+//            print(Int(books[clickedIndex].currPage))
+//            destVC.pagesCount = Int(books[clickedIndex].pagesCount)
+//            destVC.book = books[clickedIndex]
+//            let req : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
+//            let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", books[clickedIndex].bookName!)
+//            req.predicate = pred
+//            let sort = NSSortDescriptor(key: "pageNum", ascending: true)
+//            req.sortDescriptors = [sort]
+//            do{
+//                destVC.pages = try context.fetch(req)
+//            }
+//            catch{
+//                print(error)
+//            }
         }
     }
     

@@ -178,7 +178,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfL-A9-mHb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4445.6000000000004" y="-1318.2908545727137"/>
+            <point key="canvasLocation" x="4615" y="-1318"/>
         </scene>
         <!--Data View Controller-->
         <scene sceneID="Yqd-2E-aqR">
@@ -217,13 +217,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q8O-96-c4r"/>
                     </view>
+                    <navigationItem key="navigationItem" id="HXc-ZO-rUk"/>
                     <connections>
                         <outlet property="contentView" destination="ta5-cN-Gvd" id="7fo-cX-uEA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZi-xs-aBW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5325.6000000000004" y="-668.36581709145435"/>
+            <point key="canvasLocation" x="5721" y="-519"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="awP-Y4-xgz">

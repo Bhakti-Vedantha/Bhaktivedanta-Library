@@ -14,17 +14,27 @@ class DataViewController: UIViewController{
     let defaults = UserDefaults.standard
     var index : Int?
     var displayText: String?
+    var titleForNav : String?
     override func viewDidLoad() {
         super.viewDidLoad()
 //        displayLabel.text = displayText
         // Do any additional setup after loading the view.
-        let textView = UITextView(frame: CGRect(x: 10, y: 15, width: contentView.frame.width - 20, height: UIScreen.main.bounds.height - 125))
-        textView.text = displayText
-        textView.textAlignment = .left
-        textView.font = UIFont.systemFont(ofSize: CGFloat(defaults.float(forKey: "size")))
-        textView.isEditable = false
-        textView.showsVerticalScrollIndicator = false
-        contentView.addSubview(textView)
+        if index == 1{
+            let image = UIImageView(frame: CGRect(x: 10, y: 15, width: contentView.frame.width - 20, height: UIScreen.main.bounds.height - 125))
+            image.image = UIImage(named: displayText!)
+            contentView.addSubview(image)
+        }
+        else{
+            let textView = UITextView(frame: CGRect(x: 10, y: 15, width: contentView.frame.width - 20, height: UIScreen.main.bounds.height - 125))
+            textView.text = displayText
+            textView.textAlignment = .left
+            textView.font = UIFont.systemFont(ofSize: CGFloat(defaults.float(forKey: "size")))
+            textView.isEditable = false
+            textView.showsVerticalScrollIndicator = false
+            contentView.addSubview(textView)
+        }
+        
+//        navigationController?.title = titleForNav
     }
     
 

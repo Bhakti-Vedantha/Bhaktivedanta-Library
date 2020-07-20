@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C14059E24C576570022AF9A /* Demo3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8C14059D24C576570022AF9A /* Demo3.sqlite */; };
+		8C1405A124C577E50022AF9A /* Prabupada.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C14059F24C577E50022AF9A /* Prabupada.xcdatamodeld */; };
 		8C1B64AE24BED65D0006B2F8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */; };
 		8C1B64B024BED6EE0006B2F8 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */; };
-		8C73214A24C1BCF900F897EE /* Demo3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8C73214924C1BCF900F897EE /* Demo3.sqlite */; };
-		8C73214D24C1BD7B00F897EE /* Prabupada.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C73214B24C1BD7B00F897EE /* Prabupada.xcdatamodeld */; };
 		8C9EE2CA24BC38CD001FEEC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */; };
 		8C9EE2CC24BC38CD001FEEC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */; };
 		8C9EE2D324BC38CD001FEEC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D124BC38CD001FEEC7 /* Main.storyboard */; };
@@ -28,10 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C14059D24C576570022AF9A /* Demo3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Demo3.sqlite; sourceTree = "<group>"; };
+		8C1405A024C577E50022AF9A /* Demo3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Demo3.xcdatamodel; sourceTree = "<group>"; };
 		8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
-		8C73214924C1BCF900F897EE /* Demo3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Demo3.sqlite; sourceTree = "<group>"; };
-		8C73214C24C1BD7B00F897EE /* Demo3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Demo3.xcdatamodel; sourceTree = "<group>"; };
 		8C9EE2C624BC38CD001FEEC7 /* Prabupada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prabupada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,8 +118,8 @@
 				8C73214824C1BCA300F897EE /* Controller */,
 				8C9EE2D724BC38CF001FEEC7 /* Assets.xcassets */,
 				8C9EE2DC24BC38CF001FEEC7 /* Info.plist */,
-				8C73214B24C1BD7B00F897EE /* Prabupada.xcdatamodeld */,
-				8C73214924C1BCF900F897EE /* Demo3.sqlite */,
+				8C14059F24C577E50022AF9A /* Prabupada.xcdatamodeld */,
+				8C14059D24C576570022AF9A /* Demo3.sqlite */,
 			);
 			path = Prabupada;
 			sourceTree = "<group>";
@@ -193,7 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C73214A24C1BCF900F897EE /* Demo3.sqlite in Resources */,
+				8C14059E24C576570022AF9A /* Demo3.sqlite in Resources */,
 				8C9EE2DB24BC38CF001FEEC7 /* LaunchScreen.storyboard in Resources */,
 				8C9EE2D824BC38CF001FEEC7 /* Assets.xcassets in Resources */,
 				8C9EE2D324BC38CD001FEEC7 /* Main.storyboard in Resources */,
@@ -219,7 +219,7 @@
 				8C9EE2E924BC3E22001FEEC7 /* BookCollectionViewCell.swift in Sources */,
 				8CC0067324C33FA300C9386C /* TOCTableViewController.swift in Sources */,
 				8CB88BEB24BD790A006EBD07 /* PageViewController.swift in Sources */,
-				8C73214D24C1BD7B00F897EE /* Prabupada.xcdatamodeld in Sources */,
+				8C1405A124C577E50022AF9A /* Prabupada.xcdatamodeld in Sources */,
 				8C9EE2E724BC3A3F001FEEC7 /* BookmarkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,13 +422,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8C73214B24C1BD7B00F897EE /* Prabupada.xcdatamodeld */ = {
+		8C14059F24C577E50022AF9A /* Prabupada.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8C73214C24C1BD7B00F897EE /* Demo3.xcdatamodel */,
+				8C1405A024C577E50022AF9A /* Demo3.xcdatamodel */,
 			);
-			currentVersion = 8C73214C24C1BD7B00F897EE /* Demo3.xcdatamodel */;
-			path = Prabupada.xcdatamodeld;
+			currentVersion = 8C1405A024C577E50022AF9A /* Demo3.xcdatamodel */;
+			name = Prabupada.xcdatamodeld;
+			path = ../../Prabupada.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
