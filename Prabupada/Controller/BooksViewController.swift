@@ -22,7 +22,6 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -102,14 +101,20 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
 //                        Int(res[0].currPage)
                     destVC.level = 1
                     destVC.level_1_book = res[0]
+                    let arr = ["Preface", "Introduction", "Dedication", "Foreword", "Introductory Note by George Harrison", "Invocation", "Lord Caitanya’s Mission", "Prologue"]
                     let starter_arr = [res[0].preface, res[0].intro, res[0].dedication, res[0].foreword, res[0].introNote, res[0].invocation, res[0].mission, res[0].prologue]
                     var another_arr : [String] = []
+                    var arr_2 : [String] = []
+                    var c = 0
                     for i in starter_arr{
                         if i?.count != 0{
                             another_arr.append(i!)
+                            arr_2.append(arr[c])
                         }
+                        c += 1
                     }
                     destVC.level_1_startings = another_arr
+                    destVC.level_1_headings = arr_2
                     let req : NSFetchRequest<Level_1_Pages> = Level_1_Pages.fetchRequest()
                     let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", books[clickedIndex].bookName!)
                     req.predicate = pred

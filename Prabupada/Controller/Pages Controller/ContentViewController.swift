@@ -16,6 +16,7 @@ class ContentViewController: UIViewController, PageNum {
         currentVCIndex = curPage
         configurePageViewController()
         print(curPage)
+        navigationController?.navigationItem.title = "Hi"
     }
     
 
@@ -35,11 +36,15 @@ class ContentViewController: UIViewController, PageNum {
     var curPage = 0
 //    var level_1_startings = ["Preface", "Introduction", "Dedication", "Foreword", "Introductory Note By George Harrison", "Invocation", "Mission", "Prologue"]
     var level_1_startings : [String]?
+    var level_1_headings : [String]?
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePageViewController()
         // Do any additional setup after loading the view.
 //        navigationController?.navigationItem.title = label
+        if level == 1{
+            self.title = level_1_book.bookName
+        }
         print(label!)
     }
     
@@ -100,19 +105,23 @@ class ContentViewController: UIViewController, PageNum {
         if level == 1{
             if index <= (pagesCount! - chapCount!){
                 if index == 1{
+//                    self.title = level_1_book.bookName
                     dataVC.displayText = level_1_book.bookName
                 }
                 else{
-                    dataVC.displayText = level_1_startings![index - 2]
+//                    self.title = level_1_headings![index - 2]
+                    dataVC.displayText = "\t" + level_1_headings![index - 2] + "\n\n\n\t"
+                    dataVC.displayText! += level_1_startings![index - 2]
                 }
 //                dataVC.displayText = anotherArr[level_1_index]
 //                navigationController?.title = level_1_startings[level_1_index]
 //                dataVC.titleForNav = level_1_startings![level_1_index]
             }
             else{
-                dataVC.displayText = ""
+//                self.title = level_1_pages[index - 1 - (pagesCount! - chapCount!)].chapterName
+                dataVC.displayText = "\tChapter : \(level_1_pages[index - (pagesCount! - chapCount!) - 1].chapter). \(level_1_pages[index - (pagesCount! - chapCount!) - 1].chapterName!)\n\n\n"
                 if defaults.integer(forKey: "showText") == 2 && level_1_pages[index - (pagesCount! - chapCount!) - 1].text!.count != 0 {
-                    dataVC.displayText = level_1_pages[index - 1 - (pagesCount! - chapCount!)].text!
+                    dataVC.displayText! += level_1_pages[index - 1 - (pagesCount! - chapCount!)].text!
                 }
                 if defaults.integer(forKey: "showSyn") == 2 && level_1_pages[index - 1 - (pagesCount! - chapCount!)].syn!.count != 0 {
                     dataVC.displayText! += "\n\nSynonyms\n\n" + level_1_pages[index - 1 - (pagesCount! - chapCount!)].syn!
