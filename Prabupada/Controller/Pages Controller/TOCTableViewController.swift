@@ -14,7 +14,7 @@ class TOCTableViewController: UITableViewController {
     var bookName : String?
     var chap : [String]?
     var pageNums : [Int]?
-    var data: Data?
+    var data: PageNum?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -103,6 +103,6 @@ class TOCTableViewController: UITableViewController {
 
 }
 
-protocol Data {
+protocol PageNum {
     func dataReceived(data: Int)
 }

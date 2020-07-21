@@ -15,29 +15,29 @@ class DataViewController: UIViewController{
     var index : Int?
     var displayText: String?
     var titleForNav : String?
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 //        displayLabel.text = displayText
         // Do any additional setup after loading the view.
         if index == 1{
-            let image = UIImageView(frame: CGRect(x: 10, y: 15, width: contentView.frame.width - 20, height: UIScreen.main.bounds.height - 125))
-            image.image = UIImage(named: displayText!)
-            contentView.addSubview(image)
+            imageView.image = UIImage(named: displayText!)
+            textView.isHidden = true
         }
         else{
-            let textView = UITextView(frame: CGRect(x: 10, y: 15, width: contentView.frame.width - 20, height: UIScreen.main.bounds.height - 125))
-            textView.text = displayText
-            textView.textAlignment = .left
-            textView.font = UIFont.systemFont(ofSize: CGFloat(defaults.float(forKey: "size")))
-            textView.isEditable = false
-            textView.showsVerticalScrollIndicator = false
-            contentView.addSubview(textView)
+            imageView.isHidden = true
+            displayText = displayText?.replacingOccurrences(of: "\n", with: "\n\t")
+            displayText = displayText?.replacingOccurrences(of: "$", with: "\t")
+            textView!.text = displayText
+            textView!.textAlignment = .left
+            textView!.font = UIFont.systemFont(ofSize: CGFloat(defaults.float(forKey: "size")))
+            textView!.isEditable = false
+            textView!.showsVerticalScrollIndicator = false
         }
         
 //        navigationController?.title = titleForNav
     }
-    
-
     /*
     // MARK: - Navigation
 

@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C14059E24C576570022AF9A /* Demo3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8C14059D24C576570022AF9A /* Demo3.sqlite */; };
-		8C1405A124C577E50022AF9A /* Prabupada.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C14059F24C577E50022AF9A /* Prabupada.xcdatamodeld */; };
 		8C1B64AE24BED65D0006B2F8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */; };
 		8C1B64B024BED6EE0006B2F8 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */; };
+		8C2FF9DD24C6E8BC00080D0A /* Prabupada.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C2FF9DB24C6E8BC00080D0A /* Prabupada.xcdatamodeld */; };
 		8C9EE2CA24BC38CD001FEEC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */; };
 		8C9EE2CC24BC38CD001FEEC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */; };
 		8C9EE2D324BC38CD001FEEC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D124BC38CD001FEEC7 /* Main.storyboard */; };
@@ -23,15 +22,30 @@
 		8CB88BE924BD780A006EBD07 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BE824BD780A006EBD07 /* DataViewController.swift */; };
 		8CB88BEB24BD790A006EBD07 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BEA24BD790A006EBD07 /* PageViewController.swift */; };
 		8CB88BED24BD79F4006EBD07 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BEC24BD79F4006EBD07 /* ContentViewController.swift */; };
+		8CBFECD624C6B7CB0018F8F4 /* tlk.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECC624C6B7CB0018F8F4 /* tlk.json */; };
+		8CBFECD724C6B7CB0018F8F4 /* mg.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECC724C6B7CB0018F8F4 /* mg.json */; };
+		8CBFECD824C6B7CB0018F8F4 /* tqk.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECC824C6B7CB0018F8F4 /* tqk.json */; };
+		8CBFECD924C6B7CB0018F8F4 /* bbd.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECC924C6B7CB0018F8F4 /* bbd.json */; };
+		8CBFECDA24C6B7CB0018F8F4 /* poy.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECCA24C6B7CB0018F8F4 /* poy.json */; };
+		8CBFECDB24C6B7CB0018F8F4 /* iso.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECCB24C6B7CB0018F8F4 /* iso.json */; };
+		8CBFECDC24C6B7CB0018F8F4 /* ecs.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECCC24C6B7CB0018F8F4 /* ecs.json */; };
+		8CBFECDD24C6B7CB0018F8F4 /* tlc.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECCD24C6B7CB0018F8F4 /* tlc.json */; };
+		8CBFECDE24C6B7CB0018F8F4 /* nod.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECCE24C6B7CB0018F8F4 /* nod.json */; };
+		8CBFECDF24C6B7CB0018F8F4 /* kb.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECCF24C6B7CB0018F8F4 /* kb.json */; };
+		8CBFECE024C6B7CB0018F8F4 /* ttp.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECD024C6B7CB0018F8F4 /* ttp.json */; };
+		8CBFECE124C6B7CB0018F8F4 /* owk.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECD124C6B7CB0018F8F4 /* owk.json */; };
+		8CBFECE224C6B7CB0018F8F4 /* rv.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECD224C6B7CB0018F8F4 /* rv.json */; };
+		8CBFECE324C6B7CB0018F8F4 /* noi.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECD324C6B7CB0018F8F4 /* noi.json */; };
+		8CBFECE424C6B7CB0018F8F4 /* tys.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECD424C6B7CB0018F8F4 /* tys.json */; };
+		8CBFECE524C6B7CB0018F8F4 /* pop.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CBFECD524C6B7CB0018F8F4 /* pop.json */; };
 		8CC0067324C33FA300C9386C /* TOCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC0067224C33FA300C9386C /* TOCTableViewController.swift */; };
 		8CC0067524C346F800C9386C /* TOCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC0067424C346F800C9386C /* TOCTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8C14059D24C576570022AF9A /* Demo3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Demo3.sqlite; sourceTree = "<group>"; };
-		8C1405A024C577E50022AF9A /* Demo3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Demo3.xcdatamodel; sourceTree = "<group>"; };
 		8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		8C2FF9DC24C6E8BC00080D0A /* Demo3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Demo3.xcdatamodel; sourceTree = "<group>"; };
 		8C9EE2C624BC38CD001FEEC7 /* Prabupada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prabupada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +60,22 @@
 		8CB88BE824BD780A006EBD07 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		8CB88BEA24BD790A006EBD07 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8CB88BEC24BD79F4006EBD07 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		8CBFECC624C6B7CB0018F8F4 /* tlk.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tlk.json; sourceTree = "<group>"; };
+		8CBFECC724C6B7CB0018F8F4 /* mg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mg.json; sourceTree = "<group>"; };
+		8CBFECC824C6B7CB0018F8F4 /* tqk.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tqk.json; sourceTree = "<group>"; };
+		8CBFECC924C6B7CB0018F8F4 /* bbd.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bbd.json; sourceTree = "<group>"; };
+		8CBFECCA24C6B7CB0018F8F4 /* poy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = poy.json; sourceTree = "<group>"; };
+		8CBFECCB24C6B7CB0018F8F4 /* iso.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = iso.json; sourceTree = "<group>"; };
+		8CBFECCC24C6B7CB0018F8F4 /* ecs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ecs.json; sourceTree = "<group>"; };
+		8CBFECCD24C6B7CB0018F8F4 /* tlc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tlc.json; sourceTree = "<group>"; };
+		8CBFECCE24C6B7CB0018F8F4 /* nod.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nod.json; sourceTree = "<group>"; };
+		8CBFECCF24C6B7CB0018F8F4 /* kb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kb.json; sourceTree = "<group>"; };
+		8CBFECD024C6B7CB0018F8F4 /* ttp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ttp.json; sourceTree = "<group>"; };
+		8CBFECD124C6B7CB0018F8F4 /* owk.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = owk.json; sourceTree = "<group>"; };
+		8CBFECD224C6B7CB0018F8F4 /* rv.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rv.json; sourceTree = "<group>"; };
+		8CBFECD324C6B7CB0018F8F4 /* noi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = noi.json; sourceTree = "<group>"; };
+		8CBFECD424C6B7CB0018F8F4 /* tys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tys.json; sourceTree = "<group>"; };
+		8CBFECD524C6B7CB0018F8F4 /* pop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pop.json; sourceTree = "<group>"; };
 		8CC0067224C33FA300C9386C /* TOCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOCTableViewController.swift; sourceTree = "<group>"; };
 		8CC0067424C346F800C9386C /* TOCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOCTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,9 +147,9 @@
 				8C73214724C1BAA400F897EE /* View */,
 				8C73214824C1BCA300F897EE /* Controller */,
 				8C9EE2D724BC38CF001FEEC7 /* Assets.xcassets */,
+				8CBFECC524C6B7CB0018F8F4 /* Data */,
 				8C9EE2DC24BC38CF001FEEC7 /* Info.plist */,
-				8C14059F24C577E50022AF9A /* Prabupada.xcdatamodeld */,
-				8C14059D24C576570022AF9A /* Demo3.sqlite */,
+				8C2FF9DB24C6E8BC00080D0A /* Prabupada.xcdatamodeld */,
 			);
 			path = Prabupada;
 			sourceTree = "<group>";
@@ -133,6 +163,29 @@
 				8CB88BE824BD780A006EBD07 /* DataViewController.swift */,
 			);
 			path = "Pages Controller";
+			sourceTree = "<group>";
+		};
+		8CBFECC524C6B7CB0018F8F4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8CBFECC624C6B7CB0018F8F4 /* tlk.json */,
+				8CBFECC724C6B7CB0018F8F4 /* mg.json */,
+				8CBFECC824C6B7CB0018F8F4 /* tqk.json */,
+				8CBFECC924C6B7CB0018F8F4 /* bbd.json */,
+				8CBFECCA24C6B7CB0018F8F4 /* poy.json */,
+				8CBFECCB24C6B7CB0018F8F4 /* iso.json */,
+				8CBFECCC24C6B7CB0018F8F4 /* ecs.json */,
+				8CBFECCD24C6B7CB0018F8F4 /* tlc.json */,
+				8CBFECCE24C6B7CB0018F8F4 /* nod.json */,
+				8CBFECCF24C6B7CB0018F8F4 /* kb.json */,
+				8CBFECD024C6B7CB0018F8F4 /* ttp.json */,
+				8CBFECD124C6B7CB0018F8F4 /* owk.json */,
+				8CBFECD224C6B7CB0018F8F4 /* rv.json */,
+				8CBFECD324C6B7CB0018F8F4 /* noi.json */,
+				8CBFECD424C6B7CB0018F8F4 /* tys.json */,
+				8CBFECD524C6B7CB0018F8F4 /* pop.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,10 +246,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C14059E24C576570022AF9A /* Demo3.sqlite in Resources */,
+				8CBFECDA24C6B7CB0018F8F4 /* poy.json in Resources */,
 				8C9EE2DB24BC38CF001FEEC7 /* LaunchScreen.storyboard in Resources */,
+				8CBFECE424C6B7CB0018F8F4 /* tys.json in Resources */,
+				8CBFECE024C6B7CB0018F8F4 /* ttp.json in Resources */,
+				8CBFECDB24C6B7CB0018F8F4 /* iso.json in Resources */,
+				8CBFECDC24C6B7CB0018F8F4 /* ecs.json in Resources */,
+				8CBFECD924C6B7CB0018F8F4 /* bbd.json in Resources */,
+				8CBFECDE24C6B7CB0018F8F4 /* nod.json in Resources */,
+				8CBFECE524C6B7CB0018F8F4 /* pop.json in Resources */,
+				8CBFECE224C6B7CB0018F8F4 /* rv.json in Resources */,
+				8CBFECDF24C6B7CB0018F8F4 /* kb.json in Resources */,
+				8CBFECE124C6B7CB0018F8F4 /* owk.json in Resources */,
 				8C9EE2D824BC38CF001FEEC7 /* Assets.xcassets in Resources */,
+				8CBFECD824C6B7CB0018F8F4 /* tqk.json in Resources */,
+				8CBFECD724C6B7CB0018F8F4 /* mg.json in Resources */,
+				8CBFECDD24C6B7CB0018F8F4 /* tlc.json in Resources */,
+				8CBFECE324C6B7CB0018F8F4 /* noi.json in Resources */,
 				8C9EE2D324BC38CD001FEEC7 /* Main.storyboard in Resources */,
+				8CBFECD624C6B7CB0018F8F4 /* tlk.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +279,7 @@
 				8CB88BED24BD79F4006EBD07 /* ContentViewController.swift in Sources */,
 				8C1B64B024BED6EE0006B2F8 /* SettingsViewCell.swift in Sources */,
 				8C9EE2E524BC39E2001FEEC7 /* SearchViewController.swift in Sources */,
+				8C2FF9DD24C6E8BC00080D0A /* Prabupada.xcdatamodeld in Sources */,
 				8C1B64AE24BED65D0006B2F8 /* SettingsViewController.swift in Sources */,
 				8C9EE2E324BC3997001FEEC7 /* BooksViewController.swift in Sources */,
 				8C9EE2CA24BC38CD001FEEC7 /* AppDelegate.swift in Sources */,
@@ -219,7 +288,6 @@
 				8C9EE2E924BC3E22001FEEC7 /* BookCollectionViewCell.swift in Sources */,
 				8CC0067324C33FA300C9386C /* TOCTableViewController.swift in Sources */,
 				8CB88BEB24BD790A006EBD07 /* PageViewController.swift in Sources */,
-				8C1405A124C577E50022AF9A /* Prabupada.xcdatamodeld in Sources */,
 				8C9EE2E724BC3A3F001FEEC7 /* BookmarkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,7 +443,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.shannuk.Prabupada;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -394,7 +462,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.shannuk.Prabupada;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -422,14 +490,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8C14059F24C577E50022AF9A /* Prabupada.xcdatamodeld */ = {
+		8C2FF9DB24C6E8BC00080D0A /* Prabupada.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8C1405A024C577E50022AF9A /* Demo3.xcdatamodel */,
+				8C2FF9DC24C6E8BC00080D0A /* Demo3.xcdatamodel */,
 			);
-			currentVersion = 8C1405A024C577E50022AF9A /* Demo3.xcdatamodel */;
-			name = Prabupada.xcdatamodeld;
-			path = ../../Prabupada.xcdatamodeld;
+			currentVersion = 8C2FF9DC24C6E8BC00080D0A /* Demo3.xcdatamodel */;
+			path = Prabupada.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

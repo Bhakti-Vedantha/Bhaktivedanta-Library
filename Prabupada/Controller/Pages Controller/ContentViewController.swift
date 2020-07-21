@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 @available(iOS 13.0, *)
-class ContentViewController: UIViewController, Data {
+class ContentViewController: UIViewController, PageNum {
     func dataReceived(data: Int) {
         curPage = data + (pagesCount! - chapCount!)
         currentVCIndex = curPage
