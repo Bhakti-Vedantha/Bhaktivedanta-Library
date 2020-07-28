@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8C1B64AE24BED65D0006B2F8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */; };
 		8C1B64B024BED6EE0006B2F8 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */; };
+		8C1F1EE724CFF6140029C8E8 /* pqpa.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F1EE524CFF6130029C8E8 /* pqpa.json */; };
+		8C1F1EE824CFF6140029C8E8 /* ej.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F1EE624CFF6130029C8E8 /* ej.json */; };
+		8C1F1EEA24CFFDCB0029C8E8 /* bg.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F1EE924CFFDCB0029C8E8 /* bg.json */; };
 		8C2FF9DD24C6E8BC00080D0A /* Prabupada.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C2FF9DB24C6E8BC00080D0A /* Prabupada.xcdatamodeld */; };
 		8C9EE2CA24BC38CD001FEEC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */; };
 		8C9EE2CC24BC38CD001FEEC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */; };
@@ -45,6 +48,9 @@
 /* Begin PBXFileReference section */
 		8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8C1B64AF24BED6EE0006B2F8 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		8C1F1EE524CFF6130029C8E8 /* pqpa.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pqpa.json; sourceTree = "<group>"; };
+		8C1F1EE624CFF6130029C8E8 /* ej.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ej.json; sourceTree = "<group>"; };
+		8C1F1EE924CFFDCB0029C8E8 /* bg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bg.json; sourceTree = "<group>"; };
 		8C2FF9DC24C6E8BC00080D0A /* Demo3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Demo3.xcdatamodel; sourceTree = "<group>"; };
 		8C9EE2C624BC38CD001FEEC7 /* Prabupada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prabupada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,10 +181,13 @@
 				8CBFECCA24C6B7CB0018F8F4 /* poy.json */,
 				8CBFECCB24C6B7CB0018F8F4 /* iso.json */,
 				8CBFECCC24C6B7CB0018F8F4 /* ecs.json */,
+				8C1F1EE924CFFDCB0029C8E8 /* bg.json */,
 				8CBFECCD24C6B7CB0018F8F4 /* tlc.json */,
 				8CBFECCE24C6B7CB0018F8F4 /* nod.json */,
 				8CBFECCF24C6B7CB0018F8F4 /* kb.json */,
 				8CBFECD024C6B7CB0018F8F4 /* ttp.json */,
+				8C1F1EE624CFF6130029C8E8 /* ej.json */,
+				8C1F1EE524CFF6130029C8E8 /* pqpa.json */,
 				8CBFECD124C6B7CB0018F8F4 /* owk.json */,
 				8CBFECD224C6B7CB0018F8F4 /* rv.json */,
 				8CBFECD324C6B7CB0018F8F4 /* noi.json */,
@@ -258,9 +267,12 @@
 				8CBFECE224C6B7CB0018F8F4 /* rv.json in Resources */,
 				8CBFECDF24C6B7CB0018F8F4 /* kb.json in Resources */,
 				8CBFECE124C6B7CB0018F8F4 /* owk.json in Resources */,
+				8C1F1EE824CFF6140029C8E8 /* ej.json in Resources */,
 				8C9EE2D824BC38CF001FEEC7 /* Assets.xcassets in Resources */,
 				8CBFECD824C6B7CB0018F8F4 /* tqk.json in Resources */,
 				8CBFECD724C6B7CB0018F8F4 /* mg.json in Resources */,
+				8C1F1EEA24CFFDCB0029C8E8 /* bg.json in Resources */,
+				8C1F1EE724CFF6140029C8E8 /* pqpa.json in Resources */,
 				8CBFECDD24C6B7CB0018F8F4 /* tlc.json in Resources */,
 				8CBFECE324C6B7CB0018F8F4 /* noi.json in Resources */,
 				8C9EE2D324BC38CD001FEEC7 /* Main.storyboard in Resources */,

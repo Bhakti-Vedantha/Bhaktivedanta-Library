@@ -53,6 +53,7 @@ class TOCTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         data?.dataReceived(data: pageNums![indexPath.item])
+        print(pageNums![indexPath.item])
         navigationController?.popViewController(animated: true)
     }
 
