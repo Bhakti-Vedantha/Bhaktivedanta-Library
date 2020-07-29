@@ -208,7 +208,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
     func loadData() {
         
         // Level 1
-        let files = ["tlk", "mg", "tqk", "bbd", "poy", "iso", "ecs", "tlc", "nod", "kb", "ttp", "owk", "rv", "noi", "tys", "pop", "ej", "pqpa"]
+        let files = ["tlk", "mg", "tqk", "bbd", "poy", "iso", "ecs", "tlc", "nod", "kb", "ttp", "owk", "rv", "noi", "tys", "pop", "ej", "pqpa", "krp"]
         let req : NSFetchRequest<Level_1_Books> = Level_1_Books.fetchRequest()
         do{
             let res = try context.fetch(req)
@@ -367,7 +367,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
                             print("Err10")
                         }
                     }
-                let arr = ["KṚṢṆA, The Supreme Personality of Godhead", "The Nectar of Instruction", "Śrī Īśopaniṣad", "Kṛṣṇa Consciousness, The Topmost Yoga System", "Rāja-Vidyā: The King of Knowledge", "The Nectar of Devotion", "Teachings of Lord Caitanya", "Elevation to Kṛṣṇa Consciousness", "Kṛṣṇa Consciousness, The Matchless Gift", "Transcendental Teachings of Prahlāda Mahārāja", "Teachings of Lord Kapila, the Son of Devahuti", "Teachings of Queen Kuntī", "The Path of Perfection", "The Perfection of Yoga", "Beyond Birth & Death", "On the Way to Kṛṣṇa", "Easy Journey to Other Planets", "Perfect Questions, Perfect Answers"]
+                let arr = ["KṚṢṆA, The Supreme Personality of Godhead", "The Nectar of Instruction", "Śrī Īśopaniṣad", "Kṛṣṇa Consciousness, The Topmost Yoga System", "Rāja-Vidyā: The King of Knowledge", "The Nectar of Devotion", "Teachings of Lord Caitanya", "Elevation to Kṛṣṇa Consciousness", "Kṛṣṇa Consciousness, The Matchless Gift", "Transcendental Teachings of Prahlāda Mahārāja", "Teachings of Lord Kapila, the Son of Devahuti", "Teachings of Queen Kuntī", "The Path of Perfection", "The Perfection of Yoga", "Beyond Birth & Death", "On the Way to Kṛṣṇa", "Easy Journey to Other Planets", "Perfect Questions, Perfect Answers", "Kṛṣṇa, the Reservoir of Pleasure"]
                 print(arr.count)
                 for a in arr{
                     let levels = Book_Levels(context: context)
@@ -387,155 +387,381 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
             print(error)
         }
         
+//        return
+        let req1 : NSFetchRequest<Level_2_Books> = Level_2_Books.fetchRequest()
+        do{
+            let res = try context.fetch(req1)
+            if res.count != 0{
+                return
+            }
+        }
+        catch{
+            print(error)
+        }
+        
         //Level 2
-         let url = Bundle.main.url(forResource: "bg", withExtension: "json")
-        if let jsonData = url{
-            if let data = try? Data(contentsOf: jsonData){
-                if let json = try? JSONSerialization.jsonObject(with: data, options: []){
-                    if let dict = json as? [Dictionary<String, Any>] {
-                        var maxChap = 0
-                        var pagesCount = 0
-                        let book = Level_2_Books(context: context)
-                        for page in dict {
-                            pagesCount += 1
-                            guard let bookName = page["book"] as? String else {
-                                print("1")
-                                return
-                            }
-                            guard let chapter = page["chapter"] as? String else {
-                                print("3")
-                                return
-                            }
-//                            maxChap = chapter > maxChap ? chapter : maxChap
-                            guard let verse = page["verse"] as? Int else {
-                                print("4")
-                                return
-                            }
-                            guard let text = page["text"] as? String else {
-                                print("5")
-                                return
-                            }
-                            guard let syn = page["synonyms"] as? String else {
-                                print("5")
-                                return
-                            }
-                            guard let trans = page["translation"] as? String else {
-                                print("5")
-                                return
-                            }
-                            guard let purp = page["purport"] as? String else {
-                                print("5")
-                                return
-                            }
+        let titles = ["bg", "ssr", "lcfl"]
+        var im = -1
+        for i in titles{
+            im += 1
+            let url = Bundle.main.url(forResource: i, withExtension: "json")
+            if let jsonData = url{
+                if let data = try? Data(contentsOf: jsonData){
+                    if let json = try? JSONSerialization.jsonObject(with: data, options: []){
+                        if let dict = json as? [Dictionary<String, Any>] {
+                            var maxChap = 0
+                            var pagesCount = 0
+                            let book = Level_2_Books(context: context)
+                            for page in dict {
+                                pagesCount += 1
+                                guard let bookName = page["book"] as? String else {
+                                    print("1")
+                                    return
+                                }
+                                guard let chapter = page["chapter"] as? String else {
+                                    print("3")
+                                    return
+                                }
+    //                            maxChap = chapter > maxChap ? chapter : maxChap
+                                
+                                guard let verse = page["verse"] as? String else {
+                                    print("4")
+                                    return
+                                }
+                                
+                                guard let text = page["text"] as? String else {
+                                    print("5")
+                                    return
+                                }
+                                guard let syn = page["synonyms"] as? String else {
+                                    print("5")
+                                    return
+                                }
+                                guard let trans = page["translation"] as? String else {
+                                    print("5")
+                                    return
+                                }
+                                guard let purp = page["purport"] as? String else {
+                                    print("5")
+                                    return
+                                }
 
-                            let request : NSFetchRequest<Level_2_Books> = Level_2_Books.fetchRequest()
-                            let predicate = NSPredicate(format: "bookName CONTAINS[cd] %@", bookName)
-                            request.predicate = predicate
-                            var results : [NSManagedObject] = []
+                                let request : NSFetchRequest<Level_2_Books> = Level_2_Books.fetchRequest()
+                                let predicate = NSPredicate(format: "bookName CONTAINS[cd] %@", bookName)
+                                request.predicate = predicate
+                                var results : [NSManagedObject] = []
+                                do{
+                                    results = try context.fetch(request)
+                                }
+                                catch{
+                                    print(error)
+                                }
+                                if results.count == 0{
+                                    book.bookName = bookName
+                                    book.chaptersCount = 0
+                                    book.currPage = 1
+                                    book.pagesCount = 1
+
+                                    do{
+                                        try context.save()
+                                    }
+                                    catch{
+                                        print(error)
+                                    }
+                                }
+                                let lis = ["Preface", "Introduction", "Foreword", "Dedication"]
+                                if lis.contains(chapter){
+                                    if lis[0] == chapter{
+                                        book.preface = purp
+                                    }
+                                    if lis[1] == chapter{
+                                        book.intro = purp
+                                    }
+                                    if lis[2] == chapter{
+                                        book.foreword = purp
+                                    }
+                                    if lis[3] == chapter{
+                                        book.dedication = purp
+                                    }
+                                    do{
+                                        try context.save()
+                                    }
+                                    catch{
+                                        print(error)
+                                    }
+                                }
+                                else{
+                                    let curPage = Level_2_Pages(context: context)
+                                    curPage.bookName = bookName
+                                    let arr = chapter.components(separatedBy: ". ")
+                                    let arr1 = verse.components(separatedBy: ". ")
+                                    curPage.chapterName = arr[1]
+                                    curPage.chapter = Int32(arr[0])!
+                                    maxChap = Int(arr[0])! > maxChap ? Int(arr[0])! : maxChap
+                                    if arr1.count == 1{
+                                        curPage.verse = Int32(arr1[0])!
+                                    }
+                                    else{
+                                        curPage.verse = Int32(arr1[0])!
+                                        curPage.verseName = arr1[1]
+                                    }
+                                    
+                                    curPage.purport = purp
+                                    curPage.text = text
+                                    curPage.syn = syn
+                                    curPage.translation = trans
+                                    do{
+                                        try context.save()
+                                    }
+                                    catch{
+                                        print(error)
+                                    }
+                                }
+                            }
+                            book.chaptersCount = Int32(maxChap)
+                            book.pagesCount = Int32(pagesCount)
                             do{
-                                results = try context.fetch(request)
+                                try context.save()
                             }
                             catch{
                                 print(error)
                             }
-                            if results.count == 0{
-                                book.bookName = bookName
-                                book.chaptersCount = 0
-                                book.currPage = 1
-                                book.pagesCount = 1
+                            let pagesReq : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
+                            let sortDesc = NSSortDescriptor(key: "verse", ascending: true)
+                            let sort = NSSortDescriptor(key: "chapter", ascending: true)
+                            pagesReq.sortDescriptors = [sort, sortDesc]
+                            do{
+                                let pagesArr = try context.fetch(pagesReq)
+                                var num = 1
+                                for i in pagesArr{
+                                    i.pageNum = Int32(num)
+                                    num += 1
+                                }
+                                try context.save()
+                            }
+                            catch{
+                                print(error)
+                            }
 
-                                do{
-                                    try context.save()
-                                }
-                                catch{
-                                    print(error)
-                                }
-                            }
-                            let lis = ["Preface", "Introduction", "Foreword", "Dedication"]
-                            if lis.contains(chapter){
-                                if lis[0] == chapter{
-                                    book.preface = purp
-                                }
-                                if lis[1] == chapter{
-                                    book.intro = purp
-                                }
-                                if lis[2] == chapter{
-                                    book.foreword = purp
-                                }
-                                if lis[3] == chapter{
-                                    book.dedication = purp
-                                }
-                                do{
-                                    try context.save()
-                                }
-                                catch{
-                                    print(error)
-                                }
-                            }
-                            else{
-                                let curPage = Level_2_Pages(context: context)
-                                curPage.bookName = bookName
-                                let arr = chapter.components(separatedBy: ". ")
-                                curPage.chapterName = arr[1]
-                                curPage.chapter = Int32(arr[0])!
-                                maxChap = Int(arr[0])! > maxChap ? Int(arr[0])! : maxChap
-                                curPage.verse = Int32(verse)
-                                curPage.purport = purp
-                                curPage.text = text
-                                curPage.syn = syn
-                                curPage.translation = trans
-                                do{
-                                    try context.save()
-                                }
-                                catch{
-                                    print(error)
-                                }
-                            }
                         }
-                        book.chaptersCount = Int32(maxChap)
-                        book.pagesCount = Int32(pagesCount)
-                        do{
-                            try context.save()
+                        else {
+                            print("Err4")
                         }
-                        catch{
-                            print(error)
-                        }
-                        let pagesReq : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
-                        let sortDesc = NSSortDescriptor(key: "verse", ascending: true)
-                        let sort = NSSortDescriptor(key: "chapter", ascending: true)
-                        pagesReq.sortDescriptors = [sort, sortDesc]
-                        do{
-                            let pagesArr = try context.fetch(pagesReq)
-                            var num = 1
-                            for i in pagesArr{
-                                i.pageNum = Int32(num)
-                                num += 1
-                            }
-                            try context.save()
-                        }
-                        catch{
-                            print(error)
-                        }
-
                     }
-                    else {
-                        print("Err4")
+                    else{
+                        print("Err1")
                     }
                 }
-                else{
-                    print("Err1")
+                else {
+                    print("Err2")
                 }
             }
             else {
-                print("Err2")
+                print("Err3")
             }
         }
-        else {
-            print("Err3")
+         
+        let levels4 = Book_Levels(context: context)
+        levels4.bookName = "Bhagavad-gītā As It Is"
+        levels4.level = 2
+        do{
+            try context.save()
         }
-        let levels = Book_Levels(context: context)
-        levels.bookName = "Bhagavad-gītā As It Is"
-        levels.level = 2
+        catch{
+            print(error)
+        }
+        let levels5 = Book_Levels(context: context)
+        levels5.bookName = "Life Comes from Life"
+        levels5.level = 2
+        do{
+            try context.save()
+        }
+        catch{
+            print(error)
+        }
+        let levels6 = Book_Levels(context: context)
+        levels6.bookName = "The Science of Self Realization"
+        levels6.level = 2
+        do{
+            try context.save()
+        }
+        catch{
+            print(error)
+        }
+        
+//        return
+        let req2 : NSFetchRequest<Level_3_Books> = Level_3_Books.fetchRequest()
+        do{
+            let res = try context.fetch(req2)
+            if res.count != 0{
+                return
+            }
+        }
+        catch{
+            print(error)
+        }
+        
+        //Level 3
+        let level_3_arr = ["sb", "cc"]
+        var ind = -1
+        let names = ["Śrīmad-Bhāgavatam", "Śrī Caitanya-caritāmṛta"]
+        for i in level_3_arr{
+            ind += 1
+            let url = Bundle.main.url(forResource: i, withExtension: "json")
+            if let jsonData = url{
+                if let data = try? Data(contentsOf: jsonData){
+                    if let json = try? JSONSerialization.jsonObject(with: data, options: []){
+                        if let dict = json as? [Dictionary<String, Any>]{
+                            var pagesCount = 0
+                            let book = Level_3_Books(context: context)
+                            for page in dict{
+                                pagesCount += 1
+                                let bookName = names[ind]
+                                guard let chapter = page["chapter"] as? String else {
+                                    print("3")
+                                    return
+                                }
+                                guard let level_3 = page["canto"] as? String else {
+                                    print("3")
+                                    return
+                                }
+                                guard let verse = page["verse"] as? Int else {
+                                    print("4")
+                                    return
+                                }
+                                guard let text = page["text"] as? String else {
+                                    print("5")
+                                    return
+                                }
+                                guard let syn = page["synonyms"] as? String else {
+                                    print("5")
+                                    return
+                                }
+                                guard let trans = page["translation"] as? String else {
+                                    print("5")
+                                    return
+                                }
+                                guard let purp = page["purport"] as? String else {
+                                    print("5")
+                                    return
+                                }
+                                
+                                let request : NSFetchRequest<Level_3_Books> = Level_3_Books.fetchRequest()
+                                let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", bookName)
+                                request.predicate = pred
+                                var res : [NSManagedObject] = []
+                                do{
+                                    res = try context.fetch(request)
+                                }
+                                catch{
+                                    print(error)
+                                }
+                                if res.count == 0{
+                                    book.bookName = bookName
+                                    book.currPage = 1
+                                    book.pagesCount = 1
+                                    do{
+                                        try context.save()
+                                    }
+                                    catch{
+                                        print(error)
+                                    }
+                                }
+                                let lis = ["Preface", "Introduction"]
+                                if lis.contains(chapter){
+                                    if lis[0] == chapter{
+                                        book.preface = purp
+                                    }
+                                    if lis[1] == chapter{
+                                        book.intro = purp
+                                    }
+                                    do{
+                                        try context.save()
+                                    }
+                                    catch{
+                                        print(error)
+                                    }
+                                }
+                                else{
+                                    let currPage = Level_3_Pages(context: context)
+                                    currPage.bookName = bookName
+                                    let arr = chapter.components(separatedBy: ". ")
+                                    let arr1 = level_3.components(separatedBy: ". ")
+                                    currPage.chapterName = arr[1]
+                                    currPage.chapter = Int32(arr[0])!
+                                    if arr1.count == 1{
+                                        currPage.level_3_name = arr1[0]
+                                    }
+                                    else{
+                                        currPage.level_3 = Int32(arr1[0])!
+                                        currPage.level_3_name = arr1[1]
+                                    }
+                                    currPage.verse = Int32(verse)
+                                    currPage.purport = purp
+                                    currPage.text = text
+                                    currPage.syn = syn
+                                    currPage.translation = trans
+                                    do{
+                                        try context.save()
+                                    }
+                                    catch{
+                                        print(error)
+                                    }
+                                }
+                            }
+                            book.pagesCount = Int32(pagesCount)
+                            do{
+                                try context.save()
+                            }
+                            catch{
+                                print(error)
+                            }
+                            let pagesReq : NSFetchRequest<Level_3_Pages> = Level_3_Pages.fetchRequest()
+                            let sortDesc = NSSortDescriptor(key: "verse", ascending: true)
+                            let sort = NSSortDescriptor(key: "chapter", ascending: true)
+                            let sort2 = NSSortDescriptor(key: "level_3", ascending: true)
+                            pagesReq.sortDescriptors = [sort2, sort, sortDesc]
+                            do{
+                                let pagesArr = try context.fetch(pagesReq)
+                                var num = 1
+                                for i in pagesArr{
+                                    i.pageNum = Int32(num)
+                                    num += 1
+                                }
+                                try context.save()
+                            }
+                            catch{
+                                print(error)
+                            }
+                        }
+                        else{
+                            print("Err4")
+                        }
+                    }
+                    else{
+                        print("Err1")
+                    }
+                }
+                else{
+                    print("Err2")
+                }
+            }
+            else{
+                print("Err3")
+            }
+        }
+        let levels1 = Book_Levels(context: context)
+        levels1.bookName = names[0]
+        levels1.level = 3
+        do{
+            try context.save()
+        }
+        catch{
+            print(error)
+        }
+        let levels2 = Book_Levels(context: context)
+        levels2.bookName = names[1]
+        levels2.level = 3
         do{
             try context.save()
         }
