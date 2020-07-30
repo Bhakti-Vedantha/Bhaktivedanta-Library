@@ -24,6 +24,11 @@ class ContentViewController: UIViewController, PageNum {
             currentVCIndex = curPage
             configurePageViewController()
         }
+        if level == 3{
+            curPage = data + 3
+            currentVCIndex = curPage
+            configurePageViewController()
+        }
         
     }
     
@@ -40,13 +45,18 @@ class ContentViewController: UIViewController, PageNum {
     var level_1_pages : [Level_1_Pages]!
     var level_2_book : Level_2_Books!
     var level_2_pages : [Level_2_Pages]!
+    var level_3_book : Level_3_Books!
+    var level_3_pages : [Level_3_Pages]!
     var level = 0
     var curPage = 0
+    var count = 0
 //    var level_1_startings = ["Preface", "Introduction", "Dedication", "Foreword", "Introductory Note By George Harrison", "Invocation", "Mission", "Prologue"]
     var level_1_startings : [String]?
     var level_1_headings : [String]?
     var level_2_startings : [String]?
     var level_2_headings : [String]?
+    var level_3_startings : [String]?
+    var level_3_headings : [String]?
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePageViewController()
@@ -54,9 +64,15 @@ class ContentViewController: UIViewController, PageNum {
 //        navigationController?.navigationItem.title = label
         if level == 1{
             self.title = level_1_book.bookName
+            count = (pagesCount! - chapCount!)
         }
         if level == 2{
             self.title = level_2_book.bookName
+            count = 4
+        }
+        if level == 3{
+            self.title = level_3_book.bookName
+            count = 2
         }
         print(label!)
     }
@@ -68,6 +84,9 @@ class ContentViewController: UIViewController, PageNum {
             }
             if level == 2{
                 level_2_book.currPage = Int32(currentVCIndex!)
+            }
+            if level == 3{
+                level_3_book.currPage = Int32(currentVCIndex!)
             }
             try context.save()
         }
@@ -105,7 +124,7 @@ class ContentViewController: UIViewController, PageNum {
     }
     
     func detailViewControllerAt(index: Int) -> DataViewController?{
-        if(index > pagesCount! || pagesCount! == 0 || index <= 0){
+        if(index > pagesCount! + count || pagesCount! == 0 || index <= 0){
             navigationController?.popToRootViewController(animated: true)
             return nil
         }
@@ -192,6 +211,39 @@ class ContentViewController: UIViewController, PageNum {
                 }
             }
         }
+        
+        if level == 3{
+            if index <= 3{
+                if index == 1{
+                    dataVC.displayText = level_3_book.bookName
+                }
+                else{
+                    dataVC.displayText = "\t" + level_3_headings![index - 2] + "\n\n\n\t"
+                    dataVC.displayText! += level_3_startings![index - 2]
+                }
+            }
+            else{
+                dataVC.displayText = "\tChapter : \(level_3_pages[index - 4].chapter). \(level_3_pages[index - 4].chapterName!)\n\tVerse : \(level_3_pages[index - 4].verse)\n\n"
+                if defaults.integer(forKey: "showText") == 2 && level_3_pages[index - 4].text!.count != 0 {
+                    dataVC.displayText! += level_3_pages[index - 4].text!
+                }
+                if defaults.integer(forKey: "showSyn") == 2 && level_3_pages[index - 4].syn!.count != 0 {
+                    dataVC.displayText! += "\n\nSynonyms\n\n" + level_3_pages[index - 4].syn!
+                }
+                if defaults.integer(forKey: "showTra") == 2 && level_3_pages[index - 4].translation!.count != 0 {
+                    dataVC.displayText! += "\n\nTranslation\n\n" + level_3_pages[index - 4].translation!
+                }
+                if defaults.integer(forKey: "showPur") == 2 && level_3_pages[index - 4].purport!.count != 0 {
+                    if dataVC.displayText == "\tChapter : \(level_3_pages[index - 4].chapter). \(level_3_pages[index - 4].chapterName!)\n\n\n"{
+                        dataVC.displayText! += level_3_pages[index - 4].purport!
+                    }
+                    else{
+                        dataVC.displayText! += "\n\nPurport\n\n" + level_3_pages[index - 4].purport!
+                    }
+                    
+                }
+            }
+        }
 //        if index <= 4{
 //            dataVC.displayText = book.preface
 //        }
@@ -259,6 +311,19 @@ class ContentViewController: UIViewController, PageNum {
                 }
                 destVC.data = self
                 destVC.bookName = level_2_book.bookName
+                destVC.chap = chap
+                destVC.pageNums = pageNums
+            }
+            if level == 3{
+                for page in level_3_pages{
+                    let str = "\(page.level_3_name!): \(page.chapter). \(page.chapterName!)"
+                    if !chap.contains(str){
+                        chap.append(str)
+                        pageNums.append(Int(page.pageNum))
+                    }
+                }
+                destVC.data = self
+                destVC.bookName = level_3_book.bookName
                 destVC.chap = chap
                 destVC.pageNums = pageNums
             }

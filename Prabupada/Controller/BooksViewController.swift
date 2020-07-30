@@ -177,6 +177,37 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
                     print(error)
                 }
             }
+            
+            if books[clickedIndex].level == 3{
+                let req : NSFetchRequest<Level_3_Books> = Level_3_Books.fetchRequest()
+                let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", books[clickedIndex].bookName!)
+                req.predicate = pred
+                do{
+                    let res = try context.fetch(req)
+                    destVC.pagesCount = Int(res[0].pagesCount) + 1
+                    destVC.currentVCIndex = Int(res[0].currPage)
+                    destVC.level = 3
+                    destVC.level_3_book = res[0]
+                    let starter_arr = [res[0].preface!, res[0].intro!]
+                    let arr = ["Preface", "Introduction"]
+                    destVC.level_3_headings = arr
+                    destVC.level_3_startings = starter_arr
+                    let req: NSFetchRequest<Level_3_Pages> = Level_3_Pages.fetchRequest()
+                    let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", books[clickedIndex].bookName!)
+                    req.predicate = pred
+                    let sort = NSSortDescriptor(key: "pageNum", ascending: true)
+                    req.sortDescriptors = [sort]
+                    do{
+                        destVC.level_3_pages = try context.fetch(req)
+                    }
+                    catch{
+                        print(error)
+                    }
+                }
+                catch{
+                    print(error)
+                }
+            }
 //            destVC.currentVCIndex = Int(books[clickedIndex].currPage)
 //            print(Int(books[clickedIndex].currPage))
 //            destVC.pagesCount = Int(books[clickedIndex].pagesCount)
@@ -527,6 +558,8 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
                                 print(error)
                             }
                             let pagesReq : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
+                            let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", book.bookName!)
+                            pagesReq.predicate = pred
                             let sortDesc = NSSortDescriptor(key: "verse", ascending: true)
                             let sort = NSSortDescriptor(key: "chapter", ascending: true)
                             pagesReq.sortDescriptors = [sort, sortDesc]
@@ -717,6 +750,8 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
                                 print(error)
                             }
                             let pagesReq : NSFetchRequest<Level_3_Pages> = Level_3_Pages.fetchRequest()
+                            let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", book.bookName!)
+                            pagesReq.predicate = pred
                             let sortDesc = NSSortDescriptor(key: "verse", ascending: true)
                             let sort = NSSortDescriptor(key: "chapter", ascending: true)
                             let sort2 = NSSortDescriptor(key: "level_3", ascending: true)
