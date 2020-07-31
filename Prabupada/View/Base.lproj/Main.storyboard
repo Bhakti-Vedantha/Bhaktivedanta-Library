@@ -195,27 +195,63 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q8T-Fl-Cza">
-                                                <rect key="frame" x="0.0" y="10" width="375" height="657"/>
+                                                <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X8h-9F-oRi">
-                                                <rect key="frame" x="0.0" y="10" width="375" height="657"/>
+                                                <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                             </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQX-uq-nKw" userLabel="topView">
+                                                <rect key="frame" x="0.0" y="10" width="375" height="75"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9V-62-gWH" userLabel="bookmark">
+                                                        <rect key="frame" x="300" y="2" width="75" height="71"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="75" id="H6n-Nf-RaB"/>
+                                                        </constraints>
+                                                        <state key="normal" image="icons8-add-bookmark-25"/>
+                                                        <connections>
+                                                            <action selector="addBookmark:" destination="BdA-tD-34v" eventType="touchUpInside" id="VWj-31-mXM"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xoh-YL-p26" userLabel="pageDetails">
+                                                        <rect key="frame" x="0.0" y="2" width="300" height="71"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="AyU-8a-D25"/>
+                                                    <constraint firstItem="xoh-YL-p26" firstAttribute="top" secondItem="XQX-uq-nKw" secondAttribute="top" constant="2" id="DaU-sS-ufo"/>
+                                                    <constraint firstItem="B9V-62-gWH" firstAttribute="top" secondItem="XQX-uq-nKw" secondAttribute="top" constant="2" id="R9g-fb-uYS"/>
+                                                    <constraint firstItem="xoh-YL-p26" firstAttribute="leading" secondItem="XQX-uq-nKw" secondAttribute="leading" id="RLM-OX-Gby"/>
+                                                    <constraint firstItem="B9V-62-gWH" firstAttribute="leading" secondItem="xoh-YL-p26" secondAttribute="trailing" id="b90-tI-58a"/>
+                                                    <constraint firstAttribute="bottom" secondItem="B9V-62-gWH" secondAttribute="bottom" constant="2" id="oK5-iG-6v6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="B9V-62-gWH" secondAttribute="trailing" id="qFM-2p-Dnm"/>
+                                                    <constraint firstAttribute="bottom" secondItem="xoh-YL-p26" secondAttribute="bottom" constant="2" id="tOK-YB-shF"/>
+                                                    <constraint firstItem="B9V-62-gWH" firstAttribute="leading" secondItem="xoh-YL-p26" secondAttribute="trailing" id="xVF-2i-sxZ"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="Q8T-Fl-Cza" firstAttribute="top" secondItem="ta5-cN-Gvd" secondAttribute="top" constant="10" id="5WU-y2-vzJ"/>
-                                            <constraint firstItem="X8h-9F-oRi" firstAttribute="top" secondItem="ta5-cN-Gvd" secondAttribute="top" constant="10" id="EeU-Bz-g5V"/>
-                                            <constraint firstAttribute="trailing" secondItem="Q8T-Fl-Cza" secondAttribute="trailing" id="FtV-jT-mVM"/>
-                                            <constraint firstAttribute="bottom" secondItem="Q8T-Fl-Cza" secondAttribute="bottom" id="MOQ-KC-JB4"/>
-                                            <constraint firstItem="X8h-9F-oRi" firstAttribute="leading" secondItem="ta5-cN-Gvd" secondAttribute="leading" id="ceg-xF-tKB"/>
-                                            <constraint firstItem="Q8T-Fl-Cza" firstAttribute="leading" secondItem="ta5-cN-Gvd" secondAttribute="leading" id="jC8-Lo-U2E"/>
-                                            <constraint firstAttribute="trailing" secondItem="X8h-9F-oRi" secondAttribute="trailing" id="jFA-xV-RHV"/>
-                                            <constraint firstAttribute="bottom" secondItem="X8h-9F-oRi" secondAttribute="bottom" id="qxH-Js-5p3"/>
+                                            <constraint firstItem="X8h-9F-oRi" firstAttribute="leading" secondItem="ta5-cN-Gvd" secondAttribute="leading" id="0i8-Af-SmT"/>
+                                            <constraint firstItem="XQX-uq-nKw" firstAttribute="leading" secondItem="ta5-cN-Gvd" secondAttribute="leading" id="2Db-66-mxr"/>
+                                            <constraint firstItem="XQX-uq-nKw" firstAttribute="top" secondItem="ta5-cN-Gvd" secondAttribute="top" constant="10" id="4H7-3v-t7N"/>
+                                            <constraint firstAttribute="bottom" secondItem="X8h-9F-oRi" secondAttribute="bottom" id="4Qy-JD-ESK"/>
+                                            <constraint firstAttribute="trailing" secondItem="X8h-9F-oRi" secondAttribute="trailing" id="EfW-0r-FMm"/>
+                                            <constraint firstAttribute="bottom" secondItem="Q8T-Fl-Cza" secondAttribute="bottom" id="Kcl-BG-zi3"/>
+                                            <constraint firstAttribute="trailing" secondItem="Q8T-Fl-Cza" secondAttribute="trailing" id="Vrh-3O-Afv"/>
+                                            <constraint firstItem="X8h-9F-oRi" firstAttribute="top" secondItem="ta5-cN-Gvd" secondAttribute="top" constant="90" id="YZR-NW-wlh"/>
+                                            <constraint firstItem="Q8T-Fl-Cza" firstAttribute="top" secondItem="ta5-cN-Gvd" secondAttribute="top" constant="90" id="d4W-t5-bgz"/>
+                                            <constraint firstAttribute="trailing" secondItem="XQX-uq-nKw" secondAttribute="trailing" id="iDd-O0-ytT"/>
+                                            <constraint firstItem="Q8T-Fl-Cza" firstAttribute="leading" secondItem="ta5-cN-Gvd" secondAttribute="leading" id="wfC-T8-d8v"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -242,14 +278,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="HXc-ZO-rUk"/>
                     <connections>
+                        <outlet property="bookmarkButton" destination="B9V-62-gWH" id="wfq-y6-nr6"/>
                         <outlet property="contentView" destination="ta5-cN-Gvd" id="7fo-cX-uEA"/>
                         <outlet property="imageView" destination="X8h-9F-oRi" id="1pd-VN-dl2"/>
+                        <outlet property="pageDetails" destination="xoh-YL-p26" id="toj-eU-2Sg"/>
                         <outlet property="textView" destination="Q8T-Fl-Cza" id="OzS-De-jvv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZi-xs-aBW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5720.8000000000002" y="-520.38980509745136"/>
+            <point key="canvasLocation" x="5401" y="-539"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="awP-Y4-xgz">
@@ -436,6 +474,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-add-bookmark-25" width="25" height="25"/>
         <image name="icons8-bookmark-25" width="25" height="25"/>
         <image name="icons8-books-25" width="25" height="25"/>
         <image name="icons8-search-25" width="25" height="25"/>

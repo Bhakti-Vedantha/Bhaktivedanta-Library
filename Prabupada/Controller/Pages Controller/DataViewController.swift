@@ -11,10 +11,19 @@ import UIKit
 class DataViewController: UIViewController{
 
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var pageDetails: UILabel!
+    @IBOutlet weak var bookmarkButton: UIButton!
     let defaults = UserDefaults.standard
     var index : Int?
     var displayText: String?
+    var textForDetails : String?
     var titleForNav : String?
+    var bookName : String?
+    var level : Int?
+    var canto : Int?
+    var chapter : Int?
+    var verse : Int?
+    var pageNum : Int?
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
@@ -24,11 +33,17 @@ class DataViewController: UIViewController{
         if index == 1{
             imageView.image = UIImage(named: displayText!)
             textView.isHidden = true
+            bookmarkButton.isHidden = true
         }
         else{
+            if displayText == "\n\t"{
+                bookmarkButton.isHidden = true
+            }
+            pageDetails.textAlignment = .center
             imageView.isHidden = true
             displayText = displayText?.replacingOccurrences(of: "\n", with: "\n\t")
             displayText = displayText?.replacingOccurrences(of: "$", with: "\t")
+            pageDetails.text = textForDetails
             textView!.text = displayText
             textView!.textAlignment = .left
             textView!.font = UIFont.systemFont(ofSize: CGFloat(defaults.float(forKey: "size")))
@@ -47,5 +62,16 @@ class DataViewController: UIViewController{
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    @IBAction func addBookmark(_ sender: UIButton) {
+        print(bookName!)
+        print(level!)
+        print(canto!)
+        print(chapter!)
+        print(verse!)
+        print(pageNum!)
+    }
+    
 
 }

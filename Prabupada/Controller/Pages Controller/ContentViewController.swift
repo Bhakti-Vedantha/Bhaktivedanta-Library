@@ -62,6 +62,9 @@ class ContentViewController: UIViewController, PageNum {
         configurePageViewController()
         // Do any additional setup after loading the view.
 //        navigationController?.navigationItem.title = label
+        if currentVCIndex! >= pagesCount! || currentVCIndex == 0{
+            currentVCIndex = 1
+        }
         if level == 1{
             self.title = level_1_book.bookName
             count = (pagesCount! - chapCount!)
@@ -125,16 +128,18 @@ class ContentViewController: UIViewController, PageNum {
     
     func detailViewControllerAt(index: Int) -> DataViewController?{
         if(index > pagesCount! + count || pagesCount! == 0 || index <= 0){
+            currentVCIndex = 1
             navigationController?.popToRootViewController(animated: true)
             return nil
         }
         guard let dataVC = storyboard?.instantiateViewController(withIdentifier: String(describing: DataViewController.self)) as? DataViewController else{
             return nil
         }
-        
         dataVC.index = index
         print(index)
         if level == 1{
+            dataVC.canto = 0
+            dataVC.chapter = 0
             if index <= (pagesCount! - chapCount!){
                 if index == 1{
 //                    self.title = level_1_book.bookName
@@ -142,7 +147,8 @@ class ContentViewController: UIViewController, PageNum {
                 }
                 else{
 //                    self.title = level_1_headings![index - 2]
-                    dataVC.displayText = "\t" + level_1_headings![index - 2] + "\n\n\n\t"
+                    dataVC.textForDetails = level_1_headings![index - 2]
+                    dataVC.displayText = "\n\t"
                     dataVC.displayText! += level_1_startings![index - 2]
                 }
 //                dataVC.displayText = anotherArr[level_1_index]
@@ -150,8 +156,13 @@ class ContentViewController: UIViewController, PageNum {
 //                dataVC.titleForNav = level_1_startings![level_1_index]
             }
             else{
+                dataVC.pageNum = Int(level_1_pages[index - (pagesCount! - chapCount!) - 1].pageNum)
+                dataVC.verse = Int(level_1_pages[index - (pagesCount! - chapCount!) - 1].chapter)
+                dataVC.bookName = level_1_book.bookName
+                dataVC.level = 1
 //                self.title = level_1_pages[index - 1 - (pagesCount! - chapCount!)].chapterName
-                dataVC.displayText = "\tChapter : \(level_1_pages[index - (pagesCount! - chapCount!) - 1].chapter). \(level_1_pages[index - (pagesCount! - chapCount!) - 1].chapterName!)\n\n\n"
+                dataVC.textForDetails = "\tChapter : \(level_1_pages[index - (pagesCount! - chapCount!) - 1].chapter). \(level_1_pages[index - (pagesCount! - chapCount!) - 1].chapterName!)\n\n\n"
+                dataVC.displayText = "\n\t"
                 if defaults.integer(forKey: "showText") == 2 && level_1_pages[index - (pagesCount! - chapCount!) - 1].text!.count != 0 {
                     dataVC.displayText! += level_1_pages[index - 1 - (pagesCount! - chapCount!)].text!
                 }
@@ -173,6 +184,7 @@ class ContentViewController: UIViewController, PageNum {
             }
         }
         if level == 2{
+            dataVC.canto = 0
             if index <= 5{
                 if index == 1{
 //                    self.title = level_1_book.bookName
@@ -180,7 +192,8 @@ class ContentViewController: UIViewController, PageNum {
                 }
                 else{
 //                    self.title = level_1_headings![index - 2]
-                    dataVC.displayText = "\t" + level_2_headings![index - 2] + "\n\n\n\t"
+                    dataVC.textForDetails = level_2_headings![index - 2]
+                    dataVC.displayText = "\n\t"
                     dataVC.displayText! += level_2_startings![index - 2]
                 }
 //                dataVC.displayText = anotherArr[level_1_index]
@@ -188,9 +201,15 @@ class ContentViewController: UIViewController, PageNum {
 //                dataVC.titleForNav = level_1_startings![level_1_index]
             }
             else{
+                dataVC.pageNum = Int(level_2_pages[index - 6].pageNum)
+                dataVC.chapter = Int(level_2_pages[index - 6].chapter)
+                dataVC.verse = Int(level_2_pages[index - 6].verse)
+                dataVC.level = 2
+                dataVC.bookName = level_2_book.bookName
 //                self.title = level_1_pages[index - 1 - (pagesCount! - chapCount!)].chapterName
-                dataVC.displayText = "\tChapter : \(level_2_pages[index - 6].chapter). \(level_2_pages[index - 6].chapterName!)\n\tVerse : \(level_2_pages[index - 6].verse)\n\n"
+                dataVC.textForDetails = "\tChapter : \(level_2_pages[index - 6].chapter). \(level_2_pages[index - 6].chapterName!)\n\tVerse : \(level_2_pages[index - 6].verse)\n\n"
 
+                dataVC.displayText = "\n\t"
                 if defaults.integer(forKey: "showText") == 2 && level_2_pages[index - 6].text!.count != 0 {
                     dataVC.displayText! += level_2_pages[index - 6].text!
                 }
@@ -218,12 +237,20 @@ class ContentViewController: UIViewController, PageNum {
                     dataVC.displayText = level_3_book.bookName
                 }
                 else{
-                    dataVC.displayText = "\t" + level_3_headings![index - 2] + "\n\n\n\t"
+                    dataVC.textForDetails = level_3_headings![index - 2]
+                    dataVC.displayText = "\n\t"
                     dataVC.displayText! += level_3_startings![index - 2]
                 }
             }
             else{
-                dataVC.displayText = "\tChapter : \(level_3_pages[index - 4].chapter). \(level_3_pages[index - 4].chapterName!)\n\tVerse : \(level_3_pages[index - 4].verse)\n\n"
+                dataVC.pageNum = Int(level_3_pages[index - 4].pageNum)
+                dataVC.bookName = level_3_book.bookName
+                dataVC.canto = Int(level_3_pages[index - 4].level_3)
+                dataVC.chapter = Int(level_3_pages[index - 4].chapter)
+                dataVC.verse = Int(level_3_pages[index - 4].verse)
+                dataVC.level = 3
+                dataVC.textForDetails = "\tChapter : \(level_3_pages[index - 4].chapter). \(level_3_pages[index - 4].chapterName!)\n\tVerse : \(level_3_pages[index - 4].verse)\n\n"
+                dataVC.displayText = "\n\t"
                 if defaults.integer(forKey: "showText") == 2 && level_3_pages[index - 4].text!.count != 0 {
                     dataVC.displayText! += level_3_pages[index - 4].text!
                 }
