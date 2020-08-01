@@ -67,7 +67,7 @@ class ContentViewController: UIViewController, PageNum {
         }
         if level == 1{
             self.title = level_1_book.bookName
-            count = (pagesCount! - chapCount!)
+//            count = (pagesCount! - chapCount!) - 2
         }
         if level == 2{
             self.title = level_2_book.bookName
@@ -78,6 +78,7 @@ class ContentViewController: UIViewController, PageNum {
             count = 2
         }
         print(label!)
+        print(pagesCount!)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -127,6 +128,7 @@ class ContentViewController: UIViewController, PageNum {
     }
     
     func detailViewControllerAt(index: Int) -> DataViewController?{
+        print(index)
         if(index > pagesCount! + count || pagesCount! == 0 || index <= 0){
             currentVCIndex = 1
             navigationController?.popToRootViewController(animated: true)

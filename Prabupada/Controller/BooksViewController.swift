@@ -658,7 +658,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
                                     print("3")
                                     return
                                 }
-                                guard let verse = page["verse"] as? Int else {
+                                guard let verse = page["verse"] as? String else {
                                     print("4")
                                     return
                                 }
@@ -720,6 +720,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
                                     currPage.bookName = bookName
                                     let arr = chapter.components(separatedBy: ". ")
                                     let arr1 = level_3.components(separatedBy: ". ")
+                                    let arr2 = verse.components(separatedBy: ". ")
                                     currPage.chapterName = arr[1]
                                     currPage.chapter = Int32(arr[0])!
                                     if arr1.count == 1{
@@ -729,7 +730,8 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
                                         currPage.level_3 = Int32(arr1[0])!
                                         currPage.level_3_name = arr1[1]
                                     }
-                                    currPage.verse = Int32(verse)
+                                    currPage.verse = Int32(arr2[0])!
+                                    currPage.verseName = arr2[1]
                                     currPage.purport = purp
                                     currPage.text = text
                                     currPage.syn = syn

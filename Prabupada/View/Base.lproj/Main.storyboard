@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9F-VH-uye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3444" y="-1318"/>
+            <point key="canvasLocation" x="3476" y="204"/>
         </scene>
         <!--Table Of Contents-->
         <scene sceneID="DF0-Op-XIF">
@@ -295,7 +295,7 @@
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="yL8-uL-SHY" customClass="PageViewController" customModule="Prabupada" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1S3-1i-1Ih" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4177" y="0.0"/>
+            <point key="canvasLocation" x="5401" y="204"/>
         </scene>
         <!--Bookmark-->
         <scene sceneID="3pC-4x-3Zf">
@@ -312,6 +312,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMC-ya-Jsg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1348" y="-456"/>
+        </scene>
+        <!--Quick Look-->
+        <scene sceneID="ub9-ZM-QHE">
+            <objects>
+                <viewController id="c7Z-bG-cXl" customClass="GotoViewController" customModule="Prabupada" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o1J-ar-MFb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g8d-iO-uis">
+                                <rect key="frame" x="0.0" y="225.5" width="375" height="216"/>
+                                <subviews>
+                                    <pickerView tag="1" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="qPh-8d-Oei" userLabel="Picker View1">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="216"/>
+                                    </pickerView>
+                                    <pickerView tag="2" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="lh3-SF-dzX" userLabel="Picker View2">
+                                        <rect key="frame" x="94" y="0.0" width="93.5" height="216"/>
+                                    </pickerView>
+                                    <pickerView tag="3" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Ggk-XE-ZsF" userLabel="Picker View3">
+                                        <rect key="frame" x="187.5" y="0.0" width="94" height="216"/>
+                                    </pickerView>
+                                    <pickerView tag="4" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="X5R-lP-xOK" userLabel="Picker View4">
+                                        <rect key="frame" x="281.5" y="0.0" width="93.5" height="216"/>
+                                    </pickerView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="X5R-lP-xOK" secondAttribute="trailing" id="8nk-Gx-VP3"/>
+                                    <constraint firstItem="Ggk-XE-ZsF" firstAttribute="leading" secondItem="lh3-SF-dzX" secondAttribute="trailing" id="Abx-43-5FI"/>
+                                    <constraint firstItem="Ggk-XE-ZsF" firstAttribute="top" secondItem="g8d-iO-uis" secondAttribute="top" id="CkU-CX-Hil"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ggk-XE-ZsF" secondAttribute="bottom" id="Jfb-1s-qdo"/>
+                                    <constraint firstAttribute="bottom" secondItem="X5R-lP-xOK" secondAttribute="bottom" id="VOl-Ki-KdS"/>
+                                    <constraint firstItem="qPh-8d-Oei" firstAttribute="leading" secondItem="g8d-iO-uis" secondAttribute="leading" id="ZwL-1R-S3P"/>
+                                    <constraint firstItem="lh3-SF-dzX" firstAttribute="leading" secondItem="qPh-8d-Oei" secondAttribute="trailing" id="iYN-gz-ORl"/>
+                                    <constraint firstItem="lh3-SF-dzX" firstAttribute="leading" secondItem="qPh-8d-Oei" secondAttribute="trailing" id="kPZ-c5-7Jo"/>
+                                    <constraint firstItem="X5R-lP-xOK" firstAttribute="leading" secondItem="Ggk-XE-ZsF" secondAttribute="trailing" id="n42-PU-qta"/>
+                                    <constraint firstItem="X5R-lP-xOK" firstAttribute="top" secondItem="g8d-iO-uis" secondAttribute="top" id="uNu-bP-hhf"/>
+                                    <constraint firstAttribute="bottom" secondItem="lh3-SF-dzX" secondAttribute="bottom" id="wpM-mQ-TLN"/>
+                                    <constraint firstItem="lh3-SF-dzX" firstAttribute="top" secondItem="g8d-iO-uis" secondAttribute="top" id="wrP-ZY-aO6"/>
+                                    <constraint firstAttribute="bottom" secondItem="qPh-8d-Oei" secondAttribute="bottom" id="xzs-w0-7Xy"/>
+                                    <constraint firstItem="qPh-8d-Oei" firstAttribute="top" secondItem="g8d-iO-uis" secondAttribute="top" id="zfa-EC-Ki2"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="g8d-iO-uis" firstAttribute="centerY" secondItem="o1J-ar-MFb" secondAttribute="centerY" id="BcY-II-3Mw"/>
+                            <constraint firstAttribute="trailing" secondItem="g8d-iO-uis" secondAttribute="trailing" id="K68-0J-hFD"/>
+                            <constraint firstItem="g8d-iO-uis" firstAttribute="leading" secondItem="u9y-qf-2mH" secondAttribute="leading" id="XfF-wf-5s1"/>
+                            <constraint firstItem="g8d-iO-uis" firstAttribute="centerX" secondItem="o1J-ar-MFb" secondAttribute="centerX" id="t78-P1-SYe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u9y-qf-2mH"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Quick Look" id="YX0-t6-0xj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="c7m-bm-LxP">
+                            <connections>
+                                <action selector="goTo:" destination="c7Z-bG-cXl" id="WJl-2Z-ABy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pC1" destination="qPh-8d-Oei" id="ChR-tq-U2K"/>
+                        <outlet property="pC2" destination="lh3-SF-dzX" id="4SC-fD-SSW"/>
+                        <outlet property="pC3" destination="Ggk-XE-ZsF" id="Cwr-na-VVh"/>
+                        <outlet property="pC4" destination="X5R-lP-xOK" id="Pxa-MD-Fee"/>
+                        <segue destination="lFd-oO-IgH" kind="show" identifier="goTo" id="ebv-RT-h7h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x84-YK-PLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2287.1999999999998" y="1309.2953523238382"/>
         </scene>
         <!--Settings-->
         <scene sceneID="5mb-jA-Zfg">
@@ -330,7 +400,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="CQ0-i9-f4C">
-                                            <rect key="frame" x="36" y="33.5" width="133" height="23.5"/>
+                                            <rect key="frame" x="36" y="33.5" width="133" height="23"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -377,7 +447,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSl-Rk-Ibx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2287.1999999999998" y="1244.527736131934"/>
+            <point key="canvasLocation" x="1348" y="2216"/>
         </scene>
         <!--Search-->
         <scene sceneID="wg7-f3-ORb">
@@ -426,6 +496,7 @@
                     <connections>
                         <segue destination="qmU-fy-gwd" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="wjd-u1-Ztd" kind="relationship" relationship="viewControllers" id="rlV-ay-8v5"/>
                         <segue destination="WeQ-60-ACx" kind="relationship" relationship="viewControllers" id="aiA-jf-rjX"/>
                         <segue destination="sSd-B0-oOO" kind="relationship" relationship="viewControllers" id="1QF-w6-3qL"/>
                     </connections>
@@ -470,9 +541,31 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Okz-KW-Qiy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1348" y="1244.527736131934"/>
+            <point key="canvasLocation" x="-1" y="2235"/>
+        </scene>
+        <!--Go To-->
+        <scene sceneID="Hou-Pk-Fg2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wjd-u1-Ztd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Go To" id="hyk-Sf-Egc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XhN-7u-kfo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="c7Z-bG-cXl" kind="relationship" relationship="rootViewController" id="Ldu-xH-LNq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bsH-6x-5VF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1348" y="1309.2953523238382"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ebv-RT-h7h"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="icons8-add-bookmark-25" width="25" height="25"/>
         <image name="icons8-bookmark-25" width="25" height="25"/>
