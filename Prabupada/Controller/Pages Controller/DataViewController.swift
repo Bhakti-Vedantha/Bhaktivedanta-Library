@@ -24,12 +24,26 @@ class DataViewController: UIViewController{
     var chapter : Int?
     var verse : Int?
     var pageNum : Int?
+    
+    
+    var text : String?
+    var syn : String?
+    var trans : String?
+    var pur : String?
+    
+    var attrText : NSAttributedString?
+    var attrSyn : NSAttributedString?
+    var attrTrans : NSAttributedString?
+    var attrPur : NSAttributedString?
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 //        displayLabel.text = displayText
         // Do any additional setup after loading the view.
+        let fontSize = CGFloat(defaults.float(forKey: "size"))
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
         if index == 1{
             imageView.image = UIImage(named: displayText!)
             textView.isHidden = true
@@ -39,14 +53,68 @@ class DataViewController: UIViewController{
             if displayText == "\n\t"{
                 bookmarkButton.isHidden = true
             }
+            
+            if text != nil{
+                let textAttr : [NSAttributedString.Key : Any] = [
+                    .font : UIFont.italicSystemFont(ofSize: fontSize),
+                    .paragraphStyle : style,
+                ]
+                text = text?.replacingOccurrences(of: "\n", with: "\n\t")
+                text = text?.replacingOccurrences(of: "$", with: "\t")
+                text! += "\n\n"
+                attrText = NSAttributedString(string: text!, attributes: textAttr)
+            }
+            if syn != nil{
+                let synAttr : [NSAttributedString.Key : Any] = [
+                    .font : UIFont.italicSystemFont(ofSize: fontSize),
+                    .paragraphStyle : style,
+                ]
+                syn = syn?.replacingOccurrences(of: "\n", with: "\n\t")
+                syn = syn?.replacingOccurrences(of: "$", with: "\t")
+                syn! += "\n\n"
+                attrSyn = NSAttributedString(string: syn!, attributes: synAttr)
+            }
+            if trans != nil{
+                let transAttr : [NSAttributedString.Key : Any] = [
+                    .font : UIFont.boldSystemFont(ofSize: fontSize),
+                ]
+                trans = trans?.replacingOccurrences(of: "\n", with: "\n\t")
+                trans = trans?.replacingOccurrences(of: "$", with: "\t")
+                trans! += "\n\n"
+                attrTrans = NSAttributedString(string: trans!, attributes: transAttr)
+            }
+            if pur != nil{
+                let purAttr : [NSAttributedString.Key : Any] = [
+                    .font : UIFont.systemFont(ofSize: fontSize),
+                ]
+                pur = pur?.replacingOccurrences(of: "\n", with: "\n\t")
+                pur = pur?.replacingOccurrences(of: "$", with: "\t")
+                attrPur = NSAttributedString(string: pur!, attributes: purAttr)
+            }
+            let finalText : NSMutableAttributedString? = NSMutableAttributedString(string: " ")
+            
+            if text != nil{
+                finalText?.append(attrText!)
+            }
+            if syn != nil{
+                finalText?.append(attrSyn!)
+            }
+            if trans != nil{
+                finalText?.append(attrTrans!)
+            }
+            if pur != nil{
+                finalText?.append(attrPur!)
+            }
+            
             pageDetails.textAlignment = .center
             imageView.isHidden = true
-            displayText = displayText?.replacingOccurrences(of: "\n", with: "\n\t")
-            displayText = displayText?.replacingOccurrences(of: "$", with: "\t")
+//            displayText = displayText?.replacingOccurrences(of: "\n", with: "\n\t")
+//            displayText = displayText?.replacingOccurrences(of: "$", with: "\t")
             pageDetails.text = textForDetails
-            textView!.text = displayText
-            textView!.textAlignment = .left
-            textView!.font = UIFont.systemFont(ofSize: CGFloat(defaults.float(forKey: "size")))
+            textView!.attributedText = finalText
+            textView.textColor = UIColor.white
+//            textView!.textAlignment = .left
+//            textView!.font = UIFont.systemFont(ofSize: CGFloat(defaults.float(forKey: "size")))
             textView!.isEditable = false
             textView!.showsVerticalScrollIndicator = false
         }
