@@ -28,6 +28,7 @@
 		8C9EE2E924BC3E22001FEEC7 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2E824BC3E22001FEEC7 /* BookCollectionViewCell.swift */; };
 		8CA607D524D59AA30096DD14 /* bg.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CA607D424D59AA30096DD14 /* bg.json */; };
 		8CA607D924D59E400096DD14 /* sb.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CA607D824D59E400096DD14 /* sb.json */; };
+		8CAE205024D696690014B526 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE204F24D696690014B526 /* TabViewController.swift */; };
 		8CB88BE924BD780A006EBD07 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BE824BD780A006EBD07 /* DataViewController.swift */; };
 		8CB88BEB24BD790A006EBD07 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BEA24BD790A006EBD07 /* PageViewController.swift */; };
 		8CB88BED24BD79F4006EBD07 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BEC24BD79F4006EBD07 /* ContentViewController.swift */; };
@@ -75,6 +76,7 @@
 		8C9EE2E824BC3E22001FEEC7 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		8CA607D424D59AA30096DD14 /* bg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bg.json; sourceTree = "<group>"; };
 		8CA607D824D59E400096DD14 /* sb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sb.json; sourceTree = "<group>"; };
+		8CAE204F24D696690014B526 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		8CB88BE824BD780A006EBD07 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		8CB88BEA24BD790A006EBD07 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8CB88BEC24BD79F4006EBD07 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				8C9EE2E424BC39E2001FEEC7 /* SearchViewController.swift */,
+				8CAE204F24D696690014B526 /* TabViewController.swift */,
 				8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */,
 				8C9EE2E224BC3997001FEEC7 /* BooksViewController.swift */,
 				8C70258D24D535AD00EC163E /* GotoViewController.swift */,
@@ -318,6 +321,7 @@
 				8C1B64AE24BED65D0006B2F8 /* SettingsViewController.swift in Sources */,
 				8C9EE2E324BC3997001FEEC7 /* BooksViewController.swift in Sources */,
 				8C9EE2CA24BC38CD001FEEC7 /* AppDelegate.swift in Sources */,
+				8CAE205024D696690014B526 /* TabViewController.swift in Sources */,
 				8C9EE2CC24BC38CD001FEEC7 /* SceneDelegate.swift in Sources */,
 				8CB88BE924BD780A006EBD07 /* DataViewController.swift in Sources */,
 				8C70258E24D535AD00EC163E /* GotoViewController.swift in Sources */,

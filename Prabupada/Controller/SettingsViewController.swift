@@ -8,8 +8,9 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class SettingsViewController: UITableViewController {
-    let settingArr = ["Keep Awake", "Text", "Synonyms", "Translation", "Purport"]
+    let settingArr = ["Keep Awake", "Text", "Synonyms", "Translation", "Purport", "Dark Mode"]
     let defaults = UserDefaults.standard
     var labelInCell: UILabel!
     override func viewDidLoad() {
@@ -34,7 +35,7 @@ class SettingsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 6
+        return 7
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,6 +68,8 @@ class SettingsViewController: UITableViewController {
             case 5:
                 val = defaults.integer(forKey: "showPur") == 2 ? true : false
                 break
+            case 6:
+                val = defaults.integer(forKey: "darkMode") == 2 ? true : false
             default:
                 break
             }
@@ -102,12 +105,20 @@ class SettingsViewController: UITableViewController {
         case 5:
             key = "showPur"
             break
+        case 6:
+            key = "darkMode"
         default:
             print("Nothing")
         }
         let val = toggle.isOn ? 2 : 1
         defaults.set(val, forKey: key)
         print(defaults.integer(forKey: key))
+        if val == 1{
+            tabBarController?.overrideUserInterfaceStyle = .light
+        }
+        else{
+            tabBarController?.overrideUserInterfaceStyle = .dark
+        }
     }
 
     /*

@@ -67,6 +67,9 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         if defaults.integer(forKey: "keepAwake") == 0{
             defaults.set(2, forKey: "keepAwake")
         }
+        if defaults.integer(forKey: "darkMode") == 0{
+            defaults.set(1, forKey: "darkMode")
+        }
         if defaults.float(forKey: "size") == 0 {
             defaults.set(20, forKey: "size")
         }

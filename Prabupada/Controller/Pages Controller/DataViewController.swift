@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class DataViewController: UIViewController{
 
     @IBOutlet weak var contentView: UIView!
@@ -37,6 +38,15 @@ class DataViewController: UIViewController{
     var attrPur : NSAttributedString?
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if defaults.integer(forKey: "darkMode") == 2{
+            textView.textColor = UIColor.white
+        }
+        else{
+            textView.textColor = UIColor.black
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        displayLabel.text = displayText
@@ -112,12 +122,19 @@ class DataViewController: UIViewController{
 //            displayText = displayText?.replacingOccurrences(of: "$", with: "\t")
             pageDetails.text = textForDetails
             textView!.attributedText = finalText
-            textView.textColor = UIColor.white
+//            textView.textColor = UIColor.systemBackground
+//            if defaults.integer(forKey: "darkMode") == 2{
+//                textView.textColor = UIColor.white
+//            }
+//            else{
+//                textView.textColor = UIColor.black
+//            }
 //            textView!.textAlignment = .left
 //            textView!.font = UIFont.systemFont(ofSize: CGFloat(defaults.float(forKey: "size")))
             textView!.isEditable = false
             textView!.showsVerticalScrollIndicator = false
         }
+        
         
 //        navigationController?.title = titleForNav
     }
