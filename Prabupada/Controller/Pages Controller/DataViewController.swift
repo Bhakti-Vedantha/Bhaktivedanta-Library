@@ -87,6 +87,7 @@ class DataViewController: UIViewController{
             if trans != nil{
                 let transAttr : [NSAttributedString.Key : Any] = [
                     .font : UIFont.boldSystemFont(ofSize: fontSize),
+                    .paragraphStyle : style,
                 ]
                 trans = trans?.replacingOccurrences(of: "\n", with: "\n\t")
                 trans = trans?.replacingOccurrences(of: "$", with: "\t")
@@ -96,6 +97,7 @@ class DataViewController: UIViewController{
             if pur != nil{
                 let purAttr : [NSAttributedString.Key : Any] = [
                     .font : UIFont.systemFont(ofSize: fontSize),
+                    .paragraphStyle : style,
                 ]
                 pur = pur?.replacingOccurrences(of: "\n", with: "\n\t")
                 pur = pur?.replacingOccurrences(of: "$", with: "\t")

@@ -20,12 +20,12 @@ class ContentViewController: UIViewController, PageNum {
             navigationController?.navigationItem.title = "Hi"
         }
         if level == 2{
-            curPage = data + 5
+            curPage = data + count + 1
             currentVCIndex = curPage
             configurePageViewController()
         }
         if level == 3{
-            curPage = data + 3
+            curPage = data + count + 1
             currentVCIndex = curPage
             configurePageViewController()
         }
@@ -71,11 +71,11 @@ class ContentViewController: UIViewController, PageNum {
         }
         if level == 2{
             self.title = level_2_book.bookName
-            count = 4
+//            count = 4
         }
         if level == 3{
             self.title = level_3_book.bookName
-            count = 2
+//            count = 2
         }
         print(label!)
         print(pagesCount!)
@@ -129,7 +129,7 @@ class ContentViewController: UIViewController, PageNum {
     
     func detailViewControllerAt(index: Int) -> DataViewController?{
         print(index)
-        if(index > pagesCount! + count || pagesCount! == 0 || index <= 0){
+        if(index > pagesCount! || pagesCount! == 0 || index <= 0){
             currentVCIndex = 1
             navigationController?.popToRootViewController(animated: true)
             return nil
@@ -191,7 +191,7 @@ class ContentViewController: UIViewController, PageNum {
         }
         if level == 2{
             dataVC.canto = 0
-            if index <= 5{
+            if index <= count + 1{
                 if index == 1{
 //                    self.title = level_1_book.bookName
                     dataVC.displayText = level_2_book.bookName
@@ -207,41 +207,41 @@ class ContentViewController: UIViewController, PageNum {
 //                dataVC.titleForNav = level_1_startings![level_1_index]
             }
             else{
-                dataVC.pageNum = Int(level_2_pages[index - 6].pageNum)
-                dataVC.chapter = Int(level_2_pages[index - 6].chapter)
-                dataVC.verse = Int(level_2_pages[index - 6].verse)
+                dataVC.pageNum = Int(level_2_pages[index - count - 2].pageNum)
+                dataVC.chapter = Int(level_2_pages[index - count - 2].chapter)
+                dataVC.verse = Int(level_2_pages[index - count - 2].verse)
                 dataVC.level = 2
                 dataVC.bookName = level_2_book.bookName
 //                self.title = level_1_pages[index - 1 - (pagesCount! - chapCount!)].chapterName
-                dataVC.textForDetails = "\tChapter : \(level_2_pages[index - 6].chapter). \(level_2_pages[index - 6].chapterName!)\n\tVerse : \(level_2_pages[index - 6].verse)\n\n"
+                dataVC.textForDetails = "\tChapter : \(level_2_pages[index - count - 2].chapter). \(level_2_pages[index - count - 2].chapterName!)\n\tVerse : \(level_2_pages[index - count - 2].verse)\n\n"
 
 //                dataVC.displayText = "\n\t"
-                if defaults.integer(forKey: "showText") == 2 && level_2_pages[index - 6].text!.count != 0 {
+                if defaults.integer(forKey: "showText") == 2 && level_2_pages[index - count - 2].text!.count != 0 {
 //                    dataVC.displayText! += level_2_pages[index - 6].text!
-                    dataVC.text = "\n" + level_2_pages[index - 6].text!
+                    dataVC.text = "\n" + level_2_pages[index - count - 2].text!
                 }
-                if defaults.integer(forKey: "showSyn") == 2 && level_2_pages[index - 6].syn!.count != 0 {
+                if defaults.integer(forKey: "showSyn") == 2 && level_2_pages[index - count - 2].syn!.count != 0 {
 //                    dataVC.displayText! += "\n\nSynonyms\n\n" + level_2_pages[index - 6].syn!
-                    dataVC.syn = "\n" + level_2_pages[index - 6].syn!
+                    dataVC.syn = "\n" + level_2_pages[index - count - 2].syn!
                 }
-                if defaults.integer(forKey: "showTra") == 2 && level_2_pages[index - 6].translation!.count != 0 {
+                if defaults.integer(forKey: "showTra") == 2 && level_2_pages[index - count - 2].translation!.count != 0 {
 //                    dataVC.displayText! += "\n\nTranslation\n\n" + level_2_pages[index - 6].translation!
-                    dataVC.trans = "\n" + level_2_pages[index - 6].translation!
+                    dataVC.trans = "\n" + level_2_pages[index - count - 2].translation!
                 }
-                if defaults.integer(forKey: "showPur") == 2 && level_2_pages[index - 6].purport!.count != 0 {
+                if defaults.integer(forKey: "showPur") == 2 && level_2_pages[index - count - 2].purport!.count != 0 {
 //                    if dataVC.displayText == "\tChapter : \(level_2_pages[index - 6].chapter). \(level_2_pages[index - 6].chapterName!)\n\n\n"{
 //                        dataVC.displayText! += level_2_pages[index - 6].purport!
 //                    }
 //                    else{
 //                        dataVC.displayText! += "\n\nPurport\n\n" + level_2_pages[index - 6].purport!
 //                    }
-                    dataVC.pur = "\n" + level_2_pages[index - 6].purport!
+                    dataVC.pur = "\n" + level_2_pages[index - count - 2].purport!
                 }
             }
         }
         
         if level == 3{
-            if index <= 3{
+            if index <= count + 1{
                 if index == 1{
                     dataVC.displayText = level_3_book.bookName
                 }

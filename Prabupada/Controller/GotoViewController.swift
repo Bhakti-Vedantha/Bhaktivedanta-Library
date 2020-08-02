@@ -368,6 +368,7 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 let req : NSFetchRequest<Level_2_Books> = Level_2_Books.fetchRequest()
                 let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", bookName)
                 req.predicate = pred
+                var co = 0
                 do{
                     let res = try context.fetch(req)
                     destVC.pagesCount = Int(res[0].pagesCount) + 1
@@ -378,8 +379,20 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                     destVC.level_2_book = res[0]
                     let arr = ["Preface", "Introduction", "Dedication", "Foreword"]
                     let starter_arr = [res[0].preface!, res[0].intro!, res[0].dedication!, res[0].foreword!]
-                    destVC.level_2_headings = arr
-                    destVC.level_2_startings = starter_arr
+                    var another_arr : [String] = []
+                    var arr_2 : [String] = []
+                    var c = 0
+                    for i in starter_arr{
+                        if i.count != 0{
+                            another_arr.append(i)
+                            arr_2.append(arr[c])
+                        }
+                        c += 1
+                    }
+                    co = arr_2.count
+                    destVC.count = arr_2.count
+                    destVC.level_2_headings = arr_2
+                    destVC.level_2_startings = another_arr
                     let req : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
                     let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", bookName)
                     req.predicate = pred
@@ -403,7 +416,7 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 reqq.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p1, p2, p3])
                 do{
                     let res = try context.fetch(reqq)
-                    destVC.currentVCIndex = Int(res[0].pageNum) + 5
+                    destVC.currentVCIndex = Int(res[0].pageNum) + co + 1
                     print(res[0].pageNum)
                 }
                 catch{
@@ -415,6 +428,7 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 let req : NSFetchRequest<Level_3_Books> = Level_3_Books.fetchRequest()
                 let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", bookName)
                 req.predicate = pred
+                var co = 0
                 do{
                     let res = try context.fetch(req)
                     destVC.pagesCount = Int(res[0].pagesCount) + 1
@@ -423,8 +437,20 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                     destVC.level_3_book = res[0]
                     let starter_arr = [res[0].preface!, res[0].intro!]
                     let arr = ["Preface", "Introduction"]
-                    destVC.level_3_headings = arr
-                    destVC.level_3_startings = starter_arr
+                    var another_arr : [String] = []
+                    var arr_2 : [String] = []
+                    var c = 0
+                    for i in starter_arr{
+                        if i.count != 0{
+                            another_arr.append(i)
+                            arr_2.append(arr[c])
+                        }
+                        c += 1
+                    }
+                    co = arr_2.count
+                    destVC.count = arr_2.count
+                    destVC.level_3_headings = arr_2
+                    destVC.level_3_startings = another_arr
                     let req: NSFetchRequest<Level_3_Pages> = Level_3_Pages.fetchRequest()
                     let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", bookName)
                     req.predicate = pred
@@ -448,7 +474,7 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 reqq.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p1, p4, p2, p3])
                 do{
                     let res = try context.fetch(reqq)
-                    destVC.currentVCIndex = Int(res[0].pageNum) + 3
+                    destVC.currentVCIndex = Int(res[0].pageNum) + co + 1
                     print(res[0].pageNum)
                 }
                 catch{

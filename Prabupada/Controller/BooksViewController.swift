@@ -162,8 +162,19 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
                     destVC.level_2_book = res[0]
                     let arr = ["Preface", "Introduction", "Dedication", "Foreword"]
                     let starter_arr = [res[0].preface!, res[0].intro!, res[0].dedication!, res[0].foreword!]
-                    destVC.level_2_headings = arr
-                    destVC.level_2_startings = starter_arr
+                    var another_arr : [String] = []
+                    var arr_2 : [String] = []
+                    var c = 0
+                    for i in starter_arr{
+                        if i.count != 0{
+                            another_arr.append(i)
+                            arr_2.append(arr[c])
+                        }
+                        c += 1
+                    }
+                    destVC.count = arr_2.count
+                    destVC.level_2_headings = arr_2
+                    destVC.level_2_startings = another_arr
                     let req : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
                     let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", books[clickedIndex].bookName!)
                     req.predicate = pred
@@ -193,8 +204,19 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
                     destVC.level_3_book = res[0]
                     let starter_arr = [res[0].preface!, res[0].intro!]
                     let arr = ["Preface", "Introduction"]
-                    destVC.level_3_headings = arr
-                    destVC.level_3_startings = starter_arr
+                    var another_arr : [String] = []
+                    var arr_2 : [String] = []
+                    var c = 0
+                    for i in starter_arr{
+                        if i.count != 0{
+                            another_arr.append(i)
+                            arr_2.append(arr[c])
+                        }
+                        c += 1
+                    }
+                    destVC.count = arr_2.count
+                    destVC.level_3_headings = arr_2
+                    destVC.level_3_startings = another_arr
                     let req: NSFetchRequest<Level_3_Pages> = Level_3_Pages.fetchRequest()
                     let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", books[clickedIndex].bookName!)
                     req.predicate = pred
