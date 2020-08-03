@@ -24,10 +24,11 @@
 		8C9EE2DB24BC38CF001FEEC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9EE2D924BC38CF001FEEC7 /* LaunchScreen.storyboard */; };
 		8C9EE2E324BC3997001FEEC7 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2E224BC3997001FEEC7 /* BooksViewController.swift */; };
 		8C9EE2E524BC39E2001FEEC7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2E424BC39E2001FEEC7 /* SearchViewController.swift */; };
-		8C9EE2E724BC3A3F001FEEC7 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2E624BC3A3F001FEEC7 /* BookmarkViewController.swift */; };
 		8C9EE2E924BC3E22001FEEC7 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9EE2E824BC3E22001FEEC7 /* BookCollectionViewCell.swift */; };
 		8CA607D524D59AA30096DD14 /* bg.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CA607D424D59AA30096DD14 /* bg.json */; };
 		8CA607D924D59E400096DD14 /* sb.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CA607D824D59E400096DD14 /* sb.json */; };
+		8CAD376924D715A300A2C92A /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAD376824D715A300A2C92A /* BookmarksViewController.swift */; };
+		8CAD376B24D7160600A2C92A /* BookmarkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAD376A24D7160600A2C92A /* BookmarkCollectionViewCell.swift */; };
 		8CAE205024D696690014B526 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE204F24D696690014B526 /* TabViewController.swift */; };
 		8CB88BE924BD780A006EBD07 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BE824BD780A006EBD07 /* DataViewController.swift */; };
 		8CB88BEB24BD790A006EBD07 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BEA24BD790A006EBD07 /* PageViewController.swift */; };
@@ -72,10 +73,11 @@
 		8C9EE2DC24BC38CF001FEEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C9EE2E224BC3997001FEEC7 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		8C9EE2E424BC39E2001FEEC7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		8C9EE2E624BC3A3F001FEEC7 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		8C9EE2E824BC3E22001FEEC7 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		8CA607D424D59AA30096DD14 /* bg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bg.json; sourceTree = "<group>"; };
 		8CA607D824D59E400096DD14 /* sb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sb.json; sourceTree = "<group>"; };
+		8CAD376824D715A300A2C92A /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		8CAD376A24D7160600A2C92A /* BookmarkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCollectionViewCell.swift; sourceTree = "<group>"; };
 		8CAE204F24D696690014B526 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		8CB88BE824BD780A006EBD07 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		8CB88BEA24BD790A006EBD07 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				8C9EE2E824BC3E22001FEEC7 /* BookCollectionViewCell.swift */,
 				8C9EE2D124BC38CD001FEEC7 /* Main.storyboard */,
 				8CC0067424C346F800C9386C /* TOCTableViewCell.swift */,
+				8CAD376A24D7160600A2C92A /* BookmarkCollectionViewCell.swift */,
 				8C9EE2D924BC38CF001FEEC7 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -140,8 +143,8 @@
 				8C1B64AD24BED65D0006B2F8 /* SettingsViewController.swift */,
 				8C9EE2E224BC3997001FEEC7 /* BooksViewController.swift */,
 				8C70258D24D535AD00EC163E /* GotoViewController.swift */,
+				8CAD376824D715A300A2C92A /* BookmarksViewController.swift */,
 				8CB88BEE24BD7A50006EBD07 /* Pages Controller */,
-				8C9EE2E624BC3A3F001FEEC7 /* BookmarkViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CAD376924D715A300A2C92A /* BookmarksViewController.swift in Sources */,
 				8CC0067524C346F800C9386C /* TOCTableViewCell.swift in Sources */,
 				8CB88BED24BD79F4006EBD07 /* ContentViewController.swift in Sources */,
 				8C1B64B024BED6EE0006B2F8 /* SettingsViewCell.swift in Sources */,
@@ -327,8 +331,8 @@
 				8C70258E24D535AD00EC163E /* GotoViewController.swift in Sources */,
 				8C9EE2E924BC3E22001FEEC7 /* BookCollectionViewCell.swift in Sources */,
 				8CC0067324C33FA300C9386C /* TOCTableViewController.swift in Sources */,
+				8CAD376B24D7160600A2C92A /* BookmarkCollectionViewCell.swift in Sources */,
 				8CB88BEB24BD790A006EBD07 /* PageViewController.swift in Sources */,
-				8C9EE2E724BC3A3F001FEEC7 /* BookmarkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

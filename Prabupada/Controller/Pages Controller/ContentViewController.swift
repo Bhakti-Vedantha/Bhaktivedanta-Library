@@ -142,7 +142,9 @@ class ContentViewController: UIViewController, PageNum {
         if level == 1{
             dataVC.canto = 0
             dataVC.chapter = 0
+            dataVC.bookName = level_1_book.bookName
             if index <= (pagesCount! - chapCount!){
+                dataVC.hidden = true
                 if index == 1{
 //                    self.title = level_1_book.bookName
                     dataVC.displayText = level_1_book.bookName
@@ -158,9 +160,9 @@ class ContentViewController: UIViewController, PageNum {
 //                dataVC.titleForNav = level_1_startings![level_1_index]
             }
             else{
+                dataVC.hidden = false
                 dataVC.pageNum = Int(level_1_pages[index - (pagesCount! - chapCount!) - 1].pageNum)
                 dataVC.verse = Int(level_1_pages[index - (pagesCount! - chapCount!) - 1].chapter)
-                dataVC.bookName = level_1_book.bookName
                 dataVC.level = 1
 //                self.title = level_1_pages[index - 1 - (pagesCount! - chapCount!)].chapterName
                 dataVC.textForDetails = "\tChapter : \(level_1_pages[index - (pagesCount! - chapCount!) - 1].chapter). \(level_1_pages[index - (pagesCount! - chapCount!) - 1].chapterName!)\n\n\n"
@@ -190,8 +192,10 @@ class ContentViewController: UIViewController, PageNum {
             }
         }
         if level == 2{
+            dataVC.bookName = level_2_book.bookName
             dataVC.canto = 0
             if index <= count + 1{
+                dataVC.hidden = true
                 if index == 1{
 //                    self.title = level_1_book.bookName
                     dataVC.displayText = level_2_book.bookName
@@ -207,11 +211,11 @@ class ContentViewController: UIViewController, PageNum {
 //                dataVC.titleForNav = level_1_startings![level_1_index]
             }
             else{
+                dataVC.hidden = false
                 dataVC.pageNum = Int(level_2_pages[index - count - 2].pageNum)
                 dataVC.chapter = Int(level_2_pages[index - count - 2].chapter)
                 dataVC.verse = Int(level_2_pages[index - count - 2].verse)
                 dataVC.level = 2
-                dataVC.bookName = level_2_book.bookName
 //                self.title = level_1_pages[index - 1 - (pagesCount! - chapCount!)].chapterName
                 dataVC.textForDetails = "\tChapter : \(level_2_pages[index - count - 2].chapter). \(level_2_pages[index - count - 2].chapterName!)\n\tVerse : \(level_2_pages[index - count - 2].verse)\n\n"
 
@@ -241,7 +245,9 @@ class ContentViewController: UIViewController, PageNum {
         }
         
         if level == 3{
+            dataVC.bookName = level_3_book.bookName
             if index <= count + 1{
+                dataVC.hidden = true
                 if index == 1{
                     dataVC.displayText = level_3_book.bookName
                 }
@@ -252,13 +258,13 @@ class ContentViewController: UIViewController, PageNum {
                 }
             }
             else{
+                dataVC.hidden = false
                 dataVC.pageNum = Int(level_3_pages[index - 4].pageNum)
-                dataVC.bookName = level_3_book.bookName
                 dataVC.canto = Int(level_3_pages[index - 4].level_3)
                 dataVC.chapter = Int(level_3_pages[index - 4].chapter)
                 dataVC.verse = Int(level_3_pages[index - 4].verse)
                 dataVC.level = 3
-                dataVC.textForDetails = "\tChapter : \(level_3_pages[index - 4].chapter). \(level_3_pages[index - 4].chapterName!)\n\tVerse : \(level_3_pages[index - 4].verse)\n\n"
+                dataVC.textForDetails = "\t\(level_3_pages[index - 4].level_3). \(level_3_pages[index - 4].level_3_name!) . Chapter : \(level_3_pages[index - 4].chapter). \(level_3_pages[index - 4].chapterName!)\n\tVerse : \(level_3_pages[index - 4].verse)\n\n"
 //                dataVC.displayText = "\n\t"
                 if defaults.integer(forKey: "showText") == 2 && level_3_pages[index - 4].text!.count != 0 {
 //                    dataVC.displayText! += level_3_pages[index - 4].text!

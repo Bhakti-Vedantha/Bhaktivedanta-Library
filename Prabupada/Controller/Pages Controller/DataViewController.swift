@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 @available(iOS 13.0, *)
 class DataViewController: UIViewController{
 
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var pageDetails: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
@@ -20,12 +23,12 @@ class DataViewController: UIViewController{
     var textForDetails : String?
     var titleForNav : String?
     var bookName : String?
-    var level : Int?
-    var canto : Int?
-    var chapter : Int?
-    var verse : Int?
-    var pageNum : Int?
-    
+    var level = 0
+    var canto = 0
+    var chapter = 0
+    var verse = 0
+    var pageNum = 0
+    var hidden : Bool?
     
     var text : String?
     var syn : String?
@@ -51,18 +54,37 @@ class DataViewController: UIViewController{
         super.viewDidLoad()
 //        displayLabel.text = displayText
         // Do any additional setup after loading the view.
+        let req : NSFetchRequest<Bookmarks> = Bookmarks.fetchRequest()
+        let p1 = NSPredicate(format: "bookName == %@", bookName!)
+        let p2 = NSPredicate(format: "level == %@", String(level))
+        let p3 = NSPredicate(format: "canto == %@", String(canto))
+        let p4 = NSPredicate(format: "chapter == %@", String(chapter))
+        let p5 = NSPredicate(format: "verse == %@", String(verse))
+        let p6 = NSPredicate(format: "pageNum == %@", String(pageNum))
+        req.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p1, p2, p3, p4, p5, p6])
+        do{
+            let res = try context.fetch(req)
+            if res.count == 0{
+                bookmarkButton.tintColor = .none
+            }
+            else{
+                bookmarkButton.tintColor = .systemYellow
+            }
+        }
+        catch{
+            print(error)
+        }
+        
+        
         let fontSize = CGFloat(defaults.float(forKey: "size"))
         let style = NSMutableParagraphStyle()
         style.alignment = .center
+        bookmarkButton.isHidden = hidden!
         if index == 1{
             imageView.image = UIImage(named: displayText!)
             textView.isHidden = true
-            bookmarkButton.isHidden = true
         }
         else{
-            if displayText == "\n\t"{
-                bookmarkButton.isHidden = true
-            }
             
             if text != nil{
                 let textAttr : [NSAttributedString.Key : Any] = [
@@ -118,7 +140,7 @@ class DataViewController: UIViewController{
                 finalText?.append(attrPur!)
             }
             
-            pageDetails.textAlignment = .center
+            pageDetails.textAlignment = .justified
             imageView.isHidden = true
 //            displayText = displayText?.replacingOccurrences(of: "\n", with: "\n\t")
 //            displayText = displayText?.replacingOccurrences(of: "$", with: "\t")
@@ -153,11 +175,52 @@ class DataViewController: UIViewController{
     
     @IBAction func addBookmark(_ sender: UIButton) {
         print(bookName!)
-        print(level!)
-        print(canto!)
-        print(chapter!)
-        print(verse!)
-        print(pageNum!)
+        print(level)
+        print(canto)
+        print(chapter)
+        print(verse)
+        print(pageNum)
+        
+        let req : NSFetchRequest<Bookmarks> = Bookmarks.fetchRequest()
+        let p1 = NSPredicate(format: "bookName == %@", bookName!)
+        let p2 = NSPredicate(format: "level == %@", String(level))
+        let p3 = NSPredicate(format: "canto == %@", String(canto))
+        let p4 = NSPredicate(format: "chapter == %@", String(chapter))
+        let p5 = NSPredicate(format: "verse == %@", String(verse))
+        let p6 = NSPredicate(format: "pageNum == %@", String(pageNum))
+        req.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p1, p2, p3, p4, p5, p6])
+        do{
+            let res = try context.fetch(req)
+            if res.count == 0{
+                let newBookmark = Bookmarks(context: context)
+                newBookmark.bookName = bookName
+                newBookmark.level = Int32(level)
+                newBookmark.canto = Int32(canto)
+                newBookmark.chapter = Int32(chapter)
+                newBookmark.verse = Int32(verse)
+                newBookmark.pageNum = Int32(pageNum)
+                do{
+                    try context.save()
+                }
+                catch{
+                    print(error)
+                }
+                bookmarkButton.tintColor = .systemYellow
+            }
+            else{
+                context.delete(res[0])
+                do{
+                    try context.save()
+                }
+                catch{
+                    print(error)
+                }
+                bookmarkButton.tintColor = .none
+            }
+        }
+        catch{
+            print(error)
+        }
     }
     
 
