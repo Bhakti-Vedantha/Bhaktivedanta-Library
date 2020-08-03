@@ -259,33 +259,33 @@ class ContentViewController: UIViewController, PageNum {
             }
             else{
                 dataVC.hidden = false
-                dataVC.pageNum = Int(level_3_pages[index - 4].pageNum)
-                dataVC.canto = Int(level_3_pages[index - 4].level_3)
-                dataVC.chapter = Int(level_3_pages[index - 4].chapter)
-                dataVC.verse = Int(level_3_pages[index - 4].verse)
+                dataVC.pageNum = Int(level_3_pages[index - count - 2].pageNum)
+                dataVC.canto = Int(level_3_pages[index - count - 2].level_3)
+                dataVC.chapter = Int(level_3_pages[index - count - 2].chapter)
+                dataVC.verse = Int(level_3_pages[index - count - 2].verse)
                 dataVC.level = 3
-                dataVC.textForDetails = "\t\(level_3_pages[index - 4].level_3). \(level_3_pages[index - 4].level_3_name!) . Chapter : \(level_3_pages[index - 4].chapter). \(level_3_pages[index - 4].chapterName!)\n\tVerse : \(level_3_pages[index - 4].verse)\n\n"
+                dataVC.textForDetails = "\t\(level_3_pages[index - count - 2].level_3). \(level_3_pages[index - count - 2].level_3_name!) . Chapter : \(level_3_pages[index - count - 2].chapter). \(level_3_pages[index - count - 2].chapterName!)\n\tVerse : \(level_3_pages[index - count - 2].verse)\n\n"
 //                dataVC.displayText = "\n\t"
-                if defaults.integer(forKey: "showText") == 2 && level_3_pages[index - 4].text!.count != 0 {
+                if defaults.integer(forKey: "showText") == 2 && level_3_pages[index - count - 2].text!.count != 0 {
 //                    dataVC.displayText! += level_3_pages[index - 4].text!
-                    dataVC.text = "\n" + level_3_pages[index - 4].text!
+                    dataVC.text = "\n" + level_3_pages[index - count - 2].text!
                 }
-                if defaults.integer(forKey: "showSyn") == 2 && level_3_pages[index - 4].syn!.count != 0 {
+                if defaults.integer(forKey: "showSyn") == 2 && level_3_pages[index - count - 2].syn!.count != 0 {
 //                    dataVC.displayText! += "\n\nSynonyms\n\n" + level_3_pages[index - 4].syn!
-                    dataVC.syn = "\n" + level_3_pages[index - 4].syn!
+                    dataVC.syn = "\n" + level_3_pages[index - count - 2].syn!
                 }
-                if defaults.integer(forKey: "showTra") == 2 && level_3_pages[index - 4].translation!.count != 0 {
+                if defaults.integer(forKey: "showTra") == 2 && level_3_pages[index - count - 2].translation!.count != 0 {
 //                    dataVC.displayText! += "\n\nTranslation\n\n" + level_3_pages[index - 4].translation!
-                    dataVC.trans = "\n" + level_3_pages[index - 4].translation!
+                    dataVC.trans = "\n" + level_3_pages[index - count - 2].translation!
                 }
-                if defaults.integer(forKey: "showPur") == 2 && level_3_pages[index - 4].purport!.count != 0 {
+                if defaults.integer(forKey: "showPur") == 2 && level_3_pages[index - count - 2].purport!.count != 0 {
 //                    if dataVC.displayText == "\tChapter : \(level_3_pages[index - 4].chapter). \(level_3_pages[index - 4].chapterName!)\n\n\n"{
 //                        dataVC.displayText! += level_3_pages[index - 4].purport!
 //                    }
 //                    else{
 //                        dataVC.displayText! += "\n\nPurport\n\n" + level_3_pages[index - 4].purport!
 //                    }
-                    dataVC.pur = "\n" + level_3_pages[index - 4].purport!
+                    dataVC.pur = "\n" + level_3_pages[index - count - 2].purport!
                 }
             }
         }

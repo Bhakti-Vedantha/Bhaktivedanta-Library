@@ -209,9 +209,9 @@
                                                 <rect key="frame" x="0.0" y="10" width="375" height="75"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9V-62-gWH" userLabel="bookmark">
-                                                        <rect key="frame" x="300" y="2" width="75" height="71"/>
+                                                        <rect key="frame" x="325" y="2" width="50" height="71"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="75" id="H6n-Nf-RaB"/>
+                                                            <constraint firstAttribute="width" constant="50" id="dNN-LX-NPv"/>
                                                         </constraints>
                                                         <state key="normal" image="icons8-add-bookmark-25"/>
                                                         <connections>
@@ -219,23 +219,38 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xoh-YL-p26" userLabel="pageDetails">
-                                                        <rect key="frame" x="0.0" y="2" width="300" height="71"/>
+                                                        <rect key="frame" x="0.0" y="2" width="275" height="71"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRx-z4-KRF">
+                                                        <rect key="frame" x="275" y="2" width="50" height="71"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="hko-6h-6E0"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <state key="normal" image="icons8-plus-math-25"/>
+                                                        <connections>
+                                                            <action selector="addTag:" destination="BdA-tD-34v" eventType="touchUpInside" id="P1Q-BL-3u7"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="eRx-z4-KRF" firstAttribute="top" secondItem="XQX-uq-nKw" secondAttribute="top" constant="2" id="7jq-gT-mgc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="xoh-YL-p26" secondAttribute="bottom" constant="2" id="99j-Oe-tYu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="B9V-62-gWH" secondAttribute="trailing" id="AMF-IO-dLn"/>
                                                     <constraint firstAttribute="height" constant="75" id="AyU-8a-D25"/>
-                                                    <constraint firstItem="xoh-YL-p26" firstAttribute="top" secondItem="XQX-uq-nKw" secondAttribute="top" constant="2" id="DaU-sS-ufo"/>
-                                                    <constraint firstItem="B9V-62-gWH" firstAttribute="top" secondItem="XQX-uq-nKw" secondAttribute="top" constant="2" id="R9g-fb-uYS"/>
-                                                    <constraint firstItem="xoh-YL-p26" firstAttribute="leading" secondItem="XQX-uq-nKw" secondAttribute="leading" id="RLM-OX-Gby"/>
-                                                    <constraint firstItem="B9V-62-gWH" firstAttribute="leading" secondItem="xoh-YL-p26" secondAttribute="trailing" id="b90-tI-58a"/>
-                                                    <constraint firstAttribute="bottom" secondItem="B9V-62-gWH" secondAttribute="bottom" constant="2" id="oK5-iG-6v6"/>
-                                                    <constraint firstAttribute="trailing" secondItem="B9V-62-gWH" secondAttribute="trailing" id="qFM-2p-Dnm"/>
-                                                    <constraint firstAttribute="bottom" secondItem="xoh-YL-p26" secondAttribute="bottom" constant="2" id="tOK-YB-shF"/>
-                                                    <constraint firstItem="B9V-62-gWH" firstAttribute="leading" secondItem="xoh-YL-p26" secondAttribute="trailing" id="xVF-2i-sxZ"/>
+                                                    <constraint firstItem="B9V-62-gWH" firstAttribute="top" secondItem="XQX-uq-nKw" secondAttribute="top" constant="2" id="CJV-sV-l3I"/>
+                                                    <constraint firstItem="B9V-62-gWH" firstAttribute="leading" secondItem="eRx-z4-KRF" secondAttribute="trailing" id="Etw-rK-jfV"/>
+                                                    <constraint firstAttribute="bottom" secondItem="B9V-62-gWH" secondAttribute="bottom" constant="2" id="U3Y-Mf-ngK"/>
+                                                    <constraint firstItem="xoh-YL-p26" firstAttribute="leading" secondItem="XQX-uq-nKw" secondAttribute="leading" id="V46-G1-ntU"/>
+                                                    <constraint firstItem="B9V-62-gWH" firstAttribute="leading" secondItem="eRx-z4-KRF" secondAttribute="trailing" id="duo-Gp-zxk"/>
+                                                    <constraint firstItem="eRx-z4-KRF" firstAttribute="leading" secondItem="xoh-YL-p26" secondAttribute="trailing" id="jwk-yy-xnm"/>
+                                                    <constraint firstItem="eRx-z4-KRF" firstAttribute="leading" secondItem="xoh-YL-p26" secondAttribute="trailing" id="lzo-FH-dgu"/>
+                                                    <constraint firstItem="xoh-YL-p26" firstAttribute="top" secondItem="XQX-uq-nKw" secondAttribute="top" constant="2" id="mSr-e7-NcY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="eRx-z4-KRF" secondAttribute="bottom" constant="2" id="oie-dt-s6S"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -282,6 +297,7 @@
                         <outlet property="contentView" destination="ta5-cN-Gvd" id="7fo-cX-uEA"/>
                         <outlet property="imageView" destination="X8h-9F-oRi" id="1pd-VN-dl2"/>
                         <outlet property="pageDetails" destination="xoh-YL-p26" id="toj-eU-2Sg"/>
+                        <outlet property="tagButton" destination="eRx-z4-KRF" id="Jda-Tb-xdL"/>
                         <outlet property="textView" destination="Q8T-Fl-Cza" id="OzS-De-jvv"/>
                     </connections>
                 </viewController>
@@ -672,6 +688,7 @@
         <image name="icons8-add-bookmark-25" width="25" height="25"/>
         <image name="icons8-bookmark-25" width="25" height="25"/>
         <image name="icons8-books-25" width="25" height="25"/>
+        <image name="icons8-plus-math-25" width="25" height="25"/>
         <image name="icons8-search-25" width="25" height="25"/>
         <image name="icons8-settings-25" width="25" height="25"/>
         <image name="icons8-table-of-content-25" width="25" height="25"/>

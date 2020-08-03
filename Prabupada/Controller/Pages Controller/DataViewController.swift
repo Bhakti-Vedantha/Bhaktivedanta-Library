@@ -17,6 +17,7 @@ class DataViewController: UIViewController{
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var pageDetails: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
+    @IBOutlet weak var tagButton: UIButton!
     let defaults = UserDefaults.standard
     var index : Int?
     var displayText: String?
@@ -42,6 +43,7 @@ class DataViewController: UIViewController{
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     
+    var imageText = ""
     override func viewDidAppear(_ animated: Bool) {
         if defaults.integer(forKey: "darkMode") == 2{
             textView.textColor = UIColor.white
@@ -69,6 +71,29 @@ class DataViewController: UIViewController{
             }
             else{
                 bookmarkButton.tintColor = .systemYellow
+            }
+        }
+        catch{
+            print(error)
+        }
+        
+        let req1 : NSFetchRequest<Tags> = Tags.fetchRequest()
+        let p11 = NSPredicate(format: "bookName == %@", bookName!)
+        let p22 = NSPredicate(format: "level == %@", String(level))
+        let p33 = NSPredicate(format: "canto == %@", String(canto))
+        let p44 = NSPredicate(format: "chapter == %@", String(chapter))
+        let p55 = NSPredicate(format: "verse == %@", String(verse))
+        let p66 = NSPredicate(format: "pageNum == %@", String(pageNum))
+        req1.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p11, p22, p33, p44, p55, p66])
+        do{
+            let res = try context.fetch(req1)
+            if res.count == 0{
+                tagButton.imageView?.image = UIImage(named: "icons8-plus-math-25.png")
+                imageText = "icons8-plus-math-25.png"
+            }
+            else{
+                tagButton.imageView?.image = UIImage(named: "icons8-delete-25.png")
+                imageText = "icons8-delete-25.png"
             }
         }
         catch{
@@ -171,6 +196,89 @@ class DataViewController: UIViewController{
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func addTag(_ sender: UIButton) {
+        if imageText == "icons8-delete-25.png"{
+            let req : NSFetchRequest<Tags> = Tags.fetchRequest()
+            let p1 = NSPredicate(format: "bookName == %@", self.bookName!)
+            let p2 = NSPredicate(format: "level == %@", String(self.level))
+            let p3 = NSPredicate(format: "canto == %@", String(self.canto))
+            let p4 = NSPredicate(format: "chapter == %@", String(self.chapter))
+            let p5 = NSPredicate(format: "verse == %@", String(self.verse))
+            let p6 = NSPredicate(format: "pageNum == %@", String(self.pageNum))
+            req.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p1, p2, p3, p4, p5, p6])
+            do{
+                let res = try context.fetch(req)
+                context.delete(res[0])
+                do{
+                    try context.save()
+                }
+                catch{
+                    print(error)
+                }
+            }
+            catch{
+                print(error)
+            }
+            tagButton.imageView?.image = UIImage(named: "icons8-plus-math-25.png")
+            imageText = "icons8-plus-math-25.png"
+            return
+        }
+        var text = ""
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add Tag", message: "Tag Name Should not be empty", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add Tag", style: .default) { (action) in
+            if !textField.text!.isEmpty{
+                text = textField.text!
+                let req : NSFetchRequest<Tags> = Tags.fetchRequest()
+                let p1 = NSPredicate(format: "bookName == %@", self.bookName!)
+                let p2 = NSPredicate(format: "level == %@", String(self.level))
+                let p3 = NSPredicate(format: "canto == %@", String(self.canto))
+                let p4 = NSPredicate(format: "chapter == %@", String(self.chapter))
+                let p5 = NSPredicate(format: "verse == %@", String(self.verse))
+                let p6 = NSPredicate(format: "pageNum == %@", String(self.pageNum))
+                let p7 = NSPredicate(format: "tagName == %@", text)
+                req.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p7, p1, p2, p3, p4, p5, p6])
+                do{
+                    let res = try self.context.fetch(req)
+                    if res.count == 0{
+                        let newTag = Tags(context: self.context)
+                        newTag.bookName = self.bookName
+                        newTag.chapter = Int32(self.chapter)
+                        newTag.canto = Int32(self.canto)
+                        newTag.level = Int32(self.level)
+                        newTag.verse = Int32(self.verse)
+                        newTag.pageNum = Int32(self.pageNum)
+                        newTag.tagName = text
+                        do{
+                            try self.context.save()
+                        }
+                        catch{
+                            print(error)
+                        }
+                        self.tagButton.imageView?.image = UIImage(named: "icons8-delete-25.png")
+                        self.imageText = "icons8-delete-25.png"
+                    }
+                }
+                catch{
+                    print(error)
+                }
+            }
+            else{
+                self.addTag(sender)
+            }
+        }
+        alert.addAction(action)
+        alert.addTextField { (alertTF) in
+            alertTF.placeholder = "Enter your Tag name"
+            textField = alertTF
+        }
+        present(alert, animated: true, completion: nil)
+//        if text == ""{
+//            return
+//        }
+    }
+    
     
     
     @IBAction func addBookmark(_ sender: UIButton) {
