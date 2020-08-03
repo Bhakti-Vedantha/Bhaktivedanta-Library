@@ -105,6 +105,7 @@ class DataViewController: UIViewController{
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         bookmarkButton.isHidden = hidden!
+        tagButton.isHidden = hidden!
         if index == 1{
             imageView.image = UIImage(named: displayText!)
             textView.isHidden = true
@@ -229,7 +230,8 @@ class DataViewController: UIViewController{
         let alert = UIAlertController(title: "Add Tag", message: "Tag Name Should not be empty", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Tag", style: .default) { (action) in
             if !textField.text!.isEmpty{
-                text = textField.text!
+//                text = textField.text!
+                text = "#" + textField.text!
                 let req : NSFetchRequest<Tags> = Tags.fetchRequest()
                 let p1 = NSPredicate(format: "bookName == %@", self.bookName!)
                 let p2 = NSPredicate(format: "level == %@", String(self.level))
