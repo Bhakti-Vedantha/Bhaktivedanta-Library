@@ -22,6 +22,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     var verses : [Int] = []
     var pageNums : [Int] = []
     var clickedIndex = 0
+    var searchText = " "
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,6 +51,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
                 loadFromTags(tag: tag!)
             }
             else{
+                searchText = tag!
                 loadFromDB(tag: tag!)
             }
         }
@@ -194,6 +196,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showResults"{
             let destVC = segue.destination as! ContentViewController
+            destVC.searchText = searchText
             destVC.label = bookNames[clickedIndex]
             if levels[clickedIndex] == 1{
                 var c1 = 0

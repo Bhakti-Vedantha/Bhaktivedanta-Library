@@ -30,6 +30,7 @@ class DataViewController: UIViewController{
     var verse = 0
     var pageNum = 0
     var hidden : Bool?
+    var searchText = " "
     
     var text : String?
     var syn : String?
@@ -102,8 +103,12 @@ class DataViewController: UIViewController{
         
         
         let fontSize = CGFloat(defaults.float(forKey: "size"))
-        let style = NSMutableParagraphStyle()
-        style.alignment = .center
+        let style1 = NSMutableParagraphStyle()
+        style1.alignment = .justified
+        style1.lineSpacing = 5
+        let style2 = NSMutableParagraphStyle()
+        style2.alignment = .center
+        style2.lineSpacing = 5
         bookmarkButton.isHidden = hidden!
         tagButton.isHidden = hidden!
         if index == 1{
@@ -111,62 +116,113 @@ class DataViewController: UIViewController{
             textView.isHidden = true
         }
         else{
-            
+            let textAttr : [NSAttributedString.Key : Any] = [
+                .font : UIFont.italicSystemFont(ofSize: fontSize),
+                .paragraphStyle : style2,
+            ]
+            let synAttr : [NSAttributedString.Key : Any] = [
+                .font : UIFont.italicSystemFont(ofSize: fontSize),
+                .paragraphStyle : style2,
+            ]
+            let transAttr : [NSAttributedString.Key : Any] = [
+                .font : UIFont.boldSystemFont(ofSize: fontSize),
+                .paragraphStyle : style1,
+            ]
+            let purAttr : [NSAttributedString.Key : Any] = [
+                .font : UIFont.systemFont(ofSize: fontSize),
+                .paragraphStyle : style1,
+            ]
             if text != nil{
-                let textAttr : [NSAttributedString.Key : Any] = [
-                    .font : UIFont.italicSystemFont(ofSize: fontSize),
-                    .paragraphStyle : style,
-                ]
                 text = text?.replacingOccurrences(of: "\n", with: "\n\t")
                 text = text?.replacingOccurrences(of: "$", with: "\t")
-                text! += "\n\n"
+                text = text?.replacingOccurrences(of: "¶", with: " ")
+                text! += "\n"
                 attrText = NSAttributedString(string: text!, attributes: textAttr)
             }
             if syn != nil{
-                let synAttr : [NSAttributedString.Key : Any] = [
-                    .font : UIFont.italicSystemFont(ofSize: fontSize),
-                    .paragraphStyle : style,
-                ]
                 syn = syn?.replacingOccurrences(of: "\n", with: "\n\t")
                 syn = syn?.replacingOccurrences(of: "$", with: "\t")
+                syn = syn?.replacingOccurrences(of: "¶", with: " ")
                 syn! += "\n\n"
                 attrSyn = NSAttributedString(string: syn!, attributes: synAttr)
             }
             if trans != nil{
-                let transAttr : [NSAttributedString.Key : Any] = [
-                    .font : UIFont.boldSystemFont(ofSize: fontSize),
-                    .paragraphStyle : style,
-                ]
                 trans = trans?.replacingOccurrences(of: "\n", with: "\n\t")
                 trans = trans?.replacingOccurrences(of: "$", with: "\t")
+                trans = trans?.replacingOccurrences(of: "¶", with: " ")
                 trans! += "\n\n"
                 attrTrans = NSAttributedString(string: trans!, attributes: transAttr)
             }
             if pur != nil{
-                let purAttr : [NSAttributedString.Key : Any] = [
-                    .font : UIFont.systemFont(ofSize: fontSize),
-                    .paragraphStyle : style,
-                ]
                 pur = pur?.replacingOccurrences(of: "\n", with: "\n\t")
                 pur = pur?.replacingOccurrences(of: "$", with: "\t")
+                pur = pur?.replacingOccurrences(of: "¶", with: " ")
                 attrPur = NSAttributedString(string: pur!, attributes: purAttr)
             }
             let finalText : NSMutableAttributedString? = NSMutableAttributedString(string: " ")
             
+            let searchAttr : [NSAttributedString.Key : Any] = [
+                .font : UIFont.systemFont(ofSize: fontSize),
+                .backgroundColor : UIColor.systemYellow
+            ]
             if text != nil{
-                finalText?.append(attrText!)
+                if searchText != " "{
+                    let arr = attrText?.string.components(separatedBy: searchText)
+                    for i in arr!{
+                        let newText = NSAttributedString(string: i, attributes: textAttr)
+                        let seaText = NSAttributedString(string: searchText, attributes: searchAttr)
+                        finalText?.append(newText)
+                        finalText?.append(seaText)
+                    }
+                }
+                else{
+                    finalText?.append(attrText!)
+                }
             }
             if syn != nil{
-                finalText?.append(attrSyn!)
+                if searchText != " "{
+                    let arr = attrSyn?.string.components(separatedBy: searchText)
+                    for i in arr!{
+                        let newText = NSAttributedString(string: i, attributes: synAttr)
+                        let seaText = NSAttributedString(string: searchText, attributes: searchAttr)
+                        finalText?.append(newText)
+                        finalText?.append(seaText)
+                    }
+                }
+                else{
+                    finalText?.append(attrSyn!)
+                }
             }
             if trans != nil{
-                finalText?.append(attrTrans!)
+                if searchText != " "{
+                    let arr = attrTrans?.string.components(separatedBy: searchText)
+                    for i in arr!{
+                        let newText = NSAttributedString(string: i, attributes: transAttr)
+                        let seaText = NSAttributedString(string: searchText, attributes: searchAttr)
+                        finalText?.append(newText)
+                        finalText?.append(seaText)
+                    }
+                }
+                else{
+                    finalText?.append(attrTrans!)
+                }
             }
             if pur != nil{
-                finalText?.append(attrPur!)
+                if searchText != " "{
+                    let arr = attrPur?.string.components(separatedBy: searchText)
+                    for i in arr!{
+                        let newText = NSAttributedString(string: i, attributes: purAttr)
+                        let seaText = NSAttributedString(string: searchText, attributes: searchAttr)
+                        finalText?.append(newText)
+                        finalText?.append(seaText)
+                    }
+                }
+                else{
+                    finalText?.append(attrPur!)
+                }
             }
             
-            pageDetails.textAlignment = .justified
+            pageDetails.textAlignment = .center
             imageView.isHidden = true
 //            displayText = displayText?.replacingOccurrences(of: "\n", with: "\n\t")
 //            displayText = displayText?.replacingOccurrences(of: "$", with: "\t")

@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9F-VH-uye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5948" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="5297" y="204"/>
         </scene>
         <!--Table Of Contents-->
         <scene sceneID="DF0-Op-XIF">
@@ -220,7 +220,7 @@
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xoh-YL-p26" userLabel="pageDetails">
                                                         <rect key="frame" x="0.0" y="2" width="275" height="71"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -313,7 +313,7 @@
             </objects>
             <point key="canvasLocation" x="7279.1999999999998" y="203.74812593703149"/>
         </scene>
-        <!--Quick Look-->
+        <!--Quick Search-->
         <scene sceneID="ub9-ZM-QHE">
             <objects>
                 <viewController id="c7Z-bG-cXl" customClass="GotoViewController" customModule="Prabupada" customModuleProvider="target" sceneMemberID="viewController">
@@ -364,7 +364,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u9y-qf-2mH"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Quick Look" id="YX0-t6-0xj">
+                    <navigationItem key="navigationItem" title="Quick Search" id="YX0-t6-0xj">
                         <barButtonItem key="rightBarButtonItem" systemItem="play" id="c7m-bm-LxP">
                             <connections>
                                 <action selector="goTo:" destination="c7Z-bG-cXl" id="WJl-2Z-ABy"/>
@@ -695,7 +695,7 @@
         <scene sceneID="Hou-Pk-Fg2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wjd-u1-Ztd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Go To" id="hyk-Sf-Egc"/>
+                    <tabBarItem key="tabBarItem" title="Go To" image="icons8-table-of-content-25" id="hyk-Sf-Egc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XhN-7u-kfo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -710,11 +710,11 @@
             </objects>
             <point key="canvasLocation" x="1348" y="1309.2953523238382"/>
         </scene>
-        <!--Item-->
+        <!--Bookmarks-->
         <scene sceneID="A3P-ws-cPn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mHf-xt-mND" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="icons8-bookmark-25" id="UW7-Nk-RnK"/>
+                    <tabBarItem key="tabBarItem" title="Bookmarks" image="icons8-bookmark-25" id="UW7-Nk-RnK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oBq-q7-hwu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -750,7 +750,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ai9-ic-4Au"/>
+        <segue reference="ebv-RT-h7h"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icons8-add-bookmark-25" width="25" height="25"/>
