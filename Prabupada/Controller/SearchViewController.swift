@@ -23,6 +23,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     var pageNums : [Int] = []
     var clickedIndex = 0
     var searchText = " "
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +43,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         pageNums = []
         tableView.reloadData()
         searchBar.text = ""
+        searchText = " "
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

@@ -166,7 +166,7 @@ class DataViewController: UIViewController{
                 .backgroundColor : UIColor.systemYellow
             ]
             if text != nil{
-                if searchText != " "{
+                if searchText != " " && attrText!.string.contains(searchText){
                     let arr = attrText?.string.components(separatedBy: searchText)
                     for i in arr!{
                         let newText = NSAttributedString(string: i, attributes: textAttr)
@@ -180,7 +180,7 @@ class DataViewController: UIViewController{
                 }
             }
             if syn != nil{
-                if searchText != " "{
+                if searchText != " " && attrSyn!.string.contains(searchText){
                     let arr = attrSyn?.string.components(separatedBy: searchText)
                     for i in arr!{
                         let newText = NSAttributedString(string: i, attributes: synAttr)
@@ -194,7 +194,7 @@ class DataViewController: UIViewController{
                 }
             }
             if trans != nil{
-                if searchText != " "{
+                if searchText != " " && attrTrans!.string.contains(searchText){
                     let arr = attrTrans?.string.components(separatedBy: searchText)
                     for i in arr!{
                         let newText = NSAttributedString(string: i, attributes: transAttr)
@@ -208,7 +208,7 @@ class DataViewController: UIViewController{
                 }
             }
             if pur != nil{
-                if searchText != " "{
+                if searchText != " " && attrPur!.string.contains(searchText){
                     let arr = attrPur?.string.components(separatedBy: searchText)
                     for i in arr!{
                         let newText = NSAttributedString(string: i, attributes: purAttr)

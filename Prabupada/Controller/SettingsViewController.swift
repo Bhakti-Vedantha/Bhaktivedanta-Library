@@ -70,6 +70,7 @@ class SettingsViewController: UITableViewController {
                 break
             case 6:
                 val = defaults.integer(forKey: "darkMode") == 2 ? true : false
+                break
             default:
                 break
             }
@@ -107,13 +108,14 @@ class SettingsViewController: UITableViewController {
             break
         case 6:
             key = "darkMode"
+            break
         default:
             print("Nothing")
         }
         let val = toggle.isOn ? 2 : 1
         defaults.set(val, forKey: key)
         print(defaults.integer(forKey: key))
-        if val == 1{
+        if val == 1 && key == "darkMode"{
             tabBarController?.overrideUserInterfaceStyle = .light
         }
         else{
