@@ -10,24 +10,20 @@ import UIKit
 import CoreData
 
 @available(iOS 13.0, *)
-class BookmarksViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class BookmarksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     
     var clickedIndex = 0
     var bookmarks : [Bookmarks]!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        layout.minimumInteritemSpacing = 5
-        layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 20) / 2, height: (self.collectionView.frame.size.height - 20) / 2)
-        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = 80
         let req : NSFetchRequest<Bookmarks> = Bookmarks.fetchRequest()
         do{
             bookmarks = try context.fetch(req)
@@ -39,10 +35,6 @@ class BookmarksViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        layout.minimumInteritemSpacing = 5
-        layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 20) / 2, height: (self.collectionView.frame.size.height - 20) / 2)
         let req : NSFetchRequest<Bookmarks> = Bookmarks.fetchRequest()
         do{
             bookmarks = try context.fetch(req)
@@ -50,24 +42,25 @@ class BookmarksViewController: UIViewController, UICollectionViewDelegate, UICol
         catch{
             print(error)
         }
-        collectionView.reloadData()
+        tableView.reloadData()
     }
     
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return bookmarks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bookmarks.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell1", for: indexPath) as! BookmarkCollectionViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bookmarksCell", for: indexPath) as! BookmarksViewCell
         
-        cell.bookName.text = bookmarks[indexPath.item].bookName!
-        cell.bookName.backgroundColor = .systemBackground
-        cell.image.image = UIImage(named: bookmarks[indexPath.item].bookName! + ".jpg")
+        cell.bookmarkName.text = bookmarks[indexPath.item].bookName! + " - "
         var text = ""
         if bookmarks[indexPath.item].canto != 0{
             text += String(bookmarks[indexPath.item].canto) + "."
@@ -81,13 +74,11 @@ class BookmarksViewController: UIViewController, UICollectionViewDelegate, UICol
         if bookmarks[indexPath.item].verse != 0{
             text += String(bookmarks[indexPath.item].verse)
         }
-        cell.details.text = text
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.borderWidth = 0.5
+        cell.bookmarkName.text! += text
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         clickedIndex = indexPath.item
         performSegue(withIdentifier: "open", sender: self)
     }

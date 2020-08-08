@@ -72,7 +72,7 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1{
-            return books[row]
+            return books[row].uppercased()
         }
         if pickerView.tag == 2{
             return level_3[row]

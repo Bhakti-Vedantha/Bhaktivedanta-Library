@@ -118,7 +118,7 @@ class SettingsViewController: UITableViewController {
         if val == 1 && key == "darkMode"{
             tabBarController?.overrideUserInterfaceStyle = .light
         }
-        else{
+        else if val == 2 && key == "darkMode"{
             tabBarController?.overrideUserInterfaceStyle = .dark
         }
     }

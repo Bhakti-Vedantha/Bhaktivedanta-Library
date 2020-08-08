@@ -133,29 +133,56 @@ class DataViewController: UIViewController{
                 .paragraphStyle : style1,
             ]
             if text != nil{
-                text = text?.replacingOccurrences(of: "\n", with: "\n\t")
-                text = text?.replacingOccurrences(of: "$", with: "\t")
+                text = text?.replacingOccurrences(of: "\n", with: "\n\n")
+                while((text!.contains("\n\n"))){
+                    text = text?.replacingOccurrences(of: "\n\n", with: "")
+                }
                 text = text?.replacingOccurrences(of: "¶", with: " ")
-                text! += "\n"
+                text = text?.replacingOccurrences(of: "$", with: "\n\n")
+                if text!.contains("\n"){
+                    text! += "\n"
+                }
+                else{
+                    text! += "\n\n"
+                }
                 attrText = NSAttributedString(string: text!, attributes: textAttr)
             }
             if syn != nil{
-                syn = syn?.replacingOccurrences(of: "\n", with: "\n\t")
-                syn = syn?.replacingOccurrences(of: "$", with: "\t")
+                syn = syn?.replacingOccurrences(of: "\n", with: "\n\n")
+                while((syn!.contains("\n\n"))){
+                    syn = syn?.replacingOccurrences(of: "\n\n", with: "")
+                }
+                syn = syn?.replacingOccurrences(of: "$", with: "\n\n")
                 syn = syn?.replacingOccurrences(of: "¶", with: " ")
-                syn! += "\n\n"
+                if syn!.contains("\n"){
+                    syn! += "\n"
+                }
+                else{
+                    syn! += "\n\n"
+                }
                 attrSyn = NSAttributedString(string: syn!, attributes: synAttr)
             }
             if trans != nil{
-                trans = trans?.replacingOccurrences(of: "\n", with: "\n\t")
-                trans = trans?.replacingOccurrences(of: "$", with: "\t")
+                trans = trans?.replacingOccurrences(of: "\n", with: "\n\n")
+                while((trans!.contains("\n\n"))){
+                    trans = trans?.replacingOccurrences(of: "\n\n", with: "")
+                }
+                trans = trans?.replacingOccurrences(of: "$", with: "\n\n")
                 trans = trans?.replacingOccurrences(of: "¶", with: " ")
-                trans! += "\n\n"
+                if trans!.contains("\n"){
+                    trans! += "\n"
+                }
+                else{
+                    trans! += "\n\n"
+                }
                 attrTrans = NSAttributedString(string: trans!, attributes: transAttr)
             }
             if pur != nil{
-                pur = pur?.replacingOccurrences(of: "\n", with: "\n\t")
-                pur = pur?.replacingOccurrences(of: "$", with: "\t")
+                pur = pur?.replacingOccurrences(of: "\n", with: "\n\n")
+                while((pur!.contains("\n\n"))){
+                    pur = pur?.replacingOccurrences(of: "\n\n", with: "")
+                }
+                pur = pur?.replacingOccurrences(of: "$", with: "\n\n")
                 pur = pur?.replacingOccurrences(of: "¶", with: " ")
                 attrPur = NSAttributedString(string: pur!, attributes: purAttr)
             }

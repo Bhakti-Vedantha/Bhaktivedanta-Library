@@ -31,6 +31,8 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 20) / 2, height: (self.collectionView.frame.size.height - 20) / 2)
         // Do any additional setup after loading the view.
         let request : NSFetchRequest<Book_Levels> = Book_Levels.fetchRequest()
+        let sort = NSSortDescriptor(key: "bookName", ascending: true)
+        request.sortDescriptors = [sort]
         do{
             books = try context.fetch(request)
         }
