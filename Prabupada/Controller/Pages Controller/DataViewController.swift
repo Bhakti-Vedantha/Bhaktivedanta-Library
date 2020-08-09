@@ -118,11 +118,11 @@ class DataViewController: UIViewController{
         else{
             let textAttr : [NSAttributedString.Key : Any] = [
                 .font : UIFont.italicSystemFont(ofSize: fontSize),
-                .paragraphStyle : style2,
+                .paragraphStyle : style1,
             ]
             let synAttr : [NSAttributedString.Key : Any] = [
                 .font : UIFont.italicSystemFont(ofSize: fontSize),
-                .paragraphStyle : style2,
+                .paragraphStyle : style1,
             ]
             let transAttr : [NSAttributedString.Key : Any] = [
                 .font : UIFont.boldSystemFont(ofSize: fontSize),
@@ -133,14 +133,14 @@ class DataViewController: UIViewController{
                 .paragraphStyle : style1,
             ]
             if text != nil{
-                text = text?.replacingOccurrences(of: "\n", with: "\n\n")
+//                text = text?.replacingOccurrences(of: "\n", with: "\n\n")
                 while((text!.contains("\n\n"))){
                     text = text?.replacingOccurrences(of: "\n\n", with: "")
                 }
                 text = text?.replacingOccurrences(of: "¶", with: " ")
                 text = text?.replacingOccurrences(of: "$", with: "\n\n")
                 if text!.contains("\n"){
-                    text! += "\n"
+                    text! += "\n\n"
                 }
                 else{
                     text! += "\n\n"
@@ -304,6 +304,7 @@ class DataViewController: UIViewController{
             catch{
                 print(error)
             }
+            self.tagButton.titleLabel?.text = ""
             tagButton.imageView?.image = UIImage(named: "icons8-plus-math-25.png")
             imageText = "icons8-plus-math-25.png"
             return
@@ -341,6 +342,7 @@ class DataViewController: UIViewController{
                         catch{
                             print(error)
                         }
+                        self.tagButton.titleLabel?.text = text
                         self.tagButton.imageView?.image = UIImage(named: "icons8-delete-25.png")
                         self.imageText = "icons8-delete-25.png"
                     }
@@ -354,6 +356,10 @@ class DataViewController: UIViewController{
             }
         }
         alert.addAction(action)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            return
+        }
+        alert.addAction(cancel)
         alert.addTextField { (alertTF) in
             alertTF.placeholder = "Enter your Tag name"
             textField = alertTF
