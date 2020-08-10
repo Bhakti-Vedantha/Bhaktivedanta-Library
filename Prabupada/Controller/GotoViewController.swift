@@ -24,6 +24,7 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     var verses = ["Verse"]
     var level = 0
     
+    var heading = " "
     
     var bookName = ""
     var canto = 0
@@ -95,6 +96,7 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
         if pickerView.tag == 1 && row != 0{
             print(bookNames[row - 1])
+            heading = books[row].uppercased()
             let req : NSFetchRequest<Book_Levels> = Book_Levels.fetchRequest()
             let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", bookNames[row - 1])
             req.predicate = pred
@@ -304,6 +306,7 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         if segue.identifier == "goTo"{
             let destVC = segue.destination as! ContentViewController
             destVC.label = bookName
+            destVC.bookHeading = heading
             if level == 1{
                 var c1 = 0
                 var c2 = 0

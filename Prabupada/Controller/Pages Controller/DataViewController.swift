@@ -196,11 +196,15 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if text != nil{
                 if searchText != " " && attrText!.string.contains(searchText){
                     let arr = attrText?.string.components(separatedBy: searchText)
+                    var index = 0
                     for i in arr!{
                         let newText = NSAttributedString(string: i, attributes: textAttr)
                         let seaText = NSAttributedString(string: searchText, attributes: searchAttr)
                         finalText?.append(newText)
-                        finalText?.append(seaText)
+                        if index != arr!.count - 1{
+                            finalText?.append(seaText)
+                        }
+                        index += 1
                     }
                 }
                 else{
@@ -210,11 +214,15 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if syn != nil{
                 if searchText != " " && attrSyn!.string.contains(searchText){
                     let arr = attrSyn?.string.components(separatedBy: searchText)
+                    var index = 0
                     for i in arr!{
                         let newText = NSAttributedString(string: i, attributes: synAttr)
                         let seaText = NSAttributedString(string: searchText, attributes: searchAttr)
                         finalText?.append(newText)
-                        finalText?.append(seaText)
+                        if index != arr!.count - 1{
+                            finalText?.append(seaText)
+                        }
+                        index += 1
                     }
                 }
                 else{
@@ -224,11 +232,15 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if trans != nil{
                 if searchText != " " && attrTrans!.string.contains(searchText){
                     let arr = attrTrans?.string.components(separatedBy: searchText)
+                    var index = 0
                     for i in arr!{
                         let newText = NSAttributedString(string: i, attributes: transAttr)
                         let seaText = NSAttributedString(string: searchText, attributes: searchAttr)
                         finalText?.append(newText)
-                        finalText?.append(seaText)
+                        if index != arr!.count - 1{
+                            finalText?.append(seaText)
+                        }
+                        index += 1
                     }
                 }
                 else{
@@ -238,11 +250,15 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if pur != nil{
                 if searchText != " " && attrPur!.string.contains(searchText){
                     let arr = attrPur?.string.components(separatedBy: searchText)
+                    var index = 0
                     for i in arr!{
                         let newText = NSAttributedString(string: i, attributes: purAttr)
                         let seaText = NSAttributedString(string: searchText, attributes: searchAttr)
                         finalText?.append(newText)
-                        finalText?.append(seaText)
+                        if index != arr!.count - 1{
+                            finalText?.append(seaText)
+                        }
+                        index += 1
                     }
                 }
                 else{
