@@ -13,6 +13,8 @@ import CoreData
 class BooksViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let bookHeadings = ["bg", "sb", "ks", "scc", "noi", "nod", "tlc", "si", "ej", "kc", "rv", "ekc", "kcm", "tt", "pq", "kr", "tlk", "tqk", "sr", "pp", "lcl", "py", "bb", "owk"]
+    let bookNames = ["Bhagavad-gītā As It Is", "Śrīmad-Bhāgavatam", "KṚṢṆA, The Supreme Personality of Godhead", "Śrī Caitanya-caritāmṛta", "The Nectar of Instruction", "The Nectar of Devotion", "Teachings of Lord Caitanya", "Śrī Īśopaniṣad", "Easy Journey to Other Planets", "Kṛṣṇa Consciousness, The Topmost Yoga System", "Rāja-Vidyā: The King of Knowledge", "Elevation to Kṛṣṇa Consciousness", "Kṛṣṇa Consciousness, The Matchless Gift", "Transcendental Teachings of Prahlāda Mahārāja", "Perfect Questions, Perfect Answers", "Kṛṣṇa, the Reservoir of Pleasure", "Teachings of Lord Kapila, the Son of Devahuti", "Teachings of Queen Kuntī", "The Science of Self Realization", "The Path of Perfection", "Life Comes from Life", "The Perfection of Yoga", "Beyond Birth & Death", "On the Way to Kṛṣṇa"]
     @IBOutlet weak var collectionView: UICollectionView!
     let defaults = UserDefaults.standard
     var clickedIndex = 0
@@ -107,6 +109,14 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         if segue.identifier == "openBook"{
             let destVC = segue.destination as! ContentViewController
             destVC.label = self.label
+            var index = 0
+            for i in bookNames{
+                if i == books[clickedIndex].bookName{
+                    destVC.bookHeading = bookHeadings[index].uppercased()
+                    break
+                }
+                index += 1
+            }
             if books[clickedIndex].level == 1{
                 let req : NSFetchRequest<Level_1_Books> = Level_1_Books.fetchRequest()
                 let pred = NSPredicate(format: "bookName CONTAINS[cd] %@", books[clickedIndex].bookName!)

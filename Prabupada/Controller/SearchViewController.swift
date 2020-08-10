@@ -13,6 +13,8 @@ import CoreData
 class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let bookHeadings = ["bg", "sb", "ks", "scc", "noi", "nod", "tlc", "si", "ej", "kc", "rv", "ekc", "kcm", "tt", "pq", "kr", "tlk", "tqk", "sr", "pp", "lcl", "py", "bb", "owk"]
+    let books = ["Bhagavad-gītā As It Is", "Śrīmad-Bhāgavatam", "KṚṢṆA, The Supreme Personality of Godhead", "Śrī Caitanya-caritāmṛta", "The Nectar of Instruction", "The Nectar of Devotion", "Teachings of Lord Caitanya", "Śrī Īśopaniṣad", "Easy Journey to Other Planets", "Kṛṣṇa Consciousness, The Topmost Yoga System", "Rāja-Vidyā: The King of Knowledge", "Elevation to Kṛṣṇa Consciousness", "Kṛṣṇa Consciousness, The Matchless Gift", "Transcendental Teachings of Prahlāda Mahārāja", "Perfect Questions, Perfect Answers", "Kṛṣṇa, the Reservoir of Pleasure", "Teachings of Lord Kapila, the Son of Devahuti", "Teachings of Queen Kuntī", "The Science of Self Realization", "The Path of Perfection", "Life Comes from Life", "The Perfection of Yoga", "Beyond Birth & Death", "On the Way to Kṛṣṇa"]
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var bookNames : [String] = []
@@ -200,6 +202,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             let destVC = segue.destination as! ContentViewController
             destVC.searchText = searchText
             destVC.label = bookNames[clickedIndex]
+            var index = 0
+            for i in books{
+                if i == bookNames[clickedIndex]{
+                    destVC.bookHeading = bookHeadings[index].uppercased()
+                    break
+                }
+                index += 1
+            }
             if levels[clickedIndex] == 1{
                 var c1 = 0
                 var c2 = 0

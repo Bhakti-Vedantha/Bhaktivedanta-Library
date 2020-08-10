@@ -25,6 +25,18 @@ class SettingsViewController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView(frame: .zero)
     }
+    
+    override var shouldAutorotate: Bool{
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        return .portrait
+    }
 
     // MARK: - Table view data source
 

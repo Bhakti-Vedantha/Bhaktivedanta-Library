@@ -285,10 +285,14 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func addTag(_ sender: UIButton) {
         var text = ""
         var textField = UITextField()
-        let alert = UIAlertController(title: "Add Tag", message: "Tag Name Should not be empty", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add Tag", message: "Tag Name Should not be empty or contain comma", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Tag", style: .default) { (action) in
             if !textField.text!.isEmpty{
 //                text = textField.text!
+                if textField.text!.contains(","){
+                    self.addTag(sender)
+                    return
+                }
                 text = "#" + textField.text!
                 let req : NSFetchRequest<Tags> = Tags.fetchRequest()
                 let p1 = NSPredicate(format: "bookName == %@", self.bookName!)
@@ -419,7 +423,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.contentView.layer.borderWidth = 1.0
         cell.contentView.backgroundColor = .lightGray
         cell.tagName.textColor = .black
-        cell.tagName.text = "   " + res![indexPath.item].tagName! + "   "
+        cell.tagName.text = "   " + res![indexPath.item].tagName! + "   x "
         
         return cell
     }

@@ -13,6 +13,8 @@ import CoreData
 class BookmarksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let bookHeadings = ["bg", "sb", "ks", "scc", "noi", "nod", "tlc", "si", "ej", "kc", "rv", "ekc", "kcm", "tt", "pq", "kr", "tlk", "tqk", "sr", "pp", "lcl", "py", "bb", "owk"]
+    let bookNames = ["Bhagavad-gītā As It Is", "Śrīmad-Bhāgavatam", "KṚṢṆA, The Supreme Personality of Godhead", "Śrī Caitanya-caritāmṛta", "The Nectar of Instruction", "The Nectar of Devotion", "Teachings of Lord Caitanya", "Śrī Īśopaniṣad", "Easy Journey to Other Planets", "Kṛṣṇa Consciousness, The Topmost Yoga System", "Rāja-Vidyā: The King of Knowledge", "Elevation to Kṛṣṇa Consciousness", "Kṛṣṇa Consciousness, The Matchless Gift", "Transcendental Teachings of Prahlāda Mahārāja", "Perfect Questions, Perfect Answers", "Kṛṣṇa, the Reservoir of Pleasure", "Teachings of Lord Kapila, the Son of Devahuti", "Teachings of Queen Kuntī", "The Science of Self Realization", "The Path of Perfection", "Life Comes from Life", "The Perfection of Yoga", "Beyond Birth & Death", "On the Way to Kṛṣṇa"]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,6 +23,8 @@ class BookmarksViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(bookNames)
+        print(bookHeadings)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 80
@@ -86,6 +90,14 @@ class BookmarksViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "open"{
             let destVC = segue.destination as! ContentViewController
+            var index = 0
+            for i in bookNames{
+                if i == bookmarks[clickedIndex].bookName{
+                    destVC.bookHeading = bookHeadings[index].uppercased()
+                    break
+                }
+                index += 1
+            }
             destVC.label = bookmarks[clickedIndex].bookName
             if bookmarks[clickedIndex].level == 1{
                 var c1 = 0
