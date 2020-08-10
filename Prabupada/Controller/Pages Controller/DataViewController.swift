@@ -10,10 +10,11 @@ import UIKit
 import CoreData
 
 @available(iOS 13.0, *)
-class DataViewController: UIViewController{
+class DataViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var pageDetails: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
@@ -37,6 +38,8 @@ class DataViewController: UIViewController{
     var trans : String?
     var pur : String?
     
+    var res : [Tags]?
+    
     var attrText : NSAttributedString?
     var attrSyn : NSAttributedString?
     var attrTrans : NSAttributedString?
@@ -57,6 +60,12 @@ class DataViewController: UIViewController{
         super.viewDidLoad()
 //        displayLabel.text = displayText
         // Do any additional setup after loading the view.
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.itemSize = CGSize(width: collectionView.frame.size.width / 2, height: collectionView.frame.size.height)
+        layout.minimumInteritemSpacing = 10
         let req : NSFetchRequest<Bookmarks> = Bookmarks.fetchRequest()
         let p1 = NSPredicate(format: "bookName == %@", bookName!)
         let p2 = NSPredicate(format: "level == %@", String(level))
@@ -87,15 +96,7 @@ class DataViewController: UIViewController{
         let p66 = NSPredicate(format: "pageNum == %@", String(pageNum))
         req1.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p11, p22, p33, p44, p55, p66])
         do{
-            let res = try context.fetch(req1)
-            if res.count == 0{
-                tagButton.imageView?.image = UIImage(named: "icons8-plus-math-25.png")
-                imageText = "icons8-plus-math-25.png"
-            }
-            else{
-                tagButton.imageView?.image = UIImage(named: "icons8-delete-25.png")
-                imageText = "icons8-delete-25.png"
-            }
+            res = try context.fetch(req1)
         }
         catch{
             print(error)
@@ -282,33 +283,6 @@ class DataViewController: UIViewController{
     */
     
     @IBAction func addTag(_ sender: UIButton) {
-        if imageText == "icons8-delete-25.png"{
-            let req : NSFetchRequest<Tags> = Tags.fetchRequest()
-            let p1 = NSPredicate(format: "bookName == %@", self.bookName!)
-            let p2 = NSPredicate(format: "level == %@", String(self.level))
-            let p3 = NSPredicate(format: "canto == %@", String(self.canto))
-            let p4 = NSPredicate(format: "chapter == %@", String(self.chapter))
-            let p5 = NSPredicate(format: "verse == %@", String(self.verse))
-            let p6 = NSPredicate(format: "pageNum == %@", String(self.pageNum))
-            req.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p1, p2, p3, p4, p5, p6])
-            do{
-                let res = try context.fetch(req)
-                context.delete(res[0])
-                do{
-                    try context.save()
-                }
-                catch{
-                    print(error)
-                }
-            }
-            catch{
-                print(error)
-            }
-            self.tagButton.titleLabel?.text = ""
-            tagButton.imageView?.image = UIImage(named: "icons8-plus-math-25.png")
-            imageText = "icons8-plus-math-25.png"
-            return
-        }
         var text = ""
         var textField = UITextField()
         let alert = UIAlertController(title: "Add Tag", message: "Tag Name Should not be empty", preferredStyle: .alert)
@@ -343,8 +317,21 @@ class DataViewController: UIViewController{
                             print(error)
                         }
                         self.tagButton.titleLabel?.text = text
-                        self.tagButton.imageView?.image = UIImage(named: "icons8-delete-25.png")
-                        self.imageText = "icons8-delete-25.png"
+                        let req1 : NSFetchRequest<Tags> = Tags.fetchRequest()
+                        let p11 = NSPredicate(format: "bookName == %@", self.bookName!)
+                        let p22 = NSPredicate(format: "level == %@", String(self.level))
+                        let p33 = NSPredicate(format: "canto == %@", String(self.canto))
+                        let p44 = NSPredicate(format: "chapter == %@", String(self.chapter))
+                        let p55 = NSPredicate(format: "verse == %@", String(self.verse))
+                        let p66 = NSPredicate(format: "pageNum == %@", String(self.pageNum))
+                        req1.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p11, p22, p33, p44, p55, p66])
+                        do{
+                            self.res = try self.context.fetch(req1)
+                        }
+                        catch{
+                            print(error)
+                        }
+                        self.collectionView.reloadData()
                     }
                 }
                 catch{
@@ -420,6 +407,46 @@ class DataViewController: UIViewController{
         catch{
             print(error)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return res!.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Tag", for: indexPath) as! TagViewCell
+        cell.contentView.layer.cornerRadius = 10.0
+        cell.contentView.layer.borderWidth = 1.0
+        cell.contentView.backgroundColor = .lightGray
+        cell.tagName.textColor = .black
+        cell.tagName.text = "   " + res![indexPath.item].tagName! + "   "
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        context.delete(res![indexPath.item])
+        do{
+            try context.save()
+        }
+        catch{
+            print(error)
+        }
+        let req1 : NSFetchRequest<Tags> = Tags.fetchRequest()
+        let p11 = NSPredicate(format: "bookName == %@", self.bookName!)
+        let p22 = NSPredicate(format: "level == %@", String(self.level))
+        let p33 = NSPredicate(format: "canto == %@", String(self.canto))
+        let p44 = NSPredicate(format: "chapter == %@", String(self.chapter))
+        let p55 = NSPredicate(format: "verse == %@", String(self.verse))
+        let p66 = NSPredicate(format: "pageNum == %@", String(self.pageNum))
+        req1.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p11, p22, p33, p44, p55, p66])
+        do{
+            self.res = try self.context.fetch(req1)
+        }
+        catch{
+            print(error)
+        }
+        collectionView.reloadData()
     }
     
 

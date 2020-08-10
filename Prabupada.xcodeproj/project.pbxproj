@@ -30,6 +30,7 @@
 		8CA607D924D59E400096DD14 /* sb.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CA607D824D59E400096DD14 /* sb.json */; };
 		8CAD376924D715A300A2C92A /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAD376824D715A300A2C92A /* BookmarksViewController.swift */; };
 		8CAE205024D696690014B526 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE204F24D696690014B526 /* TabViewController.swift */; };
+		8CAFB20D24E177B900468464 /* TagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFB20C24E177B900468464 /* TagViewCell.swift */; };
 		8CB88BE924BD780A006EBD07 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BE824BD780A006EBD07 /* DataViewController.swift */; };
 		8CB88BEB24BD790A006EBD07 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BEA24BD790A006EBD07 /* PageViewController.swift */; };
 		8CB88BED24BD79F4006EBD07 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB88BEC24BD79F4006EBD07 /* ContentViewController.swift */; };
@@ -80,6 +81,7 @@
 		8CA607D824D59E400096DD14 /* sb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sb.json; sourceTree = "<group>"; };
 		8CAD376824D715A300A2C92A /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		8CAE204F24D696690014B526 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		8CAFB20C24E177B900468464 /* TagViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewCell.swift; sourceTree = "<group>"; };
 		8CB88BE824BD780A006EBD07 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		8CB88BEA24BD790A006EBD07 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8CB88BEC24BD79F4006EBD07 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				8C9EE2D124BC38CD001FEEC7 /* Main.storyboard */,
 				8CC0067424C346F800C9386C /* TOCTableViewCell.swift */,
 				8C9EE2D924BC38CF001FEEC7 /* LaunchScreen.storyboard */,
+				8CAFB20C24E177B900468464 /* TagViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				8C9EE2E524BC39E2001FEEC7 /* SearchViewController.swift in Sources */,
 				8C2FF9DD24C6E8BC00080D0A /* Prabupada.xcdatamodeld in Sources */,
 				8C1B64AE24BED65D0006B2F8 /* SettingsViewController.swift in Sources */,
+				8CAFB20D24E177B900468464 /* TagViewCell.swift in Sources */,
 				8C9EE2E324BC3997001FEEC7 /* BooksViewController.swift in Sources */,
 				8CCA894F24DE7DA600EBB6D3 /* BookmarksViewCell.swift in Sources */,
 				8C9EE2CA24BC38CD001FEEC7 /* AppDelegate.swift in Sources */,
