@@ -9,7 +9,7 @@
 import UIKit
 
 @available(iOS 13.0, *)
-class TabViewController: UITabBarController {
+class TabViewController: UITabBarController{
 
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
@@ -27,19 +27,6 @@ class TabViewController: UITabBarController {
             }
         }
         // Do any additional setup after loading the view.
-    }
-    
-    override var shouldAutorotate: Bool{
-        if UIDevice.current.userInterfaceIdiom == .phone{
-            return false
-        }
-        else{
-            return true
-        }
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-        return .all
     }
     
 

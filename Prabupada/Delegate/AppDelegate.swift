@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(urls[urls.count - 1])
         return true
     }
+    
 
     // MARK: UISceneSession Lifecycle
 

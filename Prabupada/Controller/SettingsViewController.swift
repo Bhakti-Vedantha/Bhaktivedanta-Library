@@ -56,6 +56,7 @@ class SettingsViewController: UITableViewController {
             cell.label.text = "Font Size  " + String(Int(defaults.float(forKey: "size")))
             labelInCell = cell.label
             cell.toggler.isHidden = true
+            cell.slider.isHidden = false
             cell.slider.value = defaults.float(forKey: "size")
             cell.slider.isContinuous = false
             cell.slider.addTarget(self, action: #selector(slideChanged), for: .valueChanged)
@@ -63,6 +64,7 @@ class SettingsViewController: UITableViewController {
         else{
             cell.label.text = settingArr[indexPath.item - 1]
             cell.slider.isHidden = true
+            cell.toggler.isHidden = false
             var val = true
             switch indexPath.item {
             case 1:
