@@ -21,9 +21,17 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
     var books : [Book_Levels]!
     var label = ""
     
+    var vSpinner : UIView?
+    
+    override var shouldAutorotate: Bool{
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        loadSpinner(onView: self.view)
+        self.loadData()
+        stopSpinner()
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -48,6 +56,28 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
         else{
             UIApplication.shared.isIdleTimerDisabled = false
+        }
+    }
+    
+    func loadSpinner(onView : UIView){
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: .gray)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func stopSpinner(){
+        DispatchQueue.main.async {
+            self.vSpinner?.removeFromSuperview()
+            self.vSpinner = nil
         }
     }
     

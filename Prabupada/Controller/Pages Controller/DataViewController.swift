@@ -39,6 +39,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var pur : String?
     
     var res : [Tags]?
+    var color : UIColor?
     
     var attrText : NSAttributedString?
     var attrSyn : NSAttributedString?
@@ -66,6 +67,13 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         layout.itemSize = CGSize(width: collectionView.frame.size.width / 2, height: collectionView.frame.size.height)
         layout.minimumInteritemSpacing = 10
+        
+        if self.traitCollection.userInterfaceStyle == .dark{
+            color = UIColor.blue
+        }
+        else{
+            color = UIColor.systemYellow
+        }
         let req : NSFetchRequest<Bookmarks> = Bookmarks.fetchRequest()
         let p1 = NSPredicate(format: "bookName == %@", bookName!)
         let p2 = NSPredicate(format: "level == %@", String(level))
@@ -191,7 +199,7 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let searchAttr : [NSAttributedString.Key : Any] = [
                 .font : UIFont.systemFont(ofSize: fontSize),
-                .backgroundColor : UIColor.systemYellow
+                .backgroundColor : color!
             ]
             if text != nil{
                 if searchText != " " && attrText!.string.contains(searchText){
