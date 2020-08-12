@@ -317,7 +317,10 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     self.addTag(sender)
                     return
                 }
-                text = "#" + textField.text!
+                text = textField.text!
+                if text.first != "#"{
+                    text = "#" + textField.text!
+                }
                 let req : NSFetchRequest<Tags> = Tags.fetchRequest()
                 let p1 = NSPredicate(format: "bookName == %@", self.bookName!)
                 let p2 = NSPredicate(format: "level == %@", String(self.level))
