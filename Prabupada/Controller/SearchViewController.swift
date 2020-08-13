@@ -33,6 +33,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.rowHeight = 75
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
