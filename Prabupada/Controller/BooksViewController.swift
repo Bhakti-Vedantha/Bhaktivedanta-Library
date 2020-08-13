@@ -118,7 +118,9 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! BookCollectionViewCell
         
         cell.bookName.text! = books[indexPath.item].bookName!
-        cell.bookName.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *){
+            cell.bookName.backgroundColor = .systemBackground
+        }
 //        if self.traitCollection.userInterfaceStyle == .dark{
 //            cell.bookName.backgroundColor = .black
 //        }

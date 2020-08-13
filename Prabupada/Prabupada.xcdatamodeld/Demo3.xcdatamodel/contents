@@ -7,6 +7,14 @@
         <attribute name="bookName" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="level" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="Bookmarks" representedClassName="Bookmarks" syncable="YES" codeGenerationType="class">
+        <attribute name="bookName" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="canto" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="chapter" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="pageNum" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="verse" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="Level_1_Books" representedClassName="Level_1_Books" syncable="YES" codeGenerationType="class">
         <attribute name="bookName" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="chaptersCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -51,13 +59,48 @@
         <attribute name="text" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="translation" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="verse" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="verseName" optional="YES" attributeType="String" defaultValueString=""/>
+    </entity>
+    <entity name="Level_3_Books" representedClassName="Level_3_Books" syncable="YES" codeGenerationType="class">
+        <attribute name="bookName" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="currPage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="intro" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="pagesCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="preface" optional="YES" attributeType="String" defaultValueString=""/>
+    </entity>
+    <entity name="Level_3_Pages" representedClassName="Level_3_Pages" syncable="YES" codeGenerationType="class">
+        <attribute name="bookName" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="chapter" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="chapterName" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="level_3" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="level_3_name" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="pageNum" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="purport" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="syn" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="text" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="translation" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="verse" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="verseName" optional="YES" attributeType="String" defaultValueString=""/>
+    </entity>
+    <entity name="Tags" representedClassName="Tags" syncable="YES" codeGenerationType="class">
+        <attribute name="bookName" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="canto" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="chapter" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="pageNum" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tagName" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="verse" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
+        <element name="Blah" positionX="-45" positionY="135" width="128" height="58"/>
         <element name="Book_Levels" positionX="-54" positionY="126" width="128" height="73"/>
+        <element name="Bookmarks" positionX="-54" positionY="135" width="128" height="133"/>
         <element name="Level_1_Books" positionX="-54" positionY="90" width="128" height="223"/>
         <element name="Level_1_Pages" positionX="-45" positionY="135" width="128" height="163"/>
         <element name="Level_2_Books" positionX="-63" positionY="-18" width="128" height="163"/>
-        <element name="Level_2_Pages" positionX="-54" positionY="54" width="128" height="178"/>
-        <element name="Blah" positionX="-45" positionY="135" width="128" height="58"/>
+        <element name="Level_2_Pages" positionX="-54" positionY="54" width="128" height="193"/>
+        <element name="Level_3_Books" positionX="-54" positionY="126" width="128" height="118"/>
+        <element name="Level_3_Pages" positionX="-45" positionY="135" width="128" height="223"/>
+        <element name="Tags" positionX="-54" positionY="135" width="128" height="148"/>
     </elements>
 </model>

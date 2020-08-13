@@ -8,24 +8,27 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
+//@available(iOS 13.0, *)
 class TabViewController: UITabBarController{
 
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if defaults.integer(forKey: "darkMode") == 0{
-            overrideUserInterfaceStyle = .light
-        }
-        else{
-            if defaults.integer(forKey: "darkMode") == 1{
+        if #available(iOS 13.0, *){
+            if defaults.integer(forKey: "darkMode") == 0{
                 overrideUserInterfaceStyle = .light
             }
             else{
-                overrideUserInterfaceStyle = .dark
+                if defaults.integer(forKey: "darkMode") == 1{
+                    overrideUserInterfaceStyle = .light
+                }
+                else{
+                    overrideUserInterfaceStyle = .dark
+                }
             }
         }
+        
         // Do any additional setup after loading the view.
     }
     

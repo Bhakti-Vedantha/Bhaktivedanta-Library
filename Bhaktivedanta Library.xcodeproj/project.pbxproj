@@ -66,7 +66,7 @@
 		8C55482E24D1B78800030EE9 /* ssr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ssr.json; sourceTree = "<group>"; };
 		8C70258D24D535AD00EC163E /* GotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotoViewController.swift; sourceTree = "<group>"; };
 		8C9BAF4624D7DED6004DBE9C /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
-		8C9EE2C624BC38CD001FEEC7 /* Prabupada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prabupada.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C9EE2C624BC38CD001FEEC7 /* Bhaktivedanta Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bhaktivedanta Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9EE2C924BC38CD001FEEC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9EE2CB24BC38CD001FEEC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8C9EE2D224BC38CD001FEEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		8C9EE2C724BC38CD001FEEC7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C9EE2C624BC38CD001FEEC7 /* Prabupada.app */,
+				8C9EE2C624BC38CD001FEEC7 /* Bhaktivedanta Library.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -230,9 +230,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C9EE2C524BC38CD001FEEC7 /* Prabupada */ = {
+		8C9EE2C524BC38CD001FEEC7 /* Bhaktivedanta Library */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C9EE2DF24BC38CF001FEEC7 /* Build configuration list for PBXNativeTarget "Prabupada" */;
+			buildConfigurationList = 8C9EE2DF24BC38CF001FEEC7 /* Build configuration list for PBXNativeTarget "Bhaktivedanta Library" */;
 			buildPhases = (
 				8C9EE2C224BC38CD001FEEC7 /* Sources */,
 				8C9EE2C324BC38CD001FEEC7 /* Frameworks */,
@@ -242,9 +242,9 @@
 			);
 			dependencies = (
 			);
-			name = Prabupada;
+			name = "Bhaktivedanta Library";
 			productName = Prabupada;
-			productReference = 8C9EE2C624BC38CD001FEEC7 /* Prabupada.app */;
+			productReference = 8C9EE2C624BC38CD001FEEC7 /* Bhaktivedanta Library.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -262,7 +262,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8C9EE2C124BC38CD001FEEC7 /* Build configuration list for PBXProject "Prabupada" */;
+			buildConfigurationList = 8C9EE2C124BC38CD001FEEC7 /* Build configuration list for PBXProject "Bhaktivedanta Library" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -275,7 +275,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C9EE2C524BC38CD001FEEC7 /* Prabupada */,
+				8C9EE2C524BC38CD001FEEC7 /* Bhaktivedanta Library */,
 			);
 		};
 /* End PBXProject section */
@@ -492,8 +492,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = in.shannuk.Prabupada;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "in.shannuk.Bhaktivedanta-Library";
+				PRODUCT_NAME = "Bhaktivedanta Library";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -511,8 +511,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = in.shannuk.Prabupada;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "in.shannuk.Bhaktivedanta-Library";
+				PRODUCT_NAME = "Bhaktivedanta Library";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -521,7 +521,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C9EE2C124BC38CD001FEEC7 /* Build configuration list for PBXProject "Prabupada" */ = {
+		8C9EE2C124BC38CD001FEEC7 /* Build configuration list for PBXProject "Bhaktivedanta Library" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C9EE2DD24BC38CF001FEEC7 /* Debug */,
@@ -530,7 +530,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C9EE2DF24BC38CF001FEEC7 /* Build configuration list for PBXNativeTarget "Prabupada" */ = {
+		8C9EE2DF24BC38CF001FEEC7 /* Build configuration list for PBXNativeTarget "Bhaktivedanta Library" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C9EE2E024BC38CF001FEEC7 /* Debug */,

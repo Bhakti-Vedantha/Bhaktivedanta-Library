@@ -62,6 +62,17 @@ class SettingsViewController: UITableViewController {
             cell.slider.addTarget(self, action: #selector(slideChanged), for: .valueChanged)
         }
         else{
+            if #available(iOS 13.0, *){
+                
+            }
+            else{
+                if indexPath.item == 6{
+                    cell.label.text = ""
+                    cell.slider.isHidden = true
+                    cell.toggler.isHidden = true
+                    return cell
+                }
+            }
             cell.label.text = settingArr[indexPath.item - 1]
             cell.slider.isHidden = true
             cell.toggler.isHidden = false

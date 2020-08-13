@@ -33,7 +33,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
         
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,6 +59,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         let tag = searchBar.text
         if tag?.count != 0{
             if tag!.prefix(1) == "#"{
+                searchText = " "
                 loadFromTags(tag: tag!)
             }
             else{

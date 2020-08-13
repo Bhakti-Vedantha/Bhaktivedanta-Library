@@ -50,11 +50,13 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var imageText = ""
     override func viewDidAppear(_ animated: Bool) {
-        if defaults.integer(forKey: "darkMode") == 2{
-            textView.textColor = UIColor.white
-        }
-        else{
-            textView.textColor = UIColor.black
+        if #available(iOS 13.0, *){
+            if defaults.integer(forKey: "darkMode") == 2{
+                textView.textColor = UIColor.white
+            }
+            else{
+                textView.textColor = UIColor.black
+            }
         }
     }
     override func viewDidLoad() {
@@ -280,6 +282,12 @@ class DataViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //            displayText = displayText?.replacingOccurrences(of: "$", with: "\t")
             pageDetails.text = textForDetails
             textView!.attributedText = finalText
+            if #available(iOS 13.0, *){
+                
+            }
+            else{
+                textView.textColor = .black
+            }
 //            textView.textColor = UIColor.systemBackground
 //            if defaults.integer(forKey: "darkMode") == 2{
 //                textView.textColor = UIColor.white
