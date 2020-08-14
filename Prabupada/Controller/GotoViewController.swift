@@ -22,14 +22,14 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     var level_3 = ["Option"]
     var chapters = ["Chapter"]
     var verses = ["Verse"]
-    var level = 0
+    var level = 2
     
     var heading = " "
     
-    var bookName = ""
-    var canto = 0
-    var chapter = 0
-    var verse = 0
+    var bookName = "Bhagavad-gītā As It Is"
+    var canto = 1
+    var chapter = 1
+    var verse = 1
     override func viewDidLoad() {
         super.viewDidLoad()
 
