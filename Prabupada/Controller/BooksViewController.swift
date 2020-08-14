@@ -29,8 +29,11 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        defaults.set(0, forKey: "done")
         loadSpinner(onView: self.view)
-        self.loadData()
+        if defaults.integer(forKey: "done") != 1{
+            self.loadData()
+        }
         stopSpinner()
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -306,6 +309,74 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
     */
     
     func loadData() {
+        
+        // Deleting Data
+        //Books
+//        let del_level_1 : NSFetchRequest<Level_1_Books> = Level_1_Books.fetchRequest()
+        let del_level_1 = NSFetchRequest<NSFetchRequestResult>(entityName: "Level_1_Books")
+        let batch_1 = NSBatchDeleteRequest(fetchRequest: del_level_1)
+        do{
+            try context.execute(batch_1)
+        }
+        catch{
+            print(error)
+        }
+        
+        let del_level_2 = NSFetchRequest<NSFetchRequestResult>(entityName: "Level_2_Books")
+        let batch_2 = NSBatchDeleteRequest(fetchRequest: del_level_2)
+        do{
+            try context.execute(batch_2)
+        }
+        catch{
+            print(error)
+        }
+        
+        let del_level_3 = NSFetchRequest<NSFetchRequestResult>(entityName: "Level_3_Books")
+        let batch_3 = NSBatchDeleteRequest(fetchRequest: del_level_3)
+        do{
+            try context.execute(batch_3)
+        }
+        catch{
+            print(error)
+        }
+        
+        //Pages
+        let del_level_1_pages = NSFetchRequest<NSFetchRequestResult>(entityName: "Level_1_Pages")
+        let batch_1_pages = NSBatchDeleteRequest(fetchRequest: del_level_1_pages)
+        do{
+            try context.execute(batch_1_pages)
+        }
+        catch{
+            print(error)
+        }
+        
+        let del_level_2_pages = NSFetchRequest<NSFetchRequestResult>(entityName: "Level_2_Pages")
+        let batch_2_pages = NSBatchDeleteRequest(fetchRequest: del_level_2_pages)
+        do{
+            try context.execute(batch_2_pages)
+        }
+        catch{
+            print(error)
+        }
+        
+        let del_level_3_pages = NSFetchRequest<NSFetchRequestResult>(entityName: "Level_3_Pages")
+        let batch_3_pages = NSBatchDeleteRequest(fetchRequest: del_level_3_pages)
+        do{
+            try context.execute(batch_3_pages)
+        }
+        catch{
+            print(error)
+        }
+        
+        //Levels
+        let levels = NSFetchRequest<NSFetchRequestResult>(entityName: "Book_Levels")
+        let batch_levels = NSBatchDeleteRequest(fetchRequest: levels)
+        do{
+            try context.execute(batch_levels)
+        }
+        catch{
+            print(error)
+        }
         
         // Level 1
         let files = ["tlk", "mg", "tqk", "bbd", "poy", "iso", "ecs", "tlc", "nod", "kb", "ttp", "owk", "rv", "noi", "tys", "pop", "ej", "pqpa", "krp"]
@@ -874,5 +945,7 @@ class BooksViewController: UIViewController, UICollectionViewDelegate, UICollect
         catch{
             print(error)
         }
+        
+        defaults.set(1, forKey: "done")
     }
 }
