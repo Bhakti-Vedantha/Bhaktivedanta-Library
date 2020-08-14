@@ -22,14 +22,14 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     var level_3 = ["Option"]
     var chapters = ["Chapter"]
     var verses = ["Verse"]
-    var level = 2
+    var level = 0
     
     var heading = " "
     
-    var bookName = "Bhagavad-gītā As It Is"
-    var canto = 1
-    var chapter = 1
-    var verse = 1
+    var bookName = ""
+    var canto = 0
+    var chapter = 0
+    var verse = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -156,6 +156,7 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 }
                 pC3.isHidden = false
                 pC3.delegate = self
+                pC3.dataSource = self
             }
             if level == 2{
                 let req : NSFetchRequest<Level_2_Pages> = Level_2_Pages.fetchRequest()
@@ -178,6 +179,10 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 }
                 pC3.isHidden = false
                 pC3.delegate = self
+                pC3.dataSource = self
+                pC4.isHidden = true
+                pC4.delegate = self
+                pC4.dataSource = self
             }
             
             if level == 3{
@@ -202,6 +207,13 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 }
                 pC2.isHidden = false
                 pC2.delegate = self
+                pC2.dataSource = self
+                pC3.isHidden = true
+                pC3.delegate = self
+                pC3.dataSource = self
+                pC4.isHidden = true
+                pC4.delegate = self
+                pC4.dataSource = self
             }
             
         }
@@ -230,6 +242,8 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             }
             pC3.isHidden = false
             pC3.delegate = self
+            pC4.isHidden = true
+            pC4.delegate = self
         }
         
         if tag == 3{
@@ -284,6 +298,19 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     @IBAction func goTo(_ sender: UIBarButtonItem) {
+        if level == 0 {
+            return
+        }
+        if level == 1 && chapter == 0{
+            return
+        }
+        if level == 2 && (chapter == 0 || verse == 0) {
+            return
+        }
+        if level == 3 && (chapter == 0 || verse == 0 || canto == 0){
+            return
+        }
+        
         if level == 1{
             let reqq : NSFetchRequest<Level_1_Pages> = Level_1_Pages.fetchRequest()
             let p1 = NSPredicate(format: "bookName CONTAINS[cd] %@", bookName)
