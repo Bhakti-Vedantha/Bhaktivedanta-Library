@@ -93,6 +93,7 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             pC2.isHidden = true
             pC3.isHidden = true
             pC4.isHidden = true
+            level = 0
         }
         if pickerView.tag == 1 && row != 0{
             print(bookNames[row - 1])
@@ -110,14 +111,26 @@ class GotoViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             }
             scrolled(tag: 1)
         }
+        if pickerView.tag == 2 && row == 0{
+            pC3.isHidden = true
+            pC4.isHidden = true
+            canto = 0
+        }
         if pickerView.tag == 2 && row != 0{
             print(level_3[row])
             canto = Int(level_3[row])!
             scrolled(tag: 2)
         }
+        if pickerView.tag == 3 && row == 0{
+            pC4.isHidden = true
+            chapter = 0
+        }
         if pickerView.tag == 3 && row != 0{
             chapter = Int(chapters[row])!
             scrolled(tag: 3)
+        }
+        if pickerView.tag == 4 && row == 0{
+            verse = 0
         }
         if pickerView.tag == 4 && row != 0{
             verse = Int(verses[row])!
